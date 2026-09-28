@@ -23,3 +23,14 @@ export interface AppData {
 }
 
 export type ActiveTab = 'list' | 'graph' | 'settings';
+export type AppRoute = '/graph' | '/list' | '/settings' | '/settings/tags'
+  | `/graph/todo/${string}`
+  | `/list/todo/${string}`;
+
+export interface ComposerAnchor {
+  left: number;
+  top: number;
+  right: number;
+  viewportLeft: number;
+  viewportRight: number;
+}

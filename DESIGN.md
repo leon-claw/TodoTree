@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: Tree Todo
+name: TodoTree
 description: 清爽、轻量的本地任务拆分工具；颜色和尺寸来自当前 Tailwind 样式，字体按默认系统无衬线字体记录。
 colors:
   primary: "#2563EB"
@@ -78,7 +78,7 @@ components:
 
 ## Overview
 
-Tree Todo is a clean productivity tool for breaking work into a navigable tree and acting on leaf tasks in a list. The interface uses a light slate canvas, white cards, and blue for primary actions and selection. Green marks completed work; red is reserved for destructive actions. Keep the interface calm and compact, with task content taking priority over decoration.
+TodoTree is a clean productivity tool for breaking work into a navigable tree and acting on leaf tasks in a list. The interface uses a light slate canvas, white cards, and blue for primary actions and selection. Green marks completed work; red is reserved for destructive actions. Keep the interface calm and compact, with task content taking priority over decoration.
 
 ## Colors
 

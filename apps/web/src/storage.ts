@@ -13,7 +13,7 @@ export function generateId(): string {
   return `id_${Math.random().toString(36).slice(2, 11)}_${Date.now().toString(36)}`;
 }
 
-export function createDefaultTodo(title = '新待办事项'): Todo {
+export function createDefaultTodo(title: string): Todo {
   return {
     id: generateId(),
     title,
@@ -168,23 +168,28 @@ export function updateTodoInTree(todos: Todo[], id: string, updater: (todo: Todo
   });
 }
 
-export function addRootTodoToTree(todos: Todo[]): { todos: Todo[]; newTodo: Todo } {
-  const newTodo = createDefaultTodo('新建待办事项');
-  return { todos: [...todos, newTodo], newTodo };
-}
+export function addTodosToTree(
+  todos: Todo[],
+  parentId: string | null,
+  titles: string[],
+): Todo[] | null {
+  const normalizedTitles = titles.map((title) => title.trim()).filter(Boolean);
+  if (normalizedTitles.length === 0) return null;
+  const newTodos = normalizedTitles.map((title) => createDefaultTodo(title));
 
-export function addChildTodoToTree(todos: Todo[], parentId: string): { todos: Todo[]; newTodo: Todo } | null {
+  if (parentId === null) return [...todos, ...newTodos];
+
   const parent = findTodoById(todos, parentId);
   if (!parent || (isLeaf(parent) && parent.completed)) return null;
-  const newTodo = createDefaultTodo('新建子待办');
-  return {
-    todos: updateTodoInTree(todos, parentId, (todo) => ({
-      ...todo,
-      completed: false,
-      children: [...todo.children, newTodo],
-    })),
-    newTodo,
-  };
+  return updateTodoInTree(todos, parentId, (todo) => ({
+    ...todo,
+    completed: false,
+    children: [...todo.children, ...newTodos],
+  }));
+}
+
+export function countTodoDescendants(todo: Todo): number {
+  return todo.children.reduce((count, child) => count + 1 + countTodoDescendants(child), 0);
 }
 
 export function deleteTodoFromTree(todos: Todo[], idToDelete: string): Todo[] {

@@ -1,24 +1,24 @@
-# Graph Report - TodoMatrix2  (2026-09-27)
+# Graph Report - TodoTree  (2026-09-28)
 
 ## Corpus Check
-- 23 files · ~6,877 words
+- 29 files · ~10,282 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 172 nodes · 270 edges · 15 communities (14 shown, 1 thin omitted)
+- 229 nodes · 360 edges · 17 communities (15 shown, 2 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 6 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `60f6eb97`
+- Built from commit: `62764126`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - App.tsx
 - web/package.json
-- SettingsPage.tsx
-- GraphView.tsx
+- TodoTree 产品体验与整改建议
+- types.ts
 - compilerOptions
 - devDependencies
 - package.json
@@ -28,20 +28,22 @@
 - Web Application at apps/web
 - vite.config.ts
 - Web Application HTML Shell
-- Tree Todo 完整功能实现计划
-- Navbar.tsx
+- TodoTree 完整功能实现计划
+- SettingsPage.tsx
+- 桌面任务拆分与执行流程整改实施计划
+- 导航、详情布局与标签页整改计划
 
 ## God Nodes (most connected - your core abstractions)
-1. `Tag` - 13 edges
-2. `Todo` - 13 edges
-3. `compilerOptions` - 12 edges
-4. `App()` - 11 edges
-5. `addChildTodoToTree()` - 7 edges
-6. `lucide-react` - 7 edges
-7. `react` - 7 edges
-8. `isLeaf()` - 6 edges
-9. `SettingsPage()` - 5 edges
-10. `validateAppData()` - 5 edges
+1. `App()` - 18 edges
+2. `Tag` - 13 edges
+3. `Todo` - 13 edges
+4. `compilerOptions` - 12 edges
+5. `TodoTree 产品体验与整改建议` - 11 edges
+6. `lucide-react` - 9 edges
+7. `react` - 9 edges
+8. `isLeaf()` - 8 edges
+9. `ComposerAnchor` - 8 edges
+10. `4. Flow 核心交互建议` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Local Tree Todo Product` --semantically_similar_to--> `Tree Todo Application`  [INFERRED] [semantically similar]
@@ -61,23 +63,23 @@
 ## Hyperedges (group relationships)
 - **Recursive Tree Data Model and Its Views** — docs_superpowers_specs_2026_09_27_recursive_todo_design_recursive_json_tree, docs_superpowers_specs_2026_09_27_recursive_todo_design_list_view, docs_superpowers_specs_2026_09_27_recursive_todo_design_graph_view [EXTRACTED 1.00]
 
-## Communities (15 total, 1 thin omitted)
+## Communities (17 total, 2 thin omitted)
 
 ### Community 0 - "App.tsx"
-Cohesion: 0.19
-Nodes (20): App(), countTodos(), SettingsPage(), addChildTodoToTree(), addRootTodoToTree(), collectLeafTodos(), createDefaultTag(), createDefaultTodo() (+12 more)
+Cohesion: 0.17
+Nodes (26): App(), AppHistoryState, SettingsPanel(), APP_ROUTES, baseRouteFor(), detailRouteFor(), parseAppRoute(), routeForTab() (+18 more)
 
 ### Community 1 - "web/package.json"
 Cohesion: 0.10
 Nodes (19): dependencies, d3-hierarchy, lucide-react, react, react-dom, @xyflow/react, name, private (+11 more)
 
-### Community 2 - "SettingsPage.tsx"
-Cohesion: 0.29
-Nodes (9): ConfirmModal(), ConfirmModalProps, PRESET_COLORS, SettingsPageProps, countDescendants(), SettingsPanel(), AppData, lucide-react (+1 more)
+### Community 2 - "TodoTree 产品体验与整改建议"
+Cohesion: 0.06
+Nodes (30): 10. 实现定位与约束, 1. 产品要帮助用户完成什么, 2.1 环境与方法, 2.2 可复现观察, 2.3 尚未完成的验证, 2. 实际体验范围与证据, 3. 需要优先整改的事项, 4.1 节点上能看见、能直接使用的操作 (+22 more)
 
-### Community 3 - "GraphView.tsx"
-Cohesion: 0.16
-Nodes (20): FlowCanvas(), GraphView(), GraphViewProps, ListView(), ListViewProps, SettingsPanelProps, TodoNode(), TodoNodeProps (+12 more)
+### Community 3 - "types.ts"
+Cohesion: 0.12
+Nodes (27): FlowCanvas(), GraphView(), GraphViewProps, ListView(), ListViewProps, Navbar(), NavbarProps, SettingsPanelProps (+19 more)
 
 ### Community 4 - "compilerOptions"
 Cohesion: 0.11
@@ -111,30 +113,36 @@ Nodes (5): Simple, Incremental, Modular, Durable Implementation, Minimal pnpm Wo
 Cohesion: 0.50
 Nodes (3): @tailwindcss/vite, vite, @vitejs/plugin-react
 
-### Community 13 - "Tree Todo 完整功能实现计划"
+### Community 13 - "TodoTree 完整功能实现计划"
 Cohesion: 0.20
-Nodes (9): Global Constraints, Review Focus, Task 1: 稳固 JSON 数据边界, Task 2: 完成图表与列表的核心操作, Task 3: 补全面板、标签编辑与移动端操作, Task 4: 全流程收尾与项目文档同步, Tree Todo 完整功能实现计划, 初始功能审计 (+1 more)
+Nodes (9): Global Constraints, Review Focus, Task 1: 稳固 JSON 数据边界, Task 2: 完成图表与列表的核心操作, Task 3: 补全面板、标签编辑与移动端操作, Task 4: 构建、Graphify 同步与最终覆盖检查, TodoTree 完整功能实现计划, 初始功能审计 (+1 more)
 
-### Community 14 - "Navbar.tsx"
-Cohesion: 0.67
-Nodes (3): Navbar(), NavbarProps, ActiveTab
+### Community 14 - "SettingsPage.tsx"
+Cohesion: 0.17
+Nodes (13): ConfirmModal(), ConfirmModalProps, countTodos(), SettingsPage(), SettingsPageProps, PRESET_COLORS, TagManagementPage(), TagManagementPageProps (+5 more)
+
+### Community 15 - "桌面任务拆分与执行流程整改实施计划"
+Cohesion: 0.33
+Nodes (5): 全局约束, 执行步骤, 文件职责, 桌面任务拆分与执行流程整改实施计划, 重点审阅输入
 
 ## Knowledge Gaps
-- **69 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+64 more)
+- **98 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+93 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `web/package.json`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
-- **Why does `Todo` connect `GraphView.tsx` to `App.tsx`, `SettingsPage.tsx`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
-  _69 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _98 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `web/package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
+- **Should `TodoTree 产品体验与整改建议` be split into smaller, more focused modules?**
+  _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
+- **Should `types.ts` be split into smaller, more focused modules?**
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**

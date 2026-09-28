@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { AlertCircle, CheckCircle2, Circle, GitBranch, Plus, Trash2, X } from 'lucide-react';
 import { isLeaf } from '../storage';
 import { Tag, Todo } from '../types';
-import { ConfirmModal } from './ConfirmModal';
 
 interface SettingsPanelProps {
   todo: Todo | null;
@@ -10,15 +9,17 @@ interface SettingsPanelProps {
   onClose: () => void;
   onUpdate: (updated: Todo) => void;
   onAddChild: (parentId: string) => void;
-  onDelete: (id: string) => void;
+  onRequestDelete: (id: string) => void;
+  overlay?: boolean;
 }
 
-function countDescendants(todo: Todo): number {
-  return todo.children.reduce((count, child) => count + 1 + countDescendants(child), 0);
-}
-
-export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onDelete }: SettingsPanelProps) {
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onRequestDelete, overlay = false }: SettingsPanelProps) {
+  const [titleDraft, setTitleDraft] = useState(todo?.title ?? '');
+  const [scoreDrafts, setScoreDrafts] = useState({
+    importance: String(todo?.importance ?? 0),
+    urgency: String(todo?.urgency ?? 0),
+  });
+  const titleIsComposingRef = useRef(false);
   const onCloseRef = useRef(onClose);
 
   useEffect(() => {
@@ -26,8 +27,16 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onDel
   }, [onClose]);
 
   useEffect(() => {
+    setTitleDraft(todo?.title ?? '');
+  }, [todo?.id, todo?.title]);
+
+  useEffect(() => {
+    setScoreDrafts({ importance: String(todo?.importance ?? 0), urgency: String(todo?.urgency ?? 0) });
+  }, [todo?.id, todo?.importance, todo?.urgency]);
+
+  useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && !document.querySelector('[role="alertdialog"]')) {
+      if (event.key === 'Escape' && !document.querySelector('[role="alertdialog"], [data-task-composer]')) {
         event.preventDefault();
         onCloseRef.current();
       }
@@ -47,11 +56,28 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onDel
   const updateScore = (key: 'importance' | 'urgency', value: number) => {
     const score = Math.max(0, Math.min(100, Math.round(Number.isFinite(value) ? value : 0)));
     onUpdate({ ...todo, [key]: score });
+    setScoreDrafts((current) => ({ ...current, [key]: String(score) }));
   };
-  const confirmDelete = () => {
-    setShowDeleteConfirm(false);
-    onDelete(todo.id);
-    onClose();
+  const commitScoreDraft = (key: 'importance' | 'urgency') => {
+    const draft = scoreDrafts[key].trim();
+    if (!draft || !Number.isFinite(Number(draft))) {
+      setScoreDrafts((current) => ({ ...current, [key]: String(todo[key]) }));
+      return;
+    }
+    updateScore(key, Number(draft));
+  };
+  const updateTitleDraft = (title: string) => {
+    setTitleDraft(title);
+    if (!titleIsComposingRef.current && title.trim()) onUpdate({ ...todo, title });
+  };
+  const finishTitleEdit = () => {
+    const title = titleDraft.trim();
+    if (!title) {
+      setTitleDraft(todo.title);
+      return;
+    }
+    setTitleDraft(title);
+    if (title !== todo.title) onUpdate({ ...todo, title });
   };
 
   return (
@@ -61,7 +87,7 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onDel
         role="dialog"
         aria-modal="true"
         aria-labelledby="todo-panel-title"
-        className="fixed inset-y-0 right-0 z-50 flex w-full flex-col border-l border-slate-200 bg-white shadow-xl md:top-14 md:z-20 md:h-[calc(100vh-3.5rem)] md:w-96 md:shadow-md"
+        className={`fixed inset-y-0 right-0 z-50 flex w-full flex-col border-l border-slate-200 bg-white shadow-xl ${overlay ? 'md:top-14 md:bottom-0 md:h-auto md:w-96 md:flex-none md:shadow-xl' : 'md:relative md:inset-auto md:z-20 md:h-full md:w-96 md:flex-none md:shadow-md'}`}
       >
         <div className="flex shrink-0 items-center justify-between border-b border-slate-200 px-5 py-4">
           <div>
@@ -81,7 +107,7 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onDel
                 type="button"
                 onClick={() => onUpdate({ ...todo, completed: !todo.completed })}
                 aria-pressed={todo.completed}
-                className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${todo.completed ? 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200' : 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50'}`}
+                className={`flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-xs font-medium transition-colors ${todo.completed ? 'border-emerald-200 bg-emerald-100 text-emerald-800 hover:bg-emerald-200' : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50'}`}
               >
                 {todo.completed ? <CheckCircle2 className="h-4 w-4 text-emerald-600" /> : <Circle className="h-4 w-4 text-slate-400" />}
                 {todo.completed ? '已完成' : '未完成'}
@@ -95,7 +121,23 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onDel
 
           <div>
             <label htmlFor="todo-title" className="mb-1.5 block text-xs font-semibold text-slate-700">标题</label>
-            <input id="todo-title" type="text" value={todo.title} onChange={(e) => onUpdate({ ...todo, title: e.target.value })} placeholder="请输入待办标题" className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <input
+              id="todo-title"
+              type="text"
+              value={titleDraft}
+              onChange={(e) => updateTitleDraft(e.target.value)}
+              onBlur={finishTitleEdit}
+              onCompositionStart={() => { titleIsComposingRef.current = true; }}
+              onCompositionEnd={(event) => {
+                titleIsComposingRef.current = false;
+                const title = event.currentTarget.value;
+                setTitleDraft(title);
+                if (title.trim()) onUpdate({ ...todo, title });
+              }}
+              placeholder="请输入待办标题"
+              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <p className="mt-1.5 text-[11px] text-slate-400">修改会在停止输入后自动保存</p>
           </div>
           <div>
             <label htmlFor="todo-note" className="mb-1.5 block text-xs font-semibold text-slate-700">备注</label>
@@ -118,7 +160,26 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onDel
                 </div>
                 <div className="flex items-center gap-3">
                   <input id={`todo-${key}`} type="range" min={0} max={100} value={todo[key]} onChange={(e) => updateScore(key, Number(e.target.value))} className="flex-1 cursor-pointer accent-blue-600" />
-                  <input type="number" min={0} max={100} value={todo[key]} onChange={(e) => updateScore(key, Number(e.target.value))} aria-label={`${label}数值`} className="w-16 rounded border border-slate-300 bg-white px-2 py-1 text-center font-mono text-xs tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                  <input
+                    type="number"
+                    min={0}
+                    max={100}
+                    value={scoreDrafts[key]}
+                    onChange={(event) => {
+                      const value = event.target.value;
+                      setScoreDrafts((current) => ({ ...current, [key]: value }));
+                      if (value.trim() && Number.isInteger(Number(value))) updateScore(key, Number(value));
+                    }}
+                    onBlur={() => commitScoreDraft(key)}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter') {
+                        event.preventDefault();
+                        event.currentTarget.blur();
+                      }
+                    }}
+                    aria-label={`${label}数值`}
+                    className="w-16 rounded border border-slate-300 bg-white px-2 py-1 text-center font-mono text-xs tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
                 </div>
               </div>
             );
@@ -154,23 +215,11 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onDel
         </div>
 
         <div className="shrink-0 border-t border-slate-200 bg-slate-50 p-4">
-          <button type="button" onClick={() => setShowDeleteConfirm(true)} className="flex w-full items-center justify-center gap-2 rounded-lg border border-red-200 bg-white px-4 py-2 text-xs font-medium text-red-600 transition-colors hover:bg-red-50">
+          <button type="button" onClick={() => onRequestDelete(todo.id)} className="flex w-full items-center justify-center gap-2 rounded-lg border border-red-200 bg-white px-4 py-2 text-xs font-medium text-red-600 transition-colors hover:bg-red-50">
             <Trash2 className="h-4 w-4" aria-hidden="true" />删除当前待办
           </button>
         </div>
       </aside>
-      <ConfirmModal
-        isOpen={showDeleteConfirm}
-        title="确认删除该待办事项？"
-        message={leaf
-          ? '删除后无法撤销。若这是其父节点的最后一个子项，父节点将转换为未完成的叶子待办。'
-          : `此操作将同时删除该节点及其全部 ${countDescendants(todo)} 个后代子待办，且无法撤销。`}
-        confirmLabel="确认删除"
-        cancelLabel="取消"
-        isDanger
-        onConfirm={confirmDelete}
-        onCancel={() => setShowDeleteConfirm(false)}
-      />
     </>
   );
 }

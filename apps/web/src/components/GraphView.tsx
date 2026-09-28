@@ -8,27 +8,27 @@ import {
   ReactFlowProvider,
   useEdgesState,
   useNodesState,
-  useReactFlow,
 } from '@xyflow/react';
 import { Plus } from 'lucide-react';
 import { buildTreeFlowElements } from '../treeLayout';
-import { Tag, Todo } from '../types';
+import { ComposerAnchor, Tag, Todo } from '../types';
 import { TodoNode } from './TodoNode';
 
 interface GraphViewProps {
   todos: Todo[];
   tags: Tag[];
   selectedId: string | null;
-  onSelectTodo: (id: string) => void;
+  onSelectTodo: (id: string | null) => void;
   onAddRootTodo: () => void;
+  onRequestAdd: (parentId: string | null, targetLabel: string, anchor?: ComposerAnchor) => void;
+  onRequestDelete: (id: string) => void;
 }
 
-function FlowCanvas({ todos, tags, selectedId, onSelectTodo, onAddRootTodo }: GraphViewProps) {
-  const { fitView } = useReactFlow();
+function FlowCanvas({ todos, tags, selectedId, onSelectTodo, onAddRootTodo, onRequestAdd, onRequestDelete }: GraphViewProps) {
   const nodeTypes = useMemo(() => ({ todoNode: TodoNode }), []);
   const { nodes: calculatedNodes, edges: calculatedEdges } = useMemo(
-    () => buildTreeFlowElements(todos, tags, selectedId, onSelectTodo),
-    [todos, tags, selectedId, onSelectTodo],
+    () => buildTreeFlowElements(todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete),
+    [todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete],
   );
   const [nodes, setNodes] = useNodesState(calculatedNodes);
   const [edges, setEdges] = useEdgesState(calculatedEdges);
@@ -37,16 +37,6 @@ function FlowCanvas({ todos, tags, selectedId, onSelectTodo, onAddRootTodo }: Gr
     setNodes(calculatedNodes);
     setEdges(calculatedEdges);
   }, [calculatedNodes, calculatedEdges, setNodes, setEdges]);
-
-  const structureKey = useMemo(() => {
-    const ids = (items: Todo[]): unknown[] => items.map((todo) => [todo.id, ids(todo.children)]);
-    return JSON.stringify(ids(todos));
-  }, [todos]);
-
-  useEffect(() => {
-    const timer = window.setTimeout(() => fitView({ padding: 0.15, duration: 300 }), 50);
-    return () => window.clearTimeout(timer);
-  }, [structureKey, fitView]);
 
   const handleNodeClick: NodeMouseHandler = (_, node) => onSelectTodo(node.id);
 
@@ -62,7 +52,7 @@ function FlowCanvas({ todos, tags, selectedId, onSelectTodo, onAddRootTodo }: Gr
           <span>新建根待办</span>
         </button>
         <span className="hidden rounded-md border border-slate-200 bg-white/90 px-2.5 py-1.5 text-xs text-slate-500 shadow-2xs backdrop-blur-xs sm:inline-block">
-          点击节点展开右侧设置 · 子项向右延伸
+          点击节点查看详情 · 节点旁可添加子项、同级任务或删除
         </span>
       </div>
       {nodes.length === 0 ? (
@@ -83,6 +73,7 @@ function FlowCanvas({ todos, tags, selectedId, onSelectTodo, onAddRootTodo }: Gr
           edges={edges}
           nodeTypes={nodeTypes}
           onNodeClick={handleNodeClick}
+          onPaneClick={() => onSelectTodo(null)}
           fitView
           fitViewOptions={{ padding: 0.15 }}
           minZoom={0.2}

@@ -1,4 +1,4 @@
-# Tree Todo 完整功能实现计划
+# TodoTree 完整功能实现计划
 
 > **For agentic workers:** 使用 `superpowers:executing-plans` 在当前任务中逐项实现；本计划以 `docs/superpowers/specs/2026-09-27-recursive-todo-design.md` 为产品依据。
 

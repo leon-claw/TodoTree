@@ -1,6 +1,6 @@
 import { Edge, Node } from '@xyflow/react';
 import { hierarchy, tree } from 'd3-hierarchy';
-import { Tag, Todo } from './types';
+import { ComposerAnchor, Tag, Todo } from './types';
 
 export interface HierarchyDatum {
   id: string;
@@ -13,6 +13,10 @@ export interface TodoNodeData {
   tagsMap: Record<string, Tag>;
   isSelected: boolean;
   onSelect: (id: string) => void;
+  onRequestAdd: (parentId: string | null, targetLabel: string, anchor?: ComposerAnchor) => void;
+  onRequestDelete: (id: string) => void;
+  parentId: string | null;
+  parentTitle: string | null;
   [key: string]: unknown;
 }
 
@@ -26,6 +30,8 @@ export function buildTreeFlowElements(
   tags: Tag[],
   selectedId: string | null,
   onSelect: (id: string) => void,
+  onRequestAdd: (parentId: string | null, targetLabel: string, anchor?: ComposerAnchor) => void,
+  onRequestDelete: (id: string) => void,
 ): { nodes: Node<TodoNodeData>[]; edges: Edge[] } {
   if (rootTodos.length === 0) return { nodes: [], edges: [] };
 
@@ -54,6 +60,8 @@ export function buildTreeFlowElements(
   layout.each((entry) => {
     if (entry.data.id === '__virtual_root__') return;
     const todo = entry.data.todo;
+    const parentId = entry.parent?.data.id === '__virtual_root__' ? null : entry.parent?.data.todo.id ?? null;
+    const parentTitle = entry.parent?.data.id === '__virtual_root__' ? null : entry.parent?.data.todo.title ?? null;
     nodes.push({
       id: todo.id,
       type: 'todoNode',
@@ -61,7 +69,16 @@ export function buildTreeFlowElements(
         x: entry.y - (NODE_WIDTH + GAP_X),
         y: entry.x,
       },
-      data: { todo, tagsMap, isSelected: selectedId === todo.id, onSelect },
+      data: {
+        todo,
+        tagsMap,
+        isSelected: selectedId === todo.id,
+        onSelect,
+        onRequestAdd,
+        onRequestDelete,
+        parentId,
+        parentTitle,
+      },
       selectable: true,
     });
     if (entry.parent && entry.parent.data.id !== '__virtual_root__') {
