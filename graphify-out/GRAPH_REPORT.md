@@ -1,7 +1,7 @@
 # Graph Report - TodoTree  (2026-09-28)
 
 ## Corpus Check
-- 30 files · ~11,985 words
+- 30 files · ~12,140 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1a64e552`
+- Built from commit: `4fb5c2bf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

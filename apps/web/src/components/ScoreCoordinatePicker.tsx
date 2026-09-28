@@ -6,6 +6,7 @@ interface ScoreCoordinatePickerProps {
   importance: number;
   urgency: number;
   onChange: (importance: number, urgency: number) => void;
+  onPreview: (importance: number, urgency: number) => void;
 }
 
 const chartSize = 256;
@@ -15,12 +16,32 @@ const plotTop = 20;
 const plotBottom = 210;
 const clampScore = (value: number) => Math.max(0, Math.min(100, Math.round(value)));
 
-export function ScoreCoordinatePicker({ importance, urgency, onChange }: ScoreCoordinatePickerProps) {
+export function ScoreCoordinatePicker({ importance, urgency, onChange, onPreview }: ScoreCoordinatePickerProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [position, setPosition] = useState({ left: 16, top: 16 });
+  const [previewScores, setPreviewScores] = useState({ importance, urgency });
+  const previewScoresRef = useRef({ importance, urgency });
+  const isDraggingRef = useRef(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const pickerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (isDraggingRef.current) return;
+    const nextScores = { importance, urgency };
+    previewScoresRef.current = nextScores;
+    setPreviewScores(nextScores);
+  }, [importance, urgency]);
+
+  const updatePreviewScores = (nextImportance: number, nextUrgency: number) => {
+    const nextScores = {
+      importance: clampScore(nextImportance),
+      urgency: clampScore(nextUrgency),
+    };
+    previewScoresRef.current = nextScores;
+    setPreviewScores(nextScores);
+    onPreview(nextScores.importance, nextScores.urgency);
+  };
 
   const updatePosition = () => {
     const mobile = window.matchMedia('(max-width: 767px)').matches;
@@ -90,16 +111,23 @@ export function ScoreCoordinatePicker({ importance, urgency, onChange }: ScoreCo
     const y = ((event.clientY - bounds.top) / bounds.height) * chartSize;
     const nextImportance = clampScore(((x - plotLeft) / (plotRight - plotLeft)) * 100);
     const nextUrgency = clampScore(((plotBottom - y) / (plotBottom - plotTop)) * 100);
-    onChange(nextImportance, nextUrgency);
+    updatePreviewScores(nextImportance, nextUrgency);
   };
 
   const handlePointerDown = (event: ReactPointerEvent<SVGSVGElement>) => {
     event.currentTarget.setPointerCapture(event.pointerId);
+    isDraggingRef.current = true;
     updateFromPointer(event);
   };
 
   const handlePointerMove = (event: ReactPointerEvent<SVGSVGElement>) => {
     if (event.currentTarget.hasPointerCapture(event.pointerId)) updateFromPointer(event);
+  };
+
+  const finishPointerDrag = () => {
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+    onChange(previewScoresRef.current.importance, previewScoresRef.current.urgency);
   };
 
   const handleChartKeyDown = (event: ReactKeyboardEvent<SVGSVGElement>) => {
@@ -112,11 +140,16 @@ export function ScoreCoordinatePicker({ importance, urgency, onChange }: ScoreCo
     else if (event.key === 'ArrowUp') nextUrgency += step;
     else return;
     event.preventDefault();
-    onChange(clampScore(nextImportance), clampScore(nextUrgency));
+    const nextScores = {
+      importance: clampScore(nextImportance),
+      urgency: clampScore(nextUrgency),
+    };
+    updatePreviewScores(nextScores.importance, nextScores.urgency);
+    onChange(nextScores.importance, nextScores.urgency);
   };
 
-  const pointX = plotLeft + (importance / 100) * (plotRight - plotLeft);
-  const pointY = plotBottom - (urgency / 100) * (plotBottom - plotTop);
+  const pointX = plotLeft + (previewScores.importance / 100) * (plotRight - plotLeft);
+  const pointY = plotBottom - (previewScores.urgency / 100) * (plotBottom - plotTop);
 
   return (
     <>
@@ -166,9 +199,11 @@ export function ScoreCoordinatePicker({ importance, urgency, onChange }: ScoreCo
                   viewBox="0 0 256 256"
                   role="group"
                   tabIndex={0}
-                  aria-label={'重要程度 ' + importance + '，紧急程度 ' + urgency + '。使用方向键调整。'}
+                  aria-label={'重要程度 ' + previewScores.importance + '，紧急程度 ' + previewScores.urgency + '。使用方向键调整。'}
                   onPointerDown={handlePointerDown}
                   onPointerMove={handlePointerMove}
+                  onPointerUp={finishPointerDrag}
+                  onPointerCancel={finishPointerDrag}
                   onKeyDown={handleChartKeyDown}
                   className="aspect-square w-full max-w-64 touch-none select-none rounded-lg bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
@@ -204,9 +239,9 @@ export function ScoreCoordinatePicker({ importance, urgency, onChange }: ScoreCo
               </div>
 
               <div className="mt-3 flex items-center justify-center gap-4 rounded-lg bg-blue-50 px-3 py-2 text-xs font-medium tabular-nums text-blue-800">
-                <span>重要 {importance}</span>
+                <span>重要 {previewScores.importance}</span>
                 <span aria-hidden="true" className="text-blue-300">·</span>
-                <span>紧急 {urgency}</span>
+                <span>紧急 {previewScores.urgency}</span>
               </div>
               <p className="mt-2 text-center text-[11px] text-slate-400">拖动坐标点，或聚焦图表后使用方向键微调</p>
             </section>

@@ -59,6 +59,12 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onReq
     onUpdate({ ...todo, [key]: score });
     setScoreDrafts((current) => ({ ...current, [key]: String(score) }));
   };
+  const previewScorePair = (importance: number, urgency: number) => {
+    setScoreDrafts((current) => {
+      const next = { importance: String(importance), urgency: String(urgency) };
+      return current.importance === next.importance && current.urgency === next.urgency ? current : next;
+    });
+  };
   const commitScoreDraft = (key: 'importance' | 'urgency') => {
     const draft = scoreDrafts[key].trim();
     if (!draft || !Number.isFinite(Number(draft))) {
@@ -160,20 +166,25 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onReq
               <ScoreCoordinatePicker
                 importance={todo.importance}
                 urgency={todo.urgency}
+                onPreview={previewScorePair}
                 onChange={(importance, urgency) => onUpdate({ ...todo, importance, urgency })}
               />
             </div>
             <div className="space-y-4">
               {(['importance', 'urgency'] as const).map((key) => {
                 const label = key === 'importance' ? '重要程度' : '紧急程度';
+                const draftValue = Number(scoreDrafts[key]);
+                const displayedScore = scoreDrafts[key].trim() && Number.isInteger(draftValue)
+                  ? Math.max(0, Math.min(100, draftValue))
+                  : todo[key];
                 return (
                   <div key={key}>
                     <div className="mb-1.5 flex items-center justify-between">
                       <label htmlFor={'todo-' + key} className="text-xs font-semibold text-slate-700">{label}</label>
-                      <span className="font-mono text-xs font-medium tabular-nums text-slate-600">{todo[key]} / 100</span>
+                      <span className="font-mono text-xs font-medium tabular-nums text-slate-600">{displayedScore} / 100</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <input id={'todo-' + key} type="range" min={0} max={100} value={todo[key]} onChange={(e) => updateScore(key, Number(e.target.value))} className="flex-1 cursor-pointer accent-blue-600" />
+                      <input id={'todo-' + key} type="range" min={0} max={100} value={displayedScore} onChange={(e) => updateScore(key, Number(e.target.value))} className="flex-1 cursor-pointer accent-blue-600" />
                       <input
                         type="number"
                         min={0}
