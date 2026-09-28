@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import {
   Background,
   BackgroundVariant,
@@ -44,12 +44,30 @@ function FlowCanvas({
   );
   const [nodes, setNodes, onNodesChange] = useNodesState(calculatedNodes);
   const [edges, setEdges] = useEdgesState(calculatedEdges);
-  const { getIntersectingNodes } = useReactFlow<Node<TodoNodeData>, Edge>();
+  const { getIntersectingNodes, getNodes } = useReactFlow<Node<TodoNodeData>, Edge>();
+  const lastDragDiagnostic = useRef<{ draggedId: string; targetId: string | null; valid: boolean; lastPosition: { x: number; y: number }; loggedFirstMove: boolean } | null>(null);
 
   useEffect(() => {
     setNodes(calculatedNodes);
     setEdges(calculatedEdges);
   }, [calculatedNodes, calculatedEdges, setNodes, setEdges]);
+
+  const getDragState = useCallback((
+    draggedNode: Node<TodoNodeData>,
+    draggedGroup: Node<TodoNodeData>[],
+  ) => {
+    const draggedNodesById = new Map(draggedGroup.map((node) => [node.id, node]));
+    draggedNodesById.set(draggedNode.id, draggedGroup.find((node) => node.id === draggedNode.id) ?? draggedNode);
+    const canvasNodes = getNodes();
+    const collisionNodes = canvasNodes.map((node) => draggedNodesById.get(node.id) ?? node);
+    for (const draggedGroupNode of draggedNodesById.values()) {
+      if (!collisionNodes.some((node) => node.id === draggedGroupNode.id)) collisionNodes.push(draggedGroupNode);
+    }
+    return {
+      currentDraggedNode: draggedNodesById.get(draggedNode.id) ?? draggedNode,
+      collisionNodes,
+    };
+  }, [getNodes]);
 
   const findDropTarget = useCallback((
     draggedNode: Node<TodoNodeData>,
@@ -98,22 +116,70 @@ function FlowCanvas({
     });
   }, [setNodes]);
 
+  const handleNodeDragStart: OnNodeDrag<Node<TodoNodeData>> = useCallback(
+    (_event, node) => {
+      lastDragDiagnostic.current = { draggedId: node.id, targetId: null, valid: false, lastPosition: node.position, loggedFirstMove: false };
+      console.info('[TodoTree drag] start', JSON.stringify({ todoId: node.id, position: node.position }));
+    },
+    [],
+  );
+
   const handleNodeDrag: OnNodeDrag<Node<TodoNodeData>> = useCallback(
     (_event, draggedNode, currentNodes) => {
-      const currentDraggedNode = currentNodes.find((node) => node.id === draggedNode.id) ?? draggedNode;
-      const target = findDropTarget(currentDraggedNode, currentNodes);
+      const { currentDraggedNode, collisionNodes } = getDragState(draggedNode, currentNodes);
+      const target = findDropTarget(currentDraggedNode, collisionNodes);
       const isValid = target !== null
         && canMoveTodoUnderParent(todos, currentDraggedNode.id, target.id);
+      const previous = lastDragDiagnostic.current;
+      if (previous && previous.draggedId === currentDraggedNode.id) {
+        const moved = Math.hypot(
+          currentDraggedNode.position.x - previous.lastPosition.x,
+          currentDraggedNode.position.y - previous.lastPosition.y,
+        ) > 0.1;
+        if (moved && !previous.loggedFirstMove) {
+          console.info('[TodoTree drag] first movement', JSON.stringify({
+            todoId: currentDraggedNode.id,
+            from: previous.lastPosition,
+            to: currentDraggedNode.position,
+          }));
+          previous.loggedFirstMove = true;
+        }
+        if (previous.targetId !== (target?.id ?? null) || previous.valid !== isValid) {
+          console.info('[TodoTree drag] target changed', JSON.stringify({
+            draggedTodoId: currentDraggedNode.id,
+            position: currentDraggedNode.position,
+            targetTodoId: target?.id ?? null,
+            valid: isValid,
+          }));
+          previous.targetId = target?.id ?? null;
+          previous.valid = isValid;
+        }
+        previous.lastPosition = currentDraggedNode.position;
+      }
       setDropTargetState(target?.id ?? null, isValid);
     },
-    [findDropTarget, setDropTargetState, todos],
+    [findDropTarget, getDragState, setDropTargetState, todos],
   );
 
   const handleNodeDragStop: OnNodeDrag<Node<TodoNodeData>> = useCallback(
     (_event, draggedNode, currentNodes) => {
-      const currentDraggedNode = currentNodes.find((node) => node.id === draggedNode.id) ?? draggedNode;
-      const target = findDropTarget(currentDraggedNode, currentNodes);
-      if (target && canMoveTodoUnderParent(todos, currentDraggedNode.id, target.id)) {
+      const { currentDraggedNode, collisionNodes } = getDragState(draggedNode, currentNodes);
+      const intersectingNodes = getIntersectingNodes(currentDraggedNode, true, collisionNodes);
+      const target = findDropTarget(currentDraggedNode, collisionNodes);
+      const isValid = target !== null
+        && canMoveTodoUnderParent(todos, currentDraggedNode.id, target.id);
+      console.info('[TodoTree drag] stop', JSON.stringify({
+        draggedTodoId: currentDraggedNode.id,
+        position: currentDraggedNode.position,
+        draggedGroupTodoIds: currentNodes.map((node) => node.id),
+        canvasTodoIds: collisionNodes.map((node) => node.id),
+        intersectingTodoIds: intersectingNodes.map((node) => node.id),
+        otherNodePositions: collisionNodes.filter((node) => node.id !== currentDraggedNode.id).map((node) => ({ id: node.id, position: node.position })),
+        targetTodoId: target?.id ?? null,
+        valid: isValid,
+      }));
+
+      if (target && isValid) {
         setDropTargetState(null, false);
         onMoveTodo(currentDraggedNode.id, target.id);
         return;
@@ -122,7 +188,7 @@ function FlowCanvas({
       setDropTargetState(null, false);
       setNodes(calculatedNodes);
     },
-    [calculatedNodes, findDropTarget, onMoveTodo, setDropTargetState, setNodes, todos],
+    [calculatedNodes, findDropTarget, getDragState, getIntersectingNodes, onMoveTodo, setDropTargetState, setNodes, todos],
   );
 
   const handleNodeClick: NodeMouseHandler<Node<TodoNodeData>> = (_, node) => onSelectTodo(node.id);
@@ -161,6 +227,7 @@ function FlowCanvas({
           nodeTypes={nodeTypes}
           onNodesChange={onNodesChange}
           onNodeClick={handleNodeClick}
+          onNodeDragStart={handleNodeDragStart}
           onNodeDrag={handleNodeDrag}
           onNodeDragStop={handleNodeDragStop}
           onPaneClick={() => onSelectTodo(null)}

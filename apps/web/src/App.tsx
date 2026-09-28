@@ -197,6 +197,8 @@ export default function App() {
   };
 
   const handleMoveTodo = (todoId: string, parentId: string) => {
+    const acceptedPreview = moveTodoUnderParent(appData.todos, todoId, parentId) !== null;
+    console.info('[TodoTree drag] app move requested', JSON.stringify({ todoId, parentId, acceptedPreview }));
     setAppData((prev) => {
       const todos = moveTodoUnderParent(prev.todos, todoId, parentId);
       return todos ? { ...prev, todos } : prev;
