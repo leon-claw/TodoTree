@@ -33,19 +33,6 @@
       "norm_label": "apphistorystate"
     },
     {
-      "label": "LeafItem",
-      "file_type": "code",
-      "source_file": "apps/web/src/storage.ts",
-      "source_location": "L261",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_storage_leafitem",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "leafitem"
-    },
-    {
       "label": "AppRoute",
       "file_type": "code",
       "source_file": "apps/web/src/types.ts",
@@ -72,6 +59,19 @@
       "norm_label": "confirmmodalprops"
     },
     {
+      "label": "ScoreCoordinatePickerProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepickerprops",
+      "community": 14,
+      "community_name": "SettingsPage.tsx",
+      "norm_label": "scorecoordinatepickerprops"
+    },
+    {
       "label": "SettingsPageProps",
       "file_type": "code",
       "source_file": "apps/web/src/components/SettingsPage.tsx",
@@ -85,19 +85,6 @@
       "norm_label": "settingspageprops"
     },
     {
-      "label": "TagManagementPageProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TagManagementPage.tsx",
-      "source_location": "L7",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_tagmanagementpage_tagmanagementpageprops",
-      "community": 14,
-      "community_name": "SettingsPage.tsx",
-      "norm_label": "tagmanagementpageprops"
-    },
-    {
       "label": "AppData",
       "file_type": "code",
       "source_file": "apps/web/src/types.ts",
@@ -109,32 +96,6 @@
       "community": 14,
       "community_name": "SettingsPage.tsx",
       "norm_label": "appdata"
-    },
-    {
-      "label": "NavbarProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/Navbar.tsx",
-      "source_location": "L4",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_navbar_navbarprops",
-      "community": 17,
-      "community_name": "Navbar.tsx",
-      "norm_label": "navbarprops"
-    },
-    {
-      "label": "ActiveTab",
-      "file_type": "code",
-      "source_file": "apps/web/src/types.ts",
-      "source_location": "L25",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_types_activetab",
-      "community": 17,
-      "community_name": "Navbar.tsx",
-      "norm_label": "activetab"
     },
     {
       "label": "GraphViewProps",
@@ -163,10 +124,23 @@
       "norm_label": "listviewprops"
     },
     {
+      "label": "NavbarProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/Navbar.tsx",
+      "source_location": "L4",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_navbar_navbarprops",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "navbarprops"
+    },
+    {
       "label": "SettingsPanelProps",
       "file_type": "code",
       "source_file": "apps/web/src/components/SettingsPanel.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
@@ -174,6 +148,19 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "settingspanelprops"
+    },
+    {
+      "label": "TagManagementPageProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TagManagementPage.tsx",
+      "source_location": "L7",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_tagmanagementpage_tagmanagementpageprops",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "tagmanagementpageprops"
     },
     {
       "label": "TaskComposerProps",
@@ -202,6 +189,19 @@
       "norm_label": "todonodeprops"
     },
     {
+      "label": "LeafItem",
+      "file_type": "code",
+      "source_file": "apps/web/src/storage.ts",
+      "source_location": "L261",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_storage_leafitem",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "leafitem"
+    },
+    {
       "label": "HierarchyDatum",
       "file_type": "code",
       "source_file": "apps/web/src/treeLayout.ts",
@@ -226,6 +226,19 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "todonodedata"
+    },
+    {
+      "label": "ActiveTab",
+      "file_type": "code",
+      "source_file": "apps/web/src/types.ts",
+      "source_location": "L25",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_types_activetab",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "activetab"
     },
     {
       "label": "ComposerAnchor",
@@ -282,7 +295,7 @@
       "label": "SettingsPanel()",
       "file_type": "code",
       "source_file": "apps/web/src/components/SettingsPanel.tsx",
-      "source_location": "L16",
+      "source_location": "L17",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_components_settingspanel_settingspanel",
@@ -555,6 +568,30 @@
       "norm_label": "confirmmodal()"
     },
     {
+      "label": "clampScore()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L16",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker_clampscore",
+      "community": 14,
+      "community_name": "SettingsPage.tsx",
+      "norm_label": "clampscore()"
+    },
+    {
+      "label": "ScoreCoordinatePicker()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L18",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepicker",
+      "community": 14,
+      "community_name": "SettingsPage.tsx",
+      "norm_label": "scorecoordinatepicker()"
+    },
+    {
       "label": "countTodos()",
       "file_type": "code",
       "source_file": "apps/web/src/components/SettingsPage.tsx",
@@ -627,18 +664,6 @@
       "norm_label": "validateappdata()"
     },
     {
-      "label": "Navbar()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/Navbar.tsx",
-      "source_location": "L12",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_navbar_navbar",
-      "community": 17,
-      "community_name": "Navbar.tsx",
-      "norm_label": "navbar()"
-    },
-    {
       "label": "FlowCanvas()",
       "file_type": "code",
       "source_file": "apps/web/src/components/GraphView.tsx",
@@ -673,6 +698,18 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "listview()"
+    },
+    {
+      "label": "Navbar()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/Navbar.tsx",
+      "source_location": "L12",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_navbar_navbar",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "navbar()"
     },
     {
       "label": "TaskComposer()",
@@ -1130,6 +1167,17 @@
       "norm_label": "confirmmodal.tsx"
     },
     {
+      "label": "ScoreCoordinatePicker.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker",
+      "community": 14,
+      "community_name": "SettingsPage.tsx",
+      "norm_label": "scorecoordinatepicker.tsx"
+    },
+    {
       "label": "SettingsPage.tsx",
       "file_type": "code",
       "source_file": "apps/web/src/components/SettingsPage.tsx",
@@ -1139,6 +1187,17 @@
       "community": 14,
       "community_name": "SettingsPage.tsx",
       "norm_label": "settingspage.tsx"
+    },
+    {
+      "label": "SettingsPanel.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/SettingsPanel.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_settingspanel",
+      "community": 14,
+      "community_name": "SettingsPage.tsx",
+      "norm_label": "settingspanel.tsx"
     },
     {
       "label": "TagManagementPage.tsx",
@@ -1271,17 +1330,6 @@
       "community": 16,
       "community_name": "\u5bfc\u822a\u3001\u8be6\u60c5\u5e03\u5c40\u4e0e\u6807\u7b7e\u9875\u6574\u6539\u8ba1\u5212",
       "norm_label": "\u6b65\u9aa4"
-    },
-    {
-      "label": "Navbar.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/Navbar.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_navbar",
-      "community": 17,
-      "community_name": "Navbar.tsx",
-      "norm_label": "navbar.tsx"
     },
     {
       "label": "2026-09-28-product-review-remediation.md",
@@ -1647,15 +1695,15 @@
       "norm_label": "listview.tsx"
     },
     {
-      "label": "SettingsPanel.tsx",
+      "label": "Navbar.tsx",
       "file_type": "code",
-      "source_file": "apps/web/src/components/SettingsPanel.tsx",
+      "source_file": "apps/web/src/components/Navbar.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_web_src_components_settingspanel",
+      "id": "apps_web_src_components_navbar",
       "community": 3,
       "community_name": "GraphView.tsx",
-      "norm_label": "settingspanel.tsx"
+      "norm_label": "navbar.tsx"
     },
     {
       "label": "TaskComposer.tsx",
@@ -3010,6 +3058,18 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L91",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepicker",
+      "target": "apps_web_src_components_scorecoordinatepicker_clampscore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/components/SettingsPage.tsx",
       "source_location": "L46",
@@ -3036,7 +3096,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/components/SettingsPanel.tsx",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_settingspanel_settingspanel",
@@ -3359,7 +3419,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/SettingsPanel.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_settingspanel_settingspanelprops",
@@ -3371,7 +3431,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/SettingsPanel.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_settingspanel_settingspanelprops",
@@ -4251,7 +4311,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_settingspanel",
-      "target": "apps_web_src_storage_isleaf",
+      "target": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepicker",
       "confidence_score": 1.0
     },
     {
@@ -4263,6 +4323,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_settingspanel",
+      "target": "apps_web_src_storage_isleaf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/SettingsPanel.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_settingspanel",
       "target": "apps_web_src_types_tag",
       "confidence_score": 1.0
     },
@@ -4271,7 +4343,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/SettingsPanel.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_settingspanel",
@@ -4750,6 +4822,30 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_scorecoordinatepicker",
+      "target": "ref_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_scorecoordinatepicker",
+      "target": "ref_lucide_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/SettingsPage.tsx",
       "source_location": "L1",
       "weight": 1.0,
@@ -4839,7 +4935,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_settingspanel",
-      "target": "apps_web_src_storage",
+      "target": "apps_web_src_components_scorecoordinatepicker",
       "confidence_score": 1.0
     },
     {
@@ -4848,6 +4944,18 @@
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/SettingsPanel.tsx",
       "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_settingspanel",
+      "target": "apps_web_src_storage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/SettingsPanel.tsx",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_settingspanel",
@@ -5519,6 +5627,39 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_scorecoordinatepicker",
+      "target": "apps_web_src_components_scorecoordinatepicker_clampscore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_scorecoordinatepicker",
+      "target": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepicker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_scorecoordinatepicker",
+      "target": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepickerprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/SettingsPage.tsx",
       "source_location": "L13",
       "weight": 1.0,
@@ -5553,7 +5694,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/SettingsPanel.tsx",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_settingspanel",
@@ -5564,7 +5705,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/SettingsPanel.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_settingspanel",
@@ -7128,5 +7269,5 @@
       "source_file": "docs/superpowers/specs/2026-09-27-recursive-todo-design.md"
     }
   ],
-  "built_at_commit": "a36297014faa7152b54a5449afb07948bff2d2b4"
+  "built_at_commit": "1a64e552b7c11724641daae92fe9e887c0ddb66a"
 }

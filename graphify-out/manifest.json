@@ -40,8 +40,8 @@
     "semantic_hash": ""
   },
   "apps/web/src/components/SettingsPanel.tsx": {
-    "mtime": 1790595012.2279983,
-    "ast_hash": "70978d044133ba9bd4ac986307272327",
+    "mtime": 1790604211.3275406,
+    "ast_hash": "c1c91250b0963307eeb8b0ff703528c2",
     "semantic_hash": ""
   },
   "apps/web/src/components/TodoNode.tsx": {
@@ -157,6 +157,11 @@
   "docs/superpowers/plans/2026-09-28-navigation-and-layout.md": {
     "mtime": 1790595337.827287,
     "ast_hash": "208ec54f2ee88cdde500d44c5898e271",
+    "semantic_hash": ""
+  },
+  "apps/web/src/components/ScoreCoordinatePicker.tsx": {
+    "mtime": 1790604211.2720926,
+    "ast_hash": "c058369be91068c01ed221a396cc89ea",
     "semantic_hash": ""
   }
 }

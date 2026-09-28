@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { AlertCircle, CheckCircle2, Circle, GitBranch, Plus, Trash2, X } from 'lucide-react';
+import { ScoreCoordinatePicker } from './ScoreCoordinatePicker';
 import { isLeaf } from '../storage';
 import { Tag, Todo } from '../types';
 
@@ -87,7 +88,7 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onReq
         role="dialog"
         aria-modal="true"
         aria-labelledby="todo-panel-title"
-        className={`fixed inset-y-0 right-0 z-50 flex w-full flex-col border-l border-slate-200 bg-white shadow-xl ${overlay ? 'md:top-14 md:bottom-0 md:h-auto md:w-96 md:flex-none md:shadow-xl' : 'md:relative md:inset-auto md:z-20 md:h-full md:w-96 md:flex-none md:shadow-md'}`}
+        className={`fixed inset-y-0 right-0 z-50 flex w-full flex-col border-l border-slate-200 bg-white shadow-xl ${overlay ? 'md:top-14 md:bottom-0 md:h-auto md:w-[26rem] md:flex-none md:shadow-xl' : 'md:relative md:inset-auto md:z-20 md:h-full md:w-[26rem] md:flex-none md:shadow-md'}`}
       >
         <div className="flex shrink-0 items-center justify-between border-b border-slate-200 px-5 py-4">
           <div>
@@ -150,40 +151,55 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onReq
             </div>
             <input id="todo-due-date" type="date" value={todo.dueDate} onChange={(e) => onUpdate({ ...todo, dueDate: e.target.value })} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 font-mono text-sm text-slate-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
-          {(['importance', 'urgency'] as const).map((key) => {
-            const label = key === 'importance' ? '重要程度' : '紧急程度';
-            return (
-              <div key={key}>
-                <div className="mb-1.5 flex items-center justify-between">
-                  <label htmlFor={`todo-${key}`} className="text-xs font-semibold text-slate-700">{label}</label>
-                  <span className="font-mono text-xs font-medium tabular-nums text-slate-600">{todo[key]} / 100</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <input id={`todo-${key}`} type="range" min={0} max={100} value={todo[key]} onChange={(e) => updateScore(key, Number(e.target.value))} className="flex-1 cursor-pointer accent-blue-600" />
-                  <input
-                    type="number"
-                    min={0}
-                    max={100}
-                    value={scoreDrafts[key]}
-                    onChange={(event) => {
-                      const value = event.target.value;
-                      setScoreDrafts((current) => ({ ...current, [key]: value }));
-                      if (value.trim() && Number.isInteger(Number(value))) updateScore(key, Number(value));
-                    }}
-                    onBlur={() => commitScoreDraft(key)}
-                    onKeyDown={(event) => {
-                      if (event.key === 'Enter') {
-                        event.preventDefault();
-                        event.currentTarget.blur();
-                      }
-                    }}
-                    aria-label={`${label}数值`}
-                    className="w-16 rounded border border-slate-300 bg-white px-2 py-1 text-center font-mono text-xs tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
+          <section className="rounded-xl border border-slate-200 bg-slate-50/40 p-3.5">
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <div>
+                <h4 className="text-xs font-semibold text-slate-700">重要程度与紧急程度</h4>
+                <p className="mt-0.5 text-[11px] text-slate-400">可用滑块、数值或二维坐标调整</p>
               </div>
-            );
-          })}
+              <ScoreCoordinatePicker
+                importance={todo.importance}
+                urgency={todo.urgency}
+                onChange={(importance, urgency) => onUpdate({ ...todo, importance, urgency })}
+              />
+            </div>
+            <div className="space-y-4">
+              {(['importance', 'urgency'] as const).map((key) => {
+                const label = key === 'importance' ? '重要程度' : '紧急程度';
+                return (
+                  <div key={key}>
+                    <div className="mb-1.5 flex items-center justify-between">
+                      <label htmlFor={'todo-' + key} className="text-xs font-semibold text-slate-700">{label}</label>
+                      <span className="font-mono text-xs font-medium tabular-nums text-slate-600">{todo[key]} / 100</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <input id={'todo-' + key} type="range" min={0} max={100} value={todo[key]} onChange={(e) => updateScore(key, Number(e.target.value))} className="flex-1 cursor-pointer accent-blue-600" />
+                      <input
+                        type="number"
+                        min={0}
+                        max={100}
+                        value={scoreDrafts[key]}
+                        onChange={(event) => {
+                          const value = event.target.value;
+                          setScoreDrafts((current) => ({ ...current, [key]: value }));
+                          if (value.trim() && Number.isInteger(Number(value))) updateScore(key, Number(value));
+                        }}
+                        onBlur={() => commitScoreDraft(key)}
+                        onKeyDown={(event) => {
+                          if (event.key === 'Enter') {
+                            event.preventDefault();
+                            event.currentTarget.blur();
+                          }
+                        }}
+                        aria-label={label + '数值'}
+                        className="w-16 rounded border border-slate-300 bg-white px-2 py-1 text-center font-mono text-xs tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
           <fieldset>
             <legend className="mb-2 text-xs font-semibold text-slate-700">标签选择（支持多选）</legend>
             {tags.length === 0 ? (
