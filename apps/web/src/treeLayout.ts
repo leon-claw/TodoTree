@@ -1,6 +1,7 @@
 import { Edge, Node } from '@xyflow/react';
 import { hierarchy, tree } from 'd3-hierarchy';
 import { indexFlowTodos } from './flowNavigation';
+import type { SemanticZoomLevel } from './flowZoom';
 import { ComposerAnchor, Tag, Todo } from './types';
 
 export interface HierarchyDatum {
@@ -15,6 +16,8 @@ export interface TodoNodeData {
   isSelected: boolean;
   isLocationHighlighted: boolean;
   isCollapsed: boolean;
+  semanticZoomLevel: SemanticZoomLevel;
+  compactFontSize: number;
   descendantCount: number;
   incompleteLeafCount: number;
   onSelect: (id: string) => void;
@@ -42,6 +45,8 @@ export function buildTreeFlowElements(
   locationHighlightId: string | null = null,
   collapsedIds: ReadonlySet<string> = new Set(),
   onToggleCollapse: (id: string) => void = () => {},
+  semanticZoomLevel: SemanticZoomLevel = 'detail',
+  compactFontSize = 12,
 ): { nodes: Node<TodoNodeData>[]; edges: Edge[] } {
   if (rootTodos.length === 0) return { nodes: [], edges: [] };
 
@@ -89,6 +94,8 @@ export function buildTreeFlowElements(
         isSelected: selectedId === todo.id,
         isLocationHighlighted: locationHighlightId === todo.id,
         isCollapsed: collapsedIds.has(todo.id),
+        semanticZoomLevel,
+        compactFontSize,
         descendantCount: flowEntry?.descendantCount ?? 0,
         incompleteLeafCount: flowEntry?.incompleteLeafCount ?? 0,
         onToggleCollapse,

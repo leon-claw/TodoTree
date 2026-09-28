@@ -3,9 +3,11 @@ import {
   Background,
   BackgroundVariant,
   Controls,
+  Panel,
   ReactFlow,
   ReactFlowProvider,
   useEdgesState,
+  useNodesInitialized,
   useNodesState,
   useReactFlow,
 } from '@xyflow/react';
@@ -15,6 +17,7 @@ import { FlowNavigator } from './FlowNavigator';
 import { expandFlowPath, getAncestorIds, indexFlowTodos } from '../flowNavigation';
 import type { FlowLocationRequest } from '../flowNavigation';
 import { canMoveTodoUnderParent } from '../storage';
+import { getInitialFlowViewport, getSemanticZoomLevel, READING_ZOOM } from '../flowZoom';
 import { buildTreeFlowElements, NODE_HEIGHT, NODE_WIDTH, TodoNodeData } from '../treeLayout';
 import { ComposerAnchor, Tag, Todo } from '../types';
 import { TodoNode } from './TodoNode';
@@ -60,6 +63,51 @@ function FlowCanvas({
   const locationSequenceRef = useRef<number | null>(null);
   const locationTimerRef = useRef<number | null>(null);
   const flowEntries = useMemo(() => indexFlowTodos(todos), [todos]);
+  const [zoomPresentation, setZoomPresentation] = useState({
+    level: 'detail' as ReturnType<typeof getSemanticZoomLevel>,
+    compactFontSize: 12,
+    percent: 100,
+  });
+  const [showReturnToCurrentTask, setShowReturnToCurrentTask] = useState(false);
+  const nodesInitialized = useNodesInitialized();
+  const initialCameraAppliedRef = useRef(false);
+  const { fitView, getIntersectingNodes, getNodes, getZoom, setCenter, zoomTo } = useReactFlow<Node<TodoNodeData>, Edge>();
+  const updateZoomPresentation = useCallback((zoom: number) => {
+    const next = {
+      level: getSemanticZoomLevel(zoom),
+      compactFontSize: Math.ceil(12 / Math.max(zoom, 0.01)),
+      percent: Math.round(zoom * 100),
+    };
+    setZoomPresentation((current) => (
+      current.level === next.level
+      && current.compactFontSize === next.compactFontSize
+      && current.percent === next.percent
+        ? current
+        : next
+    ));
+  }, []);
+  const focusTodoAtReadingZoom = useCallback((id: string, duration = 280) => {
+    const target = getNodes().find((node) => node.id === id);
+    if (!target) return;
+    void setCenter(
+      target.position.x + NODE_WIDTH / 2,
+      target.position.y + NODE_HEIGHT / 2,
+      { zoom: READING_ZOOM, duration },
+    );
+    setShowReturnToCurrentTask(false);
+  }, [getNodes, setCenter]);
+  const selectTodo = useCallback((id: string) => {
+    const needsReadableZoom = getSemanticZoomLevel(getZoom()) !== 'detail';
+    onSelectTodo(id);
+    if (!needsReadableZoom) {
+      setShowReturnToCurrentTask(false);
+      return;
+    }
+    let secondFrame = 0;
+    window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => focusTodoAtReadingZoom(id));
+    });
+  }, [focusTodoAtReadingZoom, getZoom, onSelectTodo]);
   const toggleCollapse = useCallback((id: string) => {
     if (collapsedIds.has(id)) {
       setCollapsedIds((current) => {
@@ -78,14 +126,14 @@ function FlowCanvas({
   }, [flowEntries, onLocateTodo]);
   const { nodes: calculatedNodes, edges: calculatedEdges } = useMemo(
     () => buildTreeFlowElements(
-      todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete,
+      todos, tags, selectedId, selectTodo, onRequestAdd, onRequestDelete,
       locationHighlightId, collapsedIds, toggleCollapse,
+      zoomPresentation.level, zoomPresentation.compactFontSize,
     ),
-    [todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete, locationHighlightId, collapsedIds, toggleCollapse],
+    [todos, tags, selectedId, selectTodo, onRequestAdd, onRequestDelete, locationHighlightId, collapsedIds, toggleCollapse, zoomPresentation.level, zoomPresentation.compactFontSize],
   );
   const [nodes, setNodes, onNodesChange] = useNodesState(calculatedNodes);
   const [edges, setEdges] = useEdgesState(calculatedEdges);
-  const { getIntersectingNodes, getNodes, getZoom, setCenter } = useReactFlow<Node<TodoNodeData>, Edge>();
   const lastDragDiagnostic = useRef<{ draggedId: string; targetId: string | null; valid: boolean; lastPosition: { x: number; y: number }; loggedFirstMove: boolean } | null>(null);
 
   useEffect(() => {
@@ -98,6 +146,33 @@ function FlowCanvas({
     previousTreeRevision.current = treeRevision;
     setCollapsedIds(new Set());
   }, [treeRevision]);
+
+  useEffect(() => {
+    if (!active || initialCameraAppliedRef.current || !nodesInitialized || nodes.length === 0) return;
+    let cancelled = false;
+    const initializeCamera = async () => {
+      await new Promise<void>((resolve) => window.requestAnimationFrame(() => resolve()));
+      const didFit = await fitView({ padding: 0.15, duration: 0 });
+      if (cancelled || !didFit) return;
+      initialCameraAppliedRef.current = true;
+      const fittedZoom = getZoom();
+      updateZoomPresentation(fittedZoom);
+      const initialViewport = getInitialFlowViewport(fittedZoom, selectedId, todos[0]?.id ?? null);
+      if (initialViewport.kind === 'focus') {
+        const target = getNodes().find((node) => node.id === initialViewport.focusId);
+        if (target) {
+          await setCenter(
+            target.position.x + NODE_WIDTH / 2,
+            target.position.y + NODE_HEIGHT / 2,
+            { zoom: initialViewport.zoom, duration: 0 },
+          );
+          updateZoomPresentation(initialViewport.zoom);
+        }
+      }
+    };
+    void initializeCamera();
+    return () => { cancelled = true; };
+  }, [active, fitView, getNodes, getZoom, nodes.length, nodesInitialized, selectedId, setCenter, todos, updateZoomPresentation]);
 
   useEffect(() => {
     if (!locationRequest || locationSequenceRef.current === locationRequest.sequence) return;
@@ -284,7 +359,16 @@ function FlowCanvas({
     [calculatedNodes, findDropTarget, getDragState, getIntersectingNodes, onMoveTodo, setDropTargetState, setNodes, todos],
   );
 
-  const handleNodeClick: NodeMouseHandler<Node<TodoNodeData>> = (_, node) => onSelectTodo(node.id);
+  const handleNodeClick: NodeMouseHandler<Node<TodoNodeData>> = (_, node) => selectTodo(node.id);
+  const handleViewAll = useCallback(() => {
+    setShowReturnToCurrentTask(true);
+    void fitView({ padding: 0.15, duration: 280 });
+  }, [fitView]);
+  const handleReturnToCurrentTask = useCallback(() => {
+    const targetId = selectedId ?? todos[0]?.id;
+    if (targetId) focusTodoAtReadingZoom(targetId);
+    setShowReturnToCurrentTask(false);
+  }, [focusTodoAtReadingZoom, selectedId, todos]);
 
   return (
     <div className="relative h-full w-full flex-1 overflow-hidden bg-slate-50">
@@ -307,7 +391,7 @@ function FlowCanvas({
           onToggleCollapse={toggleCollapse}
         />
         <span className="hidden rounded-md border border-slate-200 bg-white/90 px-2.5 py-1.5 text-xs text-slate-500 shadow-2xs backdrop-blur-xs sm:inline-block">
-          拖到节点上可设为子任务 · 点击节点查看详情
+          {zoomPresentation.level === 'detail' ? '拖到节点上可设为子任务 · 点击节点查看详情' : '点击节点放大查看 · 大纲始终可读'}
         </span>
       </div>
       {locationFeedback && (
@@ -338,11 +422,10 @@ function FlowCanvas({
           onNodeDrag={handleNodeDrag}
           onNodeDragStop={handleNodeDragStop}
           onPaneClick={() => onSelectTodo(null)}
-          fitView
-          fitViewOptions={{ padding: 0.15 }}
-          minZoom={0.2}
+          onMove={(_event, viewport) => updateZoomPresentation(viewport.zoom)}
+          minZoom={0.08}
           maxZoom={1.8}
-          nodesDraggable
+          nodesDraggable={zoomPresentation.level === 'detail'}
           nodesConnectable={false}
           elementsSelectable
           panOnDrag
@@ -352,7 +435,17 @@ function FlowCanvas({
           proOptions={{ hideAttribution: true }}
         >
           <Background variant={BackgroundVariant.Dots} gap={24} size={1} color="#cbd5e1" />
-          <Controls showInteractive={false} position="bottom-left" />
+          <Controls showInteractive={false} showFitView={false} position="bottom-left" />
+          <Panel position="bottom-right" className="!bottom-4 !right-4">
+            <div role="group" aria-label="Flow 缩放控制" className="flex flex-wrap items-center justify-end gap-1.5 rounded-lg border border-slate-200 bg-white/95 p-1.5 text-xs shadow-sm backdrop-blur-sm">
+              <span aria-live="polite" className="min-w-11 px-1 text-center font-mono tabular-nums text-slate-600">{zoomPresentation.percent}%</span>
+              <button type="button" onClick={() => { void zoomTo(1, { duration: 220 }); }} className="rounded-md border border-slate-200 px-2 py-1.5 font-medium text-slate-700 hover:bg-slate-50">100%</button>
+              <button type="button" onClick={handleViewAll} className="rounded-md border border-slate-200 px-2 py-1.5 font-medium text-slate-700 hover:bg-slate-50">查看全图</button>
+              {showReturnToCurrentTask && (
+                <button type="button" onClick={handleReturnToCurrentTask} className="rounded-md bg-blue-600 px-2 py-1.5 font-medium text-white hover:bg-blue-700">返回当前任务</button>
+              )}
+            </div>
+          </Panel>
         </ReactFlow>
       )}
     </div>
