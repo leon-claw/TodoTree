@@ -1,16 +1,18 @@
-import { useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import {
   Background,
   BackgroundVariant,
   Controls,
-  NodeMouseHandler,
   ReactFlow,
   ReactFlowProvider,
   useEdgesState,
   useNodesState,
+  useReactFlow,
 } from '@xyflow/react';
+import type { Edge, Node, NodeMouseHandler, OnNodeDrag } from '@xyflow/react';
 import { Plus } from 'lucide-react';
-import { buildTreeFlowElements } from '../treeLayout';
+import { canMoveTodoUnderParent } from '../storage';
+import { buildTreeFlowElements, NODE_HEIGHT, NODE_WIDTH, TodoNodeData } from '../treeLayout';
 import { ComposerAnchor, Tag, Todo } from '../types';
 import { TodoNode } from './TodoNode';
 
@@ -20,25 +22,110 @@ interface GraphViewProps {
   selectedId: string | null;
   onSelectTodo: (id: string | null) => void;
   onAddRootTodo: () => void;
+  onMoveTodo: (todoId: string, parentId: string) => void;
   onRequestAdd: (parentId: string | null, targetLabel: string, anchor?: ComposerAnchor) => void;
   onRequestDelete: (id: string) => void;
 }
 
-function FlowCanvas({ todos, tags, selectedId, onSelectTodo, onAddRootTodo, onRequestAdd, onRequestDelete }: GraphViewProps) {
+function FlowCanvas({
+  todos,
+  tags,
+  selectedId,
+  onSelectTodo,
+  onAddRootTodo,
+  onMoveTodo,
+  onRequestAdd,
+  onRequestDelete,
+}: GraphViewProps) {
   const nodeTypes = useMemo(() => ({ todoNode: TodoNode }), []);
   const { nodes: calculatedNodes, edges: calculatedEdges } = useMemo(
     () => buildTreeFlowElements(todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete),
     [todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete],
   );
-  const [nodes, setNodes] = useNodesState(calculatedNodes);
+  const [nodes, setNodes, onNodesChange] = useNodesState(calculatedNodes);
   const [edges, setEdges] = useEdgesState(calculatedEdges);
+  const { getIntersectingNodes } = useReactFlow<Node<TodoNodeData>, Edge>();
 
   useEffect(() => {
     setNodes(calculatedNodes);
     setEdges(calculatedEdges);
   }, [calculatedNodes, calculatedEdges, setNodes, setEdges]);
 
-  const handleNodeClick: NodeMouseHandler = (_, node) => onSelectTodo(node.id);
+  const findDropTarget = useCallback((
+    draggedNode: Node<TodoNodeData>,
+    currentNodes: Node<TodoNodeData>[],
+  ): Node<TodoNodeData> | null => {
+    const centerX = draggedNode.position.x + NODE_WIDTH / 2;
+    const centerY = draggedNode.position.y + NODE_HEIGHT / 2;
+    const candidates = getIntersectingNodes(draggedNode, true, currentNodes)
+      .filter((candidate) => candidate.id !== draggedNode.id)
+      .filter((candidate) => (
+        centerX >= candidate.position.x
+        && centerX <= candidate.position.x + NODE_WIDTH
+        && centerY >= candidate.position.y
+        && centerY <= candidate.position.y + NODE_HEIGHT
+      ));
+
+    candidates.sort((first, second) => {
+      const firstDistance = Math.hypot(
+        centerX - (first.position.x + NODE_WIDTH / 2),
+        centerY - (first.position.y + NODE_HEIGHT / 2),
+      );
+      const secondDistance = Math.hypot(
+        centerX - (second.position.x + NODE_WIDTH / 2),
+        centerY - (second.position.y + NODE_HEIGHT / 2),
+      );
+      return firstDistance - secondDistance;
+    });
+    return candidates[0] ?? null;
+  }, [getIntersectingNodes]);
+
+  const setDropTargetState = useCallback((
+    targetId: string | null,
+    isValid: boolean,
+  ) => {
+    setNodes((currentNodes) => {
+      let changed = false;
+      const nextNodes = currentNodes.map((node) => {
+        const nextState: TodoNodeData['dropTargetState'] = node.id === targetId
+          ? isValid ? 'valid' : 'invalid'
+          : null;
+        if (node.data.dropTargetState === nextState) return node;
+        changed = true;
+        return { ...node, data: { ...node.data, dropTargetState: nextState } };
+      });
+      return changed ? nextNodes : currentNodes;
+    });
+  }, [setNodes]);
+
+  const handleNodeDrag: OnNodeDrag<Node<TodoNodeData>> = useCallback(
+    (_event, draggedNode, currentNodes) => {
+      const currentDraggedNode = currentNodes.find((node) => node.id === draggedNode.id) ?? draggedNode;
+      const target = findDropTarget(currentDraggedNode, currentNodes);
+      const isValid = target !== null
+        && canMoveTodoUnderParent(todos, currentDraggedNode.id, target.id);
+      setDropTargetState(target?.id ?? null, isValid);
+    },
+    [findDropTarget, setDropTargetState, todos],
+  );
+
+  const handleNodeDragStop: OnNodeDrag<Node<TodoNodeData>> = useCallback(
+    (_event, draggedNode, currentNodes) => {
+      const currentDraggedNode = currentNodes.find((node) => node.id === draggedNode.id) ?? draggedNode;
+      const target = findDropTarget(currentDraggedNode, currentNodes);
+      if (target && canMoveTodoUnderParent(todos, currentDraggedNode.id, target.id)) {
+        setDropTargetState(null, false);
+        onMoveTodo(currentDraggedNode.id, target.id);
+        return;
+      }
+
+      setDropTargetState(null, false);
+      setNodes(calculatedNodes);
+    },
+    [calculatedNodes, findDropTarget, onMoveTodo, setDropTargetState, setNodes, todos],
+  );
+
+  const handleNodeClick: NodeMouseHandler<Node<TodoNodeData>> = (_, node) => onSelectTodo(node.id);
 
   return (
     <div className="relative h-full w-full flex-1 overflow-hidden bg-slate-50">
@@ -52,7 +139,7 @@ function FlowCanvas({ todos, tags, selectedId, onSelectTodo, onAddRootTodo, onRe
           <span>新建根待办</span>
         </button>
         <span className="hidden rounded-md border border-slate-200 bg-white/90 px-2.5 py-1.5 text-xs text-slate-500 shadow-2xs backdrop-blur-xs sm:inline-block">
-          点击节点查看详情 · 节点旁可添加子项、同级任务或删除
+          拖到节点上可设为子任务 · 点击节点查看详情
         </span>
       </div>
       {nodes.length === 0 ? (
@@ -72,13 +159,16 @@ function FlowCanvas({ todos, tags, selectedId, onSelectTodo, onAddRootTodo, onRe
           nodes={nodes}
           edges={edges}
           nodeTypes={nodeTypes}
+          onNodesChange={onNodesChange}
           onNodeClick={handleNodeClick}
+          onNodeDrag={handleNodeDrag}
+          onNodeDragStop={handleNodeDragStop}
           onPaneClick={() => onSelectTodo(null)}
           fitView
           fitViewOptions={{ padding: 0.15 }}
           minZoom={0.2}
           maxZoom={1.8}
-          nodesDraggable={false}
+          nodesDraggable
           nodesConnectable={false}
           elementsSelectable
           panOnDrag

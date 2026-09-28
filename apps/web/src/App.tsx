@@ -15,6 +15,7 @@ import {
   findTodoById,
   isLeaf,
   loadAppData,
+  moveTodoUnderParent,
   saveAppData,
   toggleLeafCompletion,
   updateTodoInTree,
@@ -195,6 +196,13 @@ export default function App() {
     }));
   };
 
+  const handleMoveTodo = (todoId: string, parentId: string) => {
+    setAppData((prev) => {
+      const todos = moveTodoUnderParent(prev.todos, todoId, parentId);
+      return todos ? { ...prev, todos } : prev;
+    });
+  };
+
   const handleAddRootTodo = useCallback(() => {
     setComposerError(null);
     setComposerTarget({ parentId: null, label: '根任务列表' });
@@ -283,6 +291,7 @@ export default function App() {
               selectedId={selectedTodoId}
               onSelectTodo={handleSelectTodo}
               onAddRootTodo={handleAddRootTodo}
+              onMoveTodo={handleMoveTodo}
               onRequestAdd={handleRequestAdd}
               onRequestDelete={setDeleteTargetId}
             />

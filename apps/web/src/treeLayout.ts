@@ -17,6 +17,7 @@ export interface TodoNodeData {
   onRequestDelete: (id: string) => void;
   parentId: string | null;
   parentTitle: string | null;
+  dropTargetState: 'valid' | 'invalid' | null;
   [key: string]: unknown;
 }
 
@@ -78,6 +79,7 @@ export function buildTreeFlowElements(
         onRequestDelete,
         parentId,
         parentTitle,
+        dropTargetState: null,
       },
       selectable: true,
     });

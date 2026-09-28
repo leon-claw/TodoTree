@@ -20,8 +20,15 @@ function getComposerAnchor(button: HTMLButtonElement) {
 }
 
 export const TodoNode: React.FC<TodoNodeProps> = ({ data }) => {
-  const { todo, tagsMap, isSelected, onSelect, onRequestAdd, onRequestDelete, parentId, parentTitle } = data;
+  const { todo, tagsMap, isSelected, dropTargetState, onSelect, onRequestAdd, onRequestDelete, parentId, parentTitle } = data;
   const completedLeaf = todo.children.length === 0 && todo.completed;
+  const cardStateClass = dropTargetState === 'valid'
+    ? 'border-emerald-500 ring-4 ring-emerald-400/30 shadow-md'
+    : dropTargetState === 'invalid'
+      ? 'border-rose-500 ring-4 ring-rose-400/30 shadow-md'
+      : isSelected
+        ? 'border-blue-600 ring-2 ring-blue-500/20'
+        : 'border-slate-200 hover:border-slate-300 hover:shadow-sm';
   const requestAddChild = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     onRequestAdd(todo.id, todo.title || '未命名待办', getComposerAnchor(event.currentTarget));
@@ -52,9 +59,7 @@ export const TodoNode: React.FC<TodoNodeProps> = ({ data }) => {
             onSelect(todo.id);
           }
         }}
-        className={`absolute inset-0 box-border flex cursor-pointer select-none flex-col overflow-hidden rounded-lg border bg-white p-3 text-left shadow-xs transition-all ${
-          isSelected ? 'border-blue-600 ring-2 ring-blue-500/20' : 'border-slate-200 hover:border-slate-300 hover:shadow-sm'
-        }`}
+        className={`absolute inset-0 box-border flex cursor-grab select-none flex-col overflow-hidden rounded-lg border bg-white p-3 text-left shadow-xs transition-all active:cursor-grabbing ${cardStateClass}`}
       >
         <Handle type="target" position={Position.Left} className="!h-2 !w-2 !border !border-white !bg-slate-400" />
         <Handle type="source" position={Position.Right} className="!h-2 !w-2 !border !border-white !bg-slate-400" />
@@ -106,7 +111,7 @@ export const TodoNode: React.FC<TodoNodeProps> = ({ data }) => {
       </div>
 
       <div
-        className={`absolute -top-9 left-0 z-20 flex items-center gap-1 rounded-lg border border-slate-200 bg-white p-1 shadow-sm transition-opacity ${
+        className={`nodrag absolute -top-9 left-0 z-20 flex items-center gap-1 rounded-lg border border-slate-200 bg-white p-1 shadow-sm transition-opacity ${
           isSelected ? 'opacity-100' : 'pointer-events-none opacity-0 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100'
         }`}
       >

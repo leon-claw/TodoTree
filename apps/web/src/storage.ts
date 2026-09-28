@@ -160,6 +160,48 @@ export function findTodoAndParent(
   return null;
 }
 
+export function canMoveTodoUnderParent(todos: Todo[], todoId: string, parentId: string): boolean {
+  if (todoId === parentId) return false;
+  const source = findTodoById(todos, todoId);
+  const target = findTodoById(todos, parentId);
+  const sourceLocation = findTodoAndParent(todos, todoId);
+  if (!source || !target || !sourceLocation) return false;
+  if (sourceLocation.parent?.id === parentId) return false;
+  if (findTodoById(source.children, parentId)) return false;
+  if (isLeaf(target) && target.completed) return false;
+  return true;
+}
+
+export function moveTodoUnderParent(todos: Todo[], todoId: string, parentId: string): Todo[] | null {
+  if (!canMoveTodoUnderParent(todos, todoId, parentId)) return null;
+  const movedTodo = findTodoById(todos, todoId);
+  if (!movedTodo) return null;
+
+  function detach(items: Todo[]): Todo[] {
+    return items.flatMap((todo) => {
+      if (todo.id === todoId) return [];
+      if (todo.children.length === 0) return [todo];
+
+      const children = detach(todo.children);
+      const changed = children.length !== todo.children.length
+        || children.some((child, index) => child !== todo.children[index]);
+      if (!changed) return [todo];
+      return [{
+        ...todo,
+        children,
+        completed: children.length === 0 ? false : todo.completed,
+      }];
+    });
+  }
+
+  const withoutMovedTodo = detach(todos);
+  return updateTodoInTree(withoutMovedTodo, parentId, (parent) => ({
+    ...parent,
+    completed: false,
+    children: [...parent.children, movedTodo],
+  }));
+}
+
 export function updateTodoInTree(todos: Todo[], id: string, updater: (todo: Todo) => Todo): Todo[] {
   return todos.map((todo) => {
     if (todo.id === id) return updater({ ...todo });

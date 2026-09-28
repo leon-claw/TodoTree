@@ -2,7 +2,7 @@
   "0": "App.tsx",
   "1": "web/package.json",
   "2": "TodoTree 产品体验与整改建议",
-  "3": "types.ts",
+  "3": "GraphView.tsx",
   "4": "compilerOptions",
   "5": "devDependencies",
   "6": "package.json",
@@ -15,5 +15,6 @@
   "13": "TodoTree 完整功能实现计划",
   "14": "SettingsPage.tsx",
   "15": "桌面任务拆分与执行流程整改实施计划",
-  "16": "导航、详情布局与标签页整改计划"
+  "16": "导航、详情布局与标签页整改计划",
+  "17": "Navbar.tsx"
 }
