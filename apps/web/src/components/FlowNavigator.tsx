@@ -1,6 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CheckCircle2, Circle, Search, X } from 'lucide-react';
-import { searchFlowTodos } from '../flowNavigation';
+import type { KeyboardEvent as ReactKeyboardEvent } from 'react';
+import {
+  CheckCircle2,
+  ChevronDown,
+  ChevronRight,
+  Circle,
+  ListTree,
+  Search,
+  X,
+} from 'lucide-react';
+import { getAncestorIds, searchFlowTodos } from '../flowNavigation';
 import type { FlowEntry } from '../flowNavigation';
 import type { Tag } from '../types';
 
@@ -9,17 +18,32 @@ interface FlowNavigatorProps {
   tags: Tag[];
   selectedId: string | null;
   active: boolean;
+  collapsedIds: ReadonlySet<string>;
   onLocate: (id: string) => void;
+  onToggleCollapse: (id: string) => void;
 }
 
-export function FlowNavigator({ entries, tags, selectedId, active, onLocate }: FlowNavigatorProps) {
+export function FlowNavigator({
+  entries,
+  tags,
+  selectedId,
+  active,
+  collapsedIds,
+  onLocate,
+  onToggleCollapse,
+}: FlowNavigatorProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOutlineOpen, setIsOutlineOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
   const rootRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const resultRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const results = useMemo(() => searchFlowTodos(entries, tags, query), [entries, tags, query]);
+  const selectedAncestors = useMemo(
+    () => new Set(selectedId ? getAncestorIds(entries, selectedId) : []),
+    [entries, selectedId],
+  );
 
   useEffect(() => {
     if (isOpen) {
@@ -34,29 +58,33 @@ export function FlowNavigator({ entries, tags, selectedId, active, onLocate }: F
   }, [results.length]);
 
   useEffect(() => {
-    if (!isOpen || !active) return;
+    if ((!isOpen && !isOutlineOpen) || !active) return;
     const closeOnOutsidePointer = (event: PointerEvent) => {
-      if (event.target instanceof Node && !rootRef.current?.contains(event.target)) setIsOpen(false);
+      if (event.target instanceof Node && !rootRef.current?.contains(event.target)) {
+        setIsOpen(false);
+        setIsOutlineOpen(false);
+      }
     };
     window.addEventListener('pointerdown', closeOnOutsidePointer);
     return () => window.removeEventListener('pointerdown', closeOnOutsidePointer);
-  }, [active, isOpen]);
+  }, [active, isOpen, isOutlineOpen]);
 
   useEffect(() => {
     if (!active) return;
     const handleGlobalShortcut = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
         event.preventDefault();
+        setIsOutlineOpen(false);
         setQuery('');
         setIsOpen(true);
-      } else if (isOpen && event.key === 'Escape' && !event.isComposing && event.keyCode !== 229) {
-        event.preventDefault();
-        setIsOpen(false);
+      } else if (event.key === 'Escape' && !event.isComposing && event.keyCode !== 229) {
+        if (isOpen) setIsOpen(false);
+        else if (isOutlineOpen) setIsOutlineOpen(false);
       }
     };
     window.addEventListener('keydown', handleGlobalShortcut);
     return () => window.removeEventListener('keydown', handleGlobalShortcut);
-  }, [active, isOpen]);
+  }, [active, isOpen, isOutlineOpen]);
 
   useEffect(() => {
     if (isOpen) resultRefs.current[activeIndex]?.scrollIntoView({ block: 'nearest' });
@@ -68,7 +96,7 @@ export function FlowNavigator({ entries, tags, selectedId, active, onLocate }: F
     onLocate(id);
   };
 
-  const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleInputKeyDown = (event: ReactKeyboardEvent<HTMLInputElement>) => {
     if (event.nativeEvent.isComposing || event.keyCode === 229) return;
     if (event.key === 'ArrowDown' && results.length > 0) {
       event.preventDefault();
@@ -86,10 +114,11 @@ export function FlowNavigator({ entries, tags, selectedId, active, onLocate }: F
   };
 
   return (
-    <div ref={rootRef} className="relative">
+    <div ref={rootRef} className="relative flex items-center gap-1.5">
       <button
         type="button"
         onClick={() => {
+          setIsOutlineOpen(false);
           setQuery('');
           setIsOpen(true);
         }}
@@ -99,6 +128,19 @@ export function FlowNavigator({ entries, tags, selectedId, active, onLocate }: F
         <Search className="h-4 w-4" aria-hidden="true" />
         <span>查找任务</span>
         <kbd className="hidden rounded border border-slate-200 px-1 py-0.5 text-[10px] text-slate-400 lg:inline">⌘K</kbd>
+      </button>
+      <button
+        type="button"
+        aria-expanded={isOutlineOpen}
+        aria-controls="flow-outline"
+        onClick={() => {
+          setIsOpen(false);
+          setIsOutlineOpen((open) => !open);
+        }}
+        className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 shadow-sm transition-colors hover:bg-slate-50 sm:text-sm"
+      >
+        <ListTree className="h-4 w-4" aria-hidden="true" />
+        <span>大纲</span>
       </button>
 
       {isOpen && (
@@ -171,6 +213,74 @@ export function FlowNavigator({ entries, tags, selectedId, active, onLocate }: F
           <div className="flex items-center justify-between border-t border-slate-100 px-3 py-2 text-[11px] text-slate-400">
             <span>↑↓ 选择 · Enter 定位 · Esc 关闭</span>
             {selectedId && <span>当前任务已标记</span>}
+          </div>
+        </section>
+      )}
+
+      {isOutlineOpen && (
+        <section
+          id="flow-outline"
+          aria-label="任务大纲"
+          className="absolute left-0 top-full z-30 mt-2 w-[min(22rem,calc(100vw-2rem))] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl"
+        >
+          <div className="flex items-center justify-between border-b border-slate-100 px-3 py-2.5">
+            <div>
+              <h3 className="text-sm font-semibold text-slate-800">任务大纲</h3>
+              <p className="text-[11px] text-slate-400">{entries.length} 项 · 点击任务定位</p>
+            </div>
+            <button
+              type="button"
+              aria-label="关闭大纲"
+              onClick={() => setIsOutlineOpen(false)}
+              className="rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
+            ><X className="h-4 w-4" aria-hidden="true" /></button>
+          </div>
+          <div className="max-h-[min(65vh,34rem)] overflow-y-auto p-1.5">
+            {entries.length === 0 ? (
+              <p className="px-3 py-6 text-center text-sm text-slate-500">暂无任务</p>
+            ) : entries.map((entry) => {
+              const isSelected = entry.id === selectedId;
+              const isAncestor = selectedAncestors.has(entry.id);
+              const isCollapsed = collapsedIds.has(entry.id);
+              return (
+                <div
+                  key={entry.id}
+                  className={`flex min-w-0 items-center gap-1 rounded-md pr-1 ${
+                    isSelected ? 'bg-blue-50' : isAncestor ? 'bg-slate-50' : 'hover:bg-slate-50'
+                  }`}
+                  style={{ paddingLeft: `${6 + Math.min(entry.depth, 10) * 14}px` }}
+                >
+                  {entry.descendantCount > 0 ? (
+                    <button
+                      type="button"
+                      onClick={() => onToggleCollapse(entry.id)}
+                      aria-label={`${isCollapsed ? '展开' : '折叠'}：${entry.title || '未命名待办'}`}
+                      aria-expanded={!isCollapsed}
+                      title={isCollapsed ? '展开分支' : '折叠分支'}
+                      className="shrink-0 rounded p-1 text-slate-400 hover:bg-white hover:text-slate-700"
+                    >
+                      {isCollapsed
+                        ? <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+                        : <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />}
+                    </button>
+                  ) : <span aria-hidden="true" className="w-6 shrink-0" />}
+                  <button
+                    type="button"
+                    onClick={() => onLocate(entry.id)}
+                    aria-current={isSelected ? 'location' : undefined}
+                    className={`flex min-w-0 flex-1 items-center gap-1.5 rounded py-1.5 text-left text-xs ${
+                      isSelected ? 'font-semibold text-blue-800' : isAncestor ? 'font-medium text-blue-700' : 'text-slate-700'
+                    }`}
+                    title={entry.path.map(({ title }) => title).join(' › ')}
+                  >
+                    <span className="min-w-0 flex-1 truncate">{entry.title || '未命名待办'}</span>
+                    <span className="shrink-0 text-[10px] text-slate-400">
+                      {entry.isLeaf ? (entry.completed ? '完成' : '叶子') : '父任务'}
+                    </span>
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </section>
       )}

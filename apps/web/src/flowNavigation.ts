@@ -108,3 +108,14 @@ export function getAncestorIds(entries: FlowEntry[], id: string): string[] {
   const entry = entries.find((candidate) => candidate.id === id);
   return entry ? entry.path.slice(0, -1).map(({ id: ancestorId }) => ancestorId) : [];
 }
+
+/** Expand every folded ancestor needed to reveal a target, preserving unrelated folds. */
+export function expandFlowPath(
+  entries: FlowEntry[],
+  id: string,
+  collapsedIds: ReadonlySet<string>,
+): Set<string> {
+  const expanded = new Set(collapsedIds);
+  for (const ancestorId of getAncestorIds(entries, id)) expanded.delete(ancestorId);
+  return expanded;
+}

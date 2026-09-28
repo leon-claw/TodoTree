@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Tag, Todo } from './types';
-import { getAncestorIds, indexFlowTodos, searchFlowTodos } from './flowNavigation';
+import { expandFlowPath, getAncestorIds, indexFlowTodos, searchFlowTodos } from './flowNavigation';
 
 const todos: Todo[] = [
   {
@@ -80,6 +80,14 @@ describe('indexFlowTodos', () => {
     const before = JSON.stringify(todos);
     indexFlowTodos(todos);
     expect(JSON.stringify(todos)).toBe(before);
+  });
+
+  it('expands folded ancestors for a target without changing unrelated folds', () => {
+    const collapsed = new Set(['root-1', 'parent', 'root-2']);
+    const expanded = expandFlowPath(indexFlowTodos(todos), 'leaf-open', collapsed);
+
+    expect([...expanded]).toEqual(['root-2']);
+    expect([...collapsed]).toEqual(['root-1', 'parent', 'root-2']);
   });
 });
 

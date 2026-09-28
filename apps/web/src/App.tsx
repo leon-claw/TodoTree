@@ -61,6 +61,7 @@ export default function App() {
   const [composerError, setComposerError] = useState<string | null>(null);
   const [deleteTargetId, setDeleteTargetId] = useState<string | null>(null);
   const [locationRequest, setLocationRequest] = useState<FlowLocationRequest | null>(null);
+  const [treeRevision, setTreeRevision] = useState(0);
   const locationSequence = useRef(0);
 
   latestAppData.current = appData;
@@ -300,6 +301,7 @@ export default function App() {
 
   const handleImportAppData = (imported: AppData) => {
     setAppData(imported);
+    setTreeRevision((revision) => revision + 1);
   };
 
   const detailReturnRoute = (window.history.state as AppHistoryState | null)?.treeTodoParentRoute;
@@ -353,6 +355,7 @@ export default function App() {
               onLocateTodo={handleLocateTodo}
               onLocationHandled={handleLocationHandled}
               onLocationMissing={handleLocationMissing}
+              treeRevision={treeRevision}
             />
           )}
         </div>

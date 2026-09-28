@@ -1,6 +1,6 @@
 import React from 'react';
 import { Handle, Position } from '@xyflow/react';
-import { Calendar, Plus, Trash2 } from 'lucide-react';
+import { Calendar, ChevronDown, ChevronRight, Plus, Trash2 } from 'lucide-react';
 import { TodoNodeData } from '../treeLayout';
 
 interface TodoNodeProps {
@@ -20,7 +20,7 @@ function getComposerAnchor(button: HTMLButtonElement) {
 }
 
 export const TodoNode: React.FC<TodoNodeProps> = ({ data }) => {
-  const { todo, tagsMap, isSelected, isLocationHighlighted, dropTargetState, onSelect, onRequestAdd, onRequestDelete, parentId, parentTitle } = data;
+  const { todo, tagsMap, isSelected, isLocationHighlighted, isCollapsed, descendantCount, incompleteLeafCount, dropTargetState, onSelect, onRequestAdd, onRequestDelete, onToggleCollapse, parentId, parentTitle } = data;
   const completedLeaf = todo.children.length === 0 && todo.completed;
   const cardStateClass = dropTargetState === 'valid'
     ? 'border-emerald-500 ring-4 ring-emerald-400/30 shadow-md'
@@ -64,12 +64,30 @@ export const TodoNode: React.FC<TodoNodeProps> = ({ data }) => {
         <Handle type="target" position={Position.Left} className="!h-2 !w-2 !border !border-white !bg-slate-400" />
         <Handle type="source" position={Position.Right} className="!h-2 !w-2 !border !border-white !bg-slate-400" />
 
-        <div className="h-[38px] min-h-[38px] overflow-hidden">
-          <h4 className="line-clamp-2 break-words text-sm font-medium leading-snug text-slate-900">
+        <div className="flex h-[38px] min-h-[38px] items-start gap-1 overflow-hidden">
+          <h4 className="min-w-0 flex-1 line-clamp-2 break-words text-sm font-medium leading-snug text-slate-900">
             {todo.title || '未命名待办'}
           </h4>
+          {todo.children.length > 0 && (
+            <button
+              type="button"
+              className="nodrag nopan mt-0.5 shrink-0 rounded p-0.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700"
+              onClick={(event) => { event.stopPropagation(); onToggleCollapse(todo.id); }}
+              aria-label={`${isCollapsed ? '展开' : '折叠'}：${todo.title || '未命名待办'}`}
+              aria-expanded={!isCollapsed}
+              title={isCollapsed ? '展开子任务' : '折叠子任务'}
+            >
+              {isCollapsed
+                ? <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                : <ChevronDown className="h-4 w-4" aria-hidden="true" />}
+            </button>
+          )}
         </div>
-        {todo.note && (
+        {isCollapsed ? (
+          <p className="mt-1 h-4 min-h-4 overflow-hidden text-[11px] text-slate-500">
+            {descendantCount} 个后代已折叠 · {incompleteLeafCount} 个未完成叶子
+          </p>
+        ) : todo.note && (
           <p className="mt-1 h-4 min-h-4 overflow-hidden text-xs text-slate-500 line-clamp-1">
             {todo.note}
           </p>

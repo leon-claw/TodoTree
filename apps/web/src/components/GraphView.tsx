@@ -12,7 +12,7 @@ import {
 import type { Edge, Node, NodeMouseHandler, OnNodeDrag } from '@xyflow/react';
 import { Plus } from 'lucide-react';
 import { FlowNavigator } from './FlowNavigator';
-import { indexFlowTodos } from '../flowNavigation';
+import { expandFlowPath, getAncestorIds, indexFlowTodos } from '../flowNavigation';
 import type { FlowLocationRequest } from '../flowNavigation';
 import { canMoveTodoUnderParent } from '../storage';
 import { buildTreeFlowElements, NODE_HEIGHT, NODE_WIDTH, TodoNodeData } from '../treeLayout';
@@ -33,6 +33,7 @@ interface GraphViewProps {
   onLocateTodo: (id: string) => void;
   onLocationHandled: (sequence: number) => void;
   onLocationMissing: (id: string) => void;
+  treeRevision: number;
 }
 
 function FlowCanvas({
@@ -49,16 +50,38 @@ function FlowCanvas({
   onLocateTodo,
   onLocationHandled,
   onLocationMissing,
+  treeRevision,
 }: GraphViewProps) {
   const nodeTypes = useMemo(() => ({ todoNode: TodoNode }), []);
+  const [collapsedIds, setCollapsedIds] = useState<Set<string>>(() => new Set());
+  const previousTreeRevision = useRef(treeRevision);
   const [locationHighlightId, setLocationHighlightId] = useState<string | null>(null);
   const [locationFeedback, setLocationFeedback] = useState<string | null>(null);
   const locationSequenceRef = useRef<number | null>(null);
   const locationTimerRef = useRef<number | null>(null);
   const flowEntries = useMemo(() => indexFlowTodos(todos), [todos]);
+  const toggleCollapse = useCallback((id: string) => {
+    if (collapsedIds.has(id)) {
+      setCollapsedIds((current) => {
+        const expanded = new Set(current);
+        expanded.delete(id);
+        return expanded;
+      });
+      return;
+    }
+    setCollapsedIds((current) => new Set(current).add(id));
+    if (selectedId && getAncestorIds(flowEntries, selectedId).includes(id)) onLocateTodo(id);
+  }, [collapsedIds, flowEntries, onLocateTodo, selectedId]);
+  const revealPathAndLocate = useCallback((id: string) => {
+    setCollapsedIds((current) => expandFlowPath(flowEntries, id, current));
+    onLocateTodo(id);
+  }, [flowEntries, onLocateTodo]);
   const { nodes: calculatedNodes, edges: calculatedEdges } = useMemo(
-    () => buildTreeFlowElements(todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete, locationHighlightId),
-    [todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete, locationHighlightId],
+    () => buildTreeFlowElements(
+      todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete,
+      locationHighlightId, collapsedIds, toggleCollapse,
+    ),
+    [todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete, locationHighlightId, collapsedIds, toggleCollapse],
   );
   const [nodes, setNodes, onNodesChange] = useNodesState(calculatedNodes);
   const [edges, setEdges] = useEdgesState(calculatedEdges);
@@ -71,6 +94,12 @@ function FlowCanvas({
   }, [calculatedNodes, calculatedEdges, setNodes, setEdges]);
 
   useEffect(() => {
+    if (previousTreeRevision.current === treeRevision) return;
+    previousTreeRevision.current = treeRevision;
+    setCollapsedIds(new Set());
+  }, [treeRevision]);
+
+  useEffect(() => {
     if (!locationRequest || locationSequenceRef.current === locationRequest.sequence) return;
     if (!flowEntries.some((entry) => entry.id === locationRequest.id)) {
       locationSequenceRef.current = locationRequest.sequence;
@@ -79,6 +108,12 @@ function FlowCanvas({
       locationTimerRef.current = window.setTimeout(() => setLocationFeedback(null), 3200);
       onLocationMissing(locationRequest.id);
       onLocationHandled(locationRequest.sequence);
+      return;
+    }
+    const collapsedAncestors = getAncestorIds(flowEntries, locationRequest.id)
+      .filter((ancestorId) => collapsedIds.has(ancestorId));
+    if (collapsedAncestors.length > 0) {
+      setCollapsedIds((current) => expandFlowPath(flowEntries, locationRequest.id, current));
       return;
     }
     const target = calculatedNodes.find((node) => node.id === locationRequest.id);
@@ -104,7 +139,7 @@ function FlowCanvas({
       window.cancelAnimationFrame(firstFrame);
       window.cancelAnimationFrame(secondFrame);
     };
-  }, [calculatedNodes, flowEntries, getZoom, locationRequest, onLocationHandled, onLocationMissing, setCenter]);
+  }, [calculatedNodes, collapsedIds, flowEntries, getZoom, locationRequest, onLocationHandled, onLocationMissing, setCenter]);
 
   useEffect(() => () => {
     if (locationTimerRef.current !== null) window.clearTimeout(locationTimerRef.current);
@@ -262,7 +297,15 @@ function FlowCanvas({
           <Plus className="h-4 w-4" aria-hidden="true" />
           <span>新建根待办</span>
         </button>
-        <FlowNavigator entries={flowEntries} tags={tags} selectedId={selectedId} active={active} onLocate={onLocateTodo} />
+        <FlowNavigator
+          entries={flowEntries}
+          tags={tags}
+          selectedId={selectedId}
+          active={active}
+          collapsedIds={collapsedIds}
+          onLocate={revealPathAndLocate}
+          onToggleCollapse={toggleCollapse}
+        />
         <span className="hidden rounded-md border border-slate-200 bg-white/90 px-2.5 py-1.5 text-xs text-slate-500 shadow-2xs backdrop-blur-xs sm:inline-block">
           拖到节点上可设为子任务 · 点击节点查看详情
         </span>

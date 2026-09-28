@@ -1,5 +1,6 @@
 import { Edge, Node } from '@xyflow/react';
 import { hierarchy, tree } from 'd3-hierarchy';
+import { indexFlowTodos } from './flowNavigation';
 import { ComposerAnchor, Tag, Todo } from './types';
 
 export interface HierarchyDatum {
@@ -13,9 +14,13 @@ export interface TodoNodeData {
   tagsMap: Record<string, Tag>;
   isSelected: boolean;
   isLocationHighlighted: boolean;
+  isCollapsed: boolean;
+  descendantCount: number;
+  incompleteLeafCount: number;
   onSelect: (id: string) => void;
   onRequestAdd: (parentId: string | null, targetLabel: string, anchor?: ComposerAnchor) => void;
   onRequestDelete: (id: string) => void;
+  onToggleCollapse: (id: string) => void;
   parentId: string | null;
   parentTitle: string | null;
   dropTargetState: 'valid' | 'invalid' | null;
@@ -35,17 +40,22 @@ export function buildTreeFlowElements(
   onRequestAdd: (parentId: string | null, targetLabel: string, anchor?: ComposerAnchor) => void,
   onRequestDelete: (id: string) => void,
   locationHighlightId: string | null = null,
+  collapsedIds: ReadonlySet<string> = new Set(),
+  onToggleCollapse: (id: string) => void = () => {},
 ): { nodes: Node<TodoNodeData>[]; edges: Edge[] } {
   if (rootTodos.length === 0) return { nodes: [], edges: [] };
 
   const tagsMap: Record<string, Tag> = {};
   for (const tag of tags) tagsMap[tag.id] = tag;
+  const entriesById = new Map(indexFlowTodos(rootTodos).map((entry) => [entry.id, entry]));
 
   function toHierarchy(todo: Todo): HierarchyDatum {
     return {
       id: todo.id,
       todo,
-      children: todo.children.length > 0 ? todo.children.map(toHierarchy) : undefined,
+      children: todo.children.length > 0 && !collapsedIds.has(todo.id)
+        ? todo.children.map(toHierarchy)
+        : undefined,
     };
   }
 
@@ -65,6 +75,7 @@ export function buildTreeFlowElements(
     const todo = entry.data.todo;
     const parentId = entry.parent?.data.id === '__virtual_root__' ? null : entry.parent?.data.todo.id ?? null;
     const parentTitle = entry.parent?.data.id === '__virtual_root__' ? null : entry.parent?.data.todo.title ?? null;
+    const flowEntry = entriesById.get(todo.id);
     nodes.push({
       id: todo.id,
       type: 'todoNode',
@@ -77,6 +88,10 @@ export function buildTreeFlowElements(
         tagsMap,
         isSelected: selectedId === todo.id,
         isLocationHighlighted: locationHighlightId === todo.id,
+        isCollapsed: collapsedIds.has(todo.id),
+        descendantCount: flowEntry?.descendantCount ?? 0,
+        incompleteLeafCount: flowEntry?.incompleteLeafCount ?? 0,
+        onToggleCollapse,
         onSelect,
         onRequestAdd,
         onRequestDelete,
