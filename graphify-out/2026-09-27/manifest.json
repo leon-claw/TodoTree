@@ -1,0 +1,127 @@
+{
+  ".codex/hooks.json": {
+    "mtime": 1790494077.2582746,
+    "ast_hash": "c26e90eb881cf700ea375df59653513b",
+    "semantic_hash": "c26e90eb881cf700ea375df59653513b"
+  },
+  "apps/web/package.json": {
+    "mtime": 1790493843.5635521,
+    "ast_hash": "ee2cc64c3977f35c168d0d1b446799a8",
+    "semantic_hash": "ee2cc64c3977f35c168d0d1b446799a8"
+  },
+  "apps/web/src/App.tsx": {
+    "mtime": 1790494388.946439,
+    "ast_hash": "6da46669909ae2618662dc20992b05a7",
+    "semantic_hash": "6da46669909ae2618662dc20992b05a7"
+  },
+  "apps/web/src/components/ConfirmModal.tsx": {
+    "mtime": 1790493930.8171766,
+    "ast_hash": "0e5c7d368586859bccfffcc97dc51587",
+    "semantic_hash": "0e5c7d368586859bccfffcc97dc51587"
+  },
+  "apps/web/src/components/GraphView.tsx": {
+    "mtime": 1790493827.6713612,
+    "ast_hash": "3f9145e619f0ee940fa06d7fd3f3be6e",
+    "semantic_hash": "3f9145e619f0ee940fa06d7fd3f3be6e"
+  },
+  "apps/web/src/components/ListView.tsx": {
+    "mtime": 1790493888.6507397,
+    "ast_hash": "1ce9d178237b8aab70aeecef39000346",
+    "semantic_hash": "1ce9d178237b8aab70aeecef39000346"
+  },
+  "apps/web/src/components/Navbar.tsx": {
+    "mtime": 1790493827.669669,
+    "ast_hash": "a4434bfd26ca83a39b36cc033baf9756",
+    "semantic_hash": "a4434bfd26ca83a39b36cc033baf9756"
+  },
+  "apps/web/src/components/SettingsPage.tsx": {
+    "mtime": 1790493888.8557866,
+    "ast_hash": "56c7714809f8f5dafd6c63ab158b80b2",
+    "semantic_hash": "56c7714809f8f5dafd6c63ab158b80b2"
+  },
+  "apps/web/src/components/SettingsPanel.tsx": {
+    "mtime": 1790493930.7379632,
+    "ast_hash": "8faea21874a333164e7164b026aa0944",
+    "semantic_hash": "8faea21874a333164e7164b026aa0944"
+  },
+  "apps/web/src/components/TodoNode.tsx": {
+    "mtime": 1790493888.719314,
+    "ast_hash": "e4f23539f568aa52c51e83e74ee7ee72",
+    "semantic_hash": "e4f23539f568aa52c51e83e74ee7ee72"
+  },
+  "apps/web/src/main.tsx": {
+    "mtime": 1790493827.6676965,
+    "ast_hash": "3505bd2108c5b3bd8ad908ff83b48ace",
+    "semantic_hash": "3505bd2108c5b3bd8ad908ff83b48ace"
+  },
+  "apps/web/src/storage.ts": {
+    "mtime": 1790494388.87926,
+    "ast_hash": "bfa74272572e1019f6886d2c3e530882",
+    "semantic_hash": "bfa74272572e1019f6886d2c3e530882"
+  },
+  "apps/web/src/treeLayout.ts": {
+    "mtime": 1790493827.6723351,
+    "ast_hash": "e6aca6418d967c6c18097ff3361a8d2b",
+    "semantic_hash": "e6aca6418d967c6c18097ff3361a8d2b"
+  },
+  "apps/web/src/types.ts": {
+    "mtime": 1790493869.5009637,
+    "ast_hash": "17c78464f39e04b7aad8c2c05a3d59d0",
+    "semantic_hash": "17c78464f39e04b7aad8c2c05a3d59d0"
+  },
+  "apps/web/tsconfig.json": {
+    "mtime": 1790494195.5054607,
+    "ast_hash": "1d5db79447d5e0f13dede12268e959dc",
+    "semantic_hash": "1d5db79447d5e0f13dede12268e959dc"
+  },
+  "apps/web/vite.config.ts": {
+    "mtime": 1790494195.44423,
+    "ast_hash": "35e0ad93adcce9358d280f5f99b08138",
+    "semantic_hash": "35e0ad93adcce9358d280f5f99b08138"
+  },
+  "package.json": {
+    "mtime": 1790494287.1872065,
+    "ast_hash": "03d863a608e010da7fb9c9d50f2eb00c",
+    "semantic_hash": "03d863a608e010da7fb9c9d50f2eb00c"
+  },
+  ".agents/skills/new-project-bootstrap/SKILL.md": {
+    "mtime": 1790489718.5034158,
+    "ast_hash": "671bc42072d2f7ebe3a90901d44b6dd4",
+    "semantic_hash": "671bc42072d2f7ebe3a90901d44b6dd4"
+  },
+  ".agents/skills/new-project-bootstrap/agents/openai.yaml": {
+    "mtime": 1790488952.652343,
+    "ast_hash": "441ed5f1bd77108d69423770200f716d",
+    "semantic_hash": "441ed5f1bd77108d69423770200f716d"
+  },
+  "AGENTS.md": {
+    "mtime": 1790494077.2578285,
+    "ast_hash": "b61e2de5bb3bb2956ea005787c924cb3",
+    "semantic_hash": "b61e2de5bb3bb2956ea005787c924cb3"
+  },
+  "DESIGN.md": {
+    "mtime": 1790494571.5917833,
+    "ast_hash": "2641a1a18164e9a216844d3fa5ce8a9a",
+    "semantic_hash": "2641a1a18164e9a216844d3fa5ce8a9a"
+  },
+  "README.md": {
+    "mtime": 1790494287.2500653,
+    "ast_hash": "b3c4908d84a6892e3c5807826f842b60",
+    "semantic_hash": "b3c4908d84a6892e3c5807826f842b60"
+  },
+  "apps/web/index.html": {
+    "mtime": 1790493827.6653767,
+    "ast_hash": "aa20893e73bf173d33000333eab56d42",
+    "semantic_hash": "aa20893e73bf173d33000333eab56d42"
+  },
+  "docs/superpowers/specs/2026-09-27-recursive-todo-design.md": {
+    "mtime": 1790492517.7563815,
+    "ast_hash": "ca5f28c7a9b30dc0eb2278c0a2175f10",
+    "semantic_hash": "ca5f28c7a9b30dc0eb2278c0a2175f10"
+  },
+  "pnpm-workspace.yaml": {
+    "mtime": 1790493955.360148,
+    "ast_hash": "ebf7e80f38986ec19eb016d577ff518c",
+    "semantic_hash": "ebf7e80f38986ec19eb016d577ff518c"
+  }
+}

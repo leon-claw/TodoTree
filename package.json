@@ -1,0 +1,13 @@
+{
+  "name": "tree-todo",
+  "private": true,
+  "packageManager": "pnpm@10.16.1",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @tree-todo/web dev",
+    "build": "pnpm --filter @tree-todo/web build",
+    "preview": "pnpm --filter @tree-todo/web preview"
+  }
+}

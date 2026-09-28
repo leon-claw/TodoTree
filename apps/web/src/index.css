@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+/* App base reset */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+:where(button, a, input, textarea, [role="button"]):focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Hide watermark if present */
+.react-flow__attribution {
+  display: none !important;
+}
+
+/* React Flow customizations */
+.react-flow__handle {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background-color: #64748b !important;
+  border: 2px solid #ffffff !important;
+}
+
+.react-flow__edge-path {
+  stroke: #94a3b8 !important;
+  stroke-width: 2 !important;
+}
