@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GraphView } from './components/GraphView';
+import { indexFlowTodos } from './flowNavigation';
 import type { FlowLocationRequest } from './flowNavigation';
 import { ListView } from './components/ListView';
 import { Navbar } from './components/Navbar';
@@ -55,6 +56,7 @@ export default function App() {
   const activeTab = tabForRoute(route);
   const selectedTodoId = todoIdForRoute(route);
   const [hasVisitedGraph, setHasVisitedGraph] = useState(false);
+  const [hasVisitedList, setHasVisitedList] = useState(false);
   const [composerTarget, setComposerTarget] = useState<{ parentId: string | null; label: string; anchor?: ComposerAnchor } | null>(null);
   const [composerError, setComposerError] = useState<string | null>(null);
   const [deleteTargetId, setDeleteTargetId] = useState<string | null>(null);
@@ -109,6 +111,7 @@ export default function App() {
 
   useEffect(() => {
     if (activeTab === 'graph') setHasVisitedGraph(true);
+    if (activeTab === 'list') setHasVisitedList(true);
   }, [activeTab]);
 
   const handleTabChange = (tab: ActiveTab) => {
@@ -143,9 +146,9 @@ export default function App() {
       if (currentTodoId === null) return;
       const parentRoute = baseRouteFor(currentRoute);
       const state = window.history.state as AppHistoryState | null;
-      if (state?.treeTodoRoute === currentRoute && state.treeTodoParentRoute === parentRoute && state.treeTodoCanReturn) {
+      if (state?.treeTodoRoute === currentRoute && state.treeTodoParentRoute && state.treeTodoCanReturn) {
         window.history.back();
-        setRoute(parentRoute);
+        setRoute(state.treeTodoParentRoute);
       } else {
         window.history.replaceState(appHistoryState(parentRoute), '', parentRoute);
         setRoute(parentRoute);
@@ -159,10 +162,12 @@ export default function App() {
     const currentlyOnDetail = currentTodoId !== null;
     if (currentlyOnDetail) {
       const state = window.history.state as AppHistoryState | null;
-      const canReturn = state?.treeTodoRoute === currentRoute
-        && state.treeTodoParentRoute === parentRoute
-        && state.treeTodoCanReturn === true;
-      window.history.replaceState(appHistoryState(nextRoute, parentRoute, canReturn), '', nextRoute);
+      const isCurrentState = state?.treeTodoRoute === currentRoute;
+      const returnRoute = isCurrentState && state.treeTodoParentRoute
+        ? state.treeTodoParentRoute
+        : parentRoute;
+      const canReturn = isCurrentState && state.treeTodoCanReturn === true;
+      window.history.replaceState(appHistoryState(nextRoute, returnRoute, canReturn), '', nextRoute);
     } else {
       window.history.pushState(appHistoryState(nextRoute, parentRoute, true), '', nextRoute);
     }
@@ -176,7 +181,7 @@ export default function App() {
     if (currentTab === 'graph') {
       handleSelectTodo(id);
     } else {
-      const returnRoute: AppRoute = currentTab === 'list' ? '/list' : '/settings';
+      const returnRoute: AppRoute = currentTab === 'list' ? currentRoute : '/settings';
       const nextRoute = detailRouteFor('graph', id);
       window.history.pushState(appHistoryState(nextRoute, returnRoute, true), '', nextRoute);
       setRoute(nextRoute);
@@ -197,6 +202,11 @@ export default function App() {
     setRoute(parentRoute);
   }, []);
 
+  const flowEntries = useMemo(() => indexFlowTodos(appData.todos), [appData.todos]);
+  const selectedTodoPath = useMemo(
+    () => flowEntries.find((entry) => entry.id === selectedTodoId)?.path ?? [],
+    [flowEntries, selectedTodoId],
+  );
   const selectedTodo = useMemo(
     () => selectedTodoId ? findTodoById(appData.todos, selectedTodoId) : null,
     [appData.todos, selectedTodoId],
@@ -292,32 +302,42 @@ export default function App() {
     setAppData(imported);
   };
 
+  const detailReturnRoute = (window.history.state as AppHistoryState | null)?.treeTodoParentRoute;
+  const backLabel = route === '/settings/tags'
+    ? '返回设置'
+    : detailReturnRoute?.startsWith('/list')
+      ? '返回列表'
+      : activeTab === 'graph' ? '返回图表' : '返回列表';
+
   return (
     <div className="flex h-screen w-screen flex-col overflow-hidden bg-slate-50 text-slate-900">
       <Navbar
         activeTab={activeTab}
         onTabChange={handleTabChange}
         showBack={route === '/settings/tags' || selectedTodoId !== null}
-        backLabel={route === '/settings/tags' ? '返回设置' : activeTab === 'graph' ? '返回图表' : '返回列表'}
+        backLabel={backLabel}
         onBack={route === '/settings/tags' ? handleRouteBack : () => handleSelectTodo(null)}
       />
-      <main className="relative flex flex-1 overflow-hidden">
+      <main className="relative flex min-h-0 flex-1 overflow-hidden">
         {storageError && (
           <div role="alert" className="absolute left-3 right-3 top-3 z-40 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900 shadow-sm md:left-auto md:right-4 md:max-w-lg">
             {storageError}
           </div>
         )}
-        {activeTab === 'list' && (
-          <ListView
-            leafItems={sortedLeafItems}
-            tags={appData.tags}
-            onToggleComplete={handleToggleComplete}
-            onSelectTodo={handleSelectTodo}
-            onBlankClick={() => handleSelectTodo(null)}
-            onAddRootTodo={handleAddRootTodo}
-          />
-        )}
-        <div className={`h-full min-w-0 flex-1 ${activeTab === 'graph' ? '' : 'hidden'}`}>
+        <div className={`flex h-full min-h-0 min-w-0 flex-1 ${activeTab === 'list' ? '' : 'hidden'}`}>
+          {(activeTab === 'list' || hasVisitedList) && (
+            <ListView
+              leafItems={sortedLeafItems}
+              tags={appData.tags}
+              onToggleComplete={handleToggleComplete}
+              onSelectTodo={handleSelectTodo}
+              onLocateTodo={handleLocateTodo}
+              onBlankClick={() => handleSelectTodo(null)}
+              onAddRootTodo={handleAddRootTodo}
+            />
+          )}
+        </div>
+        <div className={`h-full min-h-0 min-w-0 flex-1 ${activeTab === 'graph' ? '' : 'hidden'}`}>
           {(activeTab === 'graph' || hasVisitedGraph) && (
             <GraphView
               todos={appData.todos}
@@ -345,10 +365,12 @@ export default function App() {
         {activeTab !== 'settings' && selectedTodo && (
           <SettingsPanel
             todo={selectedTodo}
+            path={selectedTodoPath}
             tags={appData.tags}
             onClose={() => handleSelectTodo(null)}
             onUpdate={handleUpdateTodo}
             onAddChild={handleAddChildTodo}
+            onLocateTodo={handleLocateTodo}
             onRequestDelete={setDeleteTargetId}
             overlay={activeTab === 'list'}
           />

@@ -258,17 +258,22 @@ export function toggleLeafCompletion(todos: Todo[], id: string): Todo[] {
   });
 }
 
+export interface LeafPathItem {
+  id: string;
+  title: string;
+}
+
 export interface LeafItem {
   todo: Todo;
-  path: string[];
+  path: LeafPathItem[];
 }
 
 export function collectLeafTodos(todos: Todo[]): LeafItem[] {
   const leaves: LeafItem[] = [];
-  function visit(items: Todo[], path: string[]) {
+  function visit(items: Todo[], path: LeafPathItem[]) {
     for (const todo of items) {
       if (isLeaf(todo)) leaves.push({ todo, path });
-      else visit(todo.children, [...path, todo.title || '未命名待办']);
+      else visit(todo.children, [...path, { id: todo.id, title: todo.title || '未命名待办' }]);
     }
   }
   visit(todos, []);

@@ -1,20 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
-import { AlertCircle, CheckCircle2, Circle, GitBranch, Plus, Trash2, X } from 'lucide-react';
+import { AlertCircle, CheckCircle2, ChevronRight, Circle, GitBranch, Plus, Trash2, X } from 'lucide-react';
 import { ScoreCoordinatePicker } from './ScoreCoordinatePicker';
 import { isLeaf } from '../storage';
 import { Tag, Todo } from '../types';
+import type { FlowPathItem } from '../flowNavigation';
 
 interface SettingsPanelProps {
   todo: Todo | null;
+  path: FlowPathItem[];
   tags: Tag[];
   onClose: () => void;
   onUpdate: (updated: Todo) => void;
   onAddChild: (parentId: string) => void;
+  onLocateTodo: (id: string) => void;
   onRequestDelete: (id: string) => void;
   overlay?: boolean;
 }
 
-export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onRequestDelete, overlay = false }: SettingsPanelProps) {
+export function SettingsPanel({ todo, path, tags, onClose, onUpdate, onAddChild, onLocateTodo, onRequestDelete, overlay = false }: SettingsPanelProps) {
   const [titleDraft, setTitleDraft] = useState(todo?.title ?? '');
   const [scoreDrafts, setScoreDrafts] = useState({
     importance: String(todo?.importance ?? 0),
@@ -107,6 +110,41 @@ export function SettingsPanel({ todo, tags, onClose, onUpdate, onAddChild, onReq
         </div>
 
         <div className="flex-1 space-y-5 overflow-y-auto px-5 py-4 text-sm">
+          {path.length > 1 && (
+            <nav aria-label="任务祖先路径" className="flex flex-wrap items-center gap-1 text-xs text-slate-500">
+              {path.slice(0, -1).map((ancestor, index) => (
+                <span key={ancestor.id} className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={() => onLocateTodo(ancestor.id)}
+                    aria-label={`在图表中定位：${ancestor.title}`}
+                    className="rounded-sm hover:text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >{ancestor.title}</button>
+                  {index < path.length - 2 && <ChevronRight className="h-3 w-3 text-slate-300" aria-hidden="true" />}
+                </span>
+              ))}
+            </nav>
+          )}
+          {todo.children.length > 0 && (
+            <section aria-label="子任务导航" className="rounded-lg border border-slate-200 bg-slate-50/60 p-3">
+              <h4 className="mb-2 text-xs font-semibold text-slate-700">子任务（{todo.children.length}）</h4>
+              <div className="space-y-1">
+                {todo.children.map((child) => (
+                  <button
+                    key={child.id}
+                    type="button"
+                    onClick={() => onLocateTodo(child.id)}
+                    aria-label={`在图表中定位：${child.title || '未命名待办'}`}
+                    className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-xs text-slate-700 hover:bg-white hover:text-blue-700"
+                  >
+                    <GitBranch className="h-3.5 w-3.5 shrink-0 text-slate-400" aria-hidden="true" />
+                    <span className="min-w-0 flex-1 truncate">{child.title || '未命名待办'}</span>
+                    <span className="shrink-0 text-[10px] text-slate-400">{child.children.length > 0 ? `${child.children.length} 个子项` : '叶子任务'}</span>
+                  </button>
+                ))}
+              </div>
+            </section>
+          )}
           {leaf ? (
             <div className="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-3">
               <span className="font-medium text-slate-700">完成状态</span>

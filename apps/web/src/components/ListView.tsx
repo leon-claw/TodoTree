@@ -1,16 +1,18 @@
-import { Calendar, CheckCircle2, ChevronRight, Circle, Plus } from 'lucide-react';
+import { Calendar, CheckCircle2, ChevronRight, Circle, GitFork, Plus } from 'lucide-react';
+import type { LeafItem } from '../storage';
 import { Tag, Todo } from '../types';
 
 interface ListViewProps {
-  leafItems: { todo: Todo; path: string[] }[];
+  leafItems: LeafItem[];
   tags: Tag[];
   onToggleComplete: (id: string) => void;
   onSelectTodo: (id: string) => void;
+  onLocateTodo: (id: string) => void;
   onBlankClick: () => void;
   onAddRootTodo: () => void;
 }
 
-export function ListView({ leafItems, tags, onToggleComplete, onSelectTodo, onBlankClick, onAddRootTodo }: ListViewProps) {
+export function ListView({ leafItems, tags, onToggleComplete, onSelectTodo, onLocateTodo, onBlankClick, onAddRootTodo }: ListViewProps) {
   const tagsMap: Record<string, Tag> = Object.fromEntries(tags.map((tag) => [tag.id, tag]));
   const completedCount = leafItems.filter(({ todo }) => todo.completed).length;
   const handleViewClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -19,7 +21,7 @@ export function ListView({ leafItems, tags, onToggleComplete, onSelectTodo, onBl
 
   if (leafItems.length === 0) {
     return (
-      <div onClick={handleViewClick} className="flex min-w-0 flex-1 flex-col items-center justify-center bg-slate-50 p-8 text-center">
+      <div onClick={handleViewClick} className="flex min-h-0 min-w-0 flex-1 flex-col items-center justify-center bg-slate-50 p-8 text-center">
         <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-400">
           <CheckCircle2 className="h-6 w-6" aria-hidden="true" />
         </div>
@@ -37,8 +39,8 @@ export function ListView({ leafItems, tags, onToggleComplete, onSelectTodo, onBl
   }
 
   return (
-    <div onClick={handleViewClick} className="flex min-w-0 flex-1 overflow-hidden">
-      <div className="mx-auto w-full max-w-4xl flex-1 overflow-y-auto p-4 sm:p-6">
+    <div onClick={handleViewClick} className="flex min-h-0 min-w-0 flex-1 overflow-hidden">
+      <div className="mx-auto min-h-0 w-full max-w-4xl flex-1 overflow-y-auto p-4 sm:p-6">
         <div className="mb-4 flex items-center justify-between gap-3">
           <div className="min-w-0">
             <h2 className="text-lg font-semibold text-slate-900">叶子待办列表</h2>
@@ -79,9 +81,15 @@ export function ListView({ leafItems, tags, onToggleComplete, onSelectTodo, onBl
               <div className="min-w-0 flex-1">
                 {path.length > 0 && (
                   <div className="mb-1 flex flex-wrap items-center gap-1 text-[11px] text-slate-400">
-                    {path.map((segment, index) => (
-                      <span key={`${index}-${segment}`} className="flex items-center gap-1">
-                        <span>{segment}</span><ChevronRight className="h-3 w-3 shrink-0 text-slate-300" aria-hidden="true" />
+                    {path.map((segment) => (
+                      <span key={segment.id} className="flex items-center gap-1">
+                        <button
+                          type="button"
+                          onClick={(event) => { event.stopPropagation(); onLocateTodo(segment.id); }}
+                          aria-label={`在图表中定位：${segment.title}`}
+                          className="rounded-sm hover:text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >{segment.title}</button>
+                        <ChevronRight className="h-3 w-3 shrink-0 text-slate-300" aria-hidden="true" />
                       </span>
                     ))}
                   </div>
@@ -112,6 +120,14 @@ export function ListView({ leafItems, tags, onToggleComplete, onSelectTodo, onBl
                       </span>
                     );
                   })}
+                  <button
+                    type="button"
+                    onClick={(event) => { event.stopPropagation(); onLocateTodo(todo.id); }}
+                    aria-label={`在图表中定位：${todo.title || '未命名待办'}`}
+                    className="ml-auto inline-flex shrink-0 items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-blue-700 hover:bg-blue-50"
+                  >
+                    <GitFork className="h-3.5 w-3.5" aria-hidden="true" />在图表中定位
+                  </button>
                 </div>
               </div>
             </div>
