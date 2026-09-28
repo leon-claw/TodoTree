@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GraphView } from './components/GraphView';
+import type { FlowLocationRequest } from './flowNavigation';
 import { ListView } from './components/ListView';
 import { Navbar } from './components/Navbar';
 import { ConfirmModal } from './components/ConfirmModal';
@@ -57,6 +58,8 @@ export default function App() {
   const [composerTarget, setComposerTarget] = useState<{ parentId: string | null; label: string; anchor?: ComposerAnchor } | null>(null);
   const [composerError, setComposerError] = useState<string | null>(null);
   const [deleteTargetId, setDeleteTargetId] = useState<string | null>(null);
+  const [locationRequest, setLocationRequest] = useState<FlowLocationRequest | null>(null);
+  const locationSequence = useRef(0);
 
   latestAppData.current = appData;
 
@@ -133,6 +136,7 @@ export default function App() {
   };
 
   const handleSelectTodo = (id: string | null) => {
+    setLocationRequest(null);
     const currentRoute = routeRef.current;
     const currentTodoId = todoIdForRoute(currentRoute);
     if (id === null) {
@@ -164,6 +168,34 @@ export default function App() {
     }
     setRoute(nextRoute);
   };
+
+  const handleLocateTodo = useCallback((id: string) => {
+    if (!findTodoById(latestAppData.current.todos, id)) return;
+    const currentRoute = routeRef.current;
+    const currentTab = tabForRoute(currentRoute);
+    if (currentTab === 'graph') {
+      handleSelectTodo(id);
+    } else {
+      const returnRoute: AppRoute = currentTab === 'list' ? '/list' : '/settings';
+      const nextRoute = detailRouteFor('graph', id);
+      window.history.pushState(appHistoryState(nextRoute, returnRoute, true), '', nextRoute);
+      setRoute(nextRoute);
+    }
+    setLocationRequest({ id, sequence: ++locationSequence.current });
+  }, [handleSelectTodo]);
+
+  const handleLocationHandled = useCallback((sequence: number) => {
+    setLocationRequest((current) => current?.sequence === sequence ? null : current);
+  }, []);
+
+  const handleLocationMissing = useCallback((id: string) => {
+    setLocationRequest((current) => current?.id === id ? null : current);
+    const currentRoute = routeRef.current;
+    if (todoIdForRoute(currentRoute) !== id) return;
+    const parentRoute = baseRouteFor(currentRoute);
+    window.history.replaceState(appHistoryState(parentRoute), '', parentRoute);
+    setRoute(parentRoute);
+  }, []);
 
   const selectedTodo = useMemo(
     () => selectedTodoId ? findTodoById(appData.todos, selectedTodoId) : null,
@@ -296,6 +328,11 @@ export default function App() {
               onMoveTodo={handleMoveTodo}
               onRequestAdd={handleRequestAdd}
               onRequestDelete={setDeleteTargetId}
+              active={activeTab === 'graph'}
+              locationRequest={locationRequest}
+              onLocateTodo={handleLocateTodo}
+              onLocationHandled={handleLocationHandled}
+              onLocationMissing={handleLocationMissing}
             />
           )}
         </div>

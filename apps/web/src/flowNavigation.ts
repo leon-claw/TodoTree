@@ -1,5 +1,10 @@
 import type { Tag, Todo } from './types';
 
+export interface FlowLocationRequest {
+  id: string;
+  sequence: number;
+}
+
 export interface FlowPathItem {
   id: string;
   title: string;

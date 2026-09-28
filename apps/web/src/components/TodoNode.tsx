@@ -20,7 +20,7 @@ function getComposerAnchor(button: HTMLButtonElement) {
 }
 
 export const TodoNode: React.FC<TodoNodeProps> = ({ data }) => {
-  const { todo, tagsMap, isSelected, dropTargetState, onSelect, onRequestAdd, onRequestDelete, parentId, parentTitle } = data;
+  const { todo, tagsMap, isSelected, isLocationHighlighted, dropTargetState, onSelect, onRequestAdd, onRequestDelete, parentId, parentTitle } = data;
   const completedLeaf = todo.children.length === 0 && todo.completed;
   const cardStateClass = dropTargetState === 'valid'
     ? 'border-emerald-500 ring-4 ring-emerald-400/30 shadow-md'
@@ -59,7 +59,7 @@ export const TodoNode: React.FC<TodoNodeProps> = ({ data }) => {
             onSelect(todo.id);
           }
         }}
-        className={`absolute inset-0 box-border flex cursor-grab select-none flex-col overflow-hidden rounded-lg border bg-white p-3 text-left shadow-xs transition-all active:cursor-grabbing ${cardStateClass}`}
+        className={`absolute inset-0 box-border flex cursor-grab select-none flex-col overflow-hidden rounded-lg border bg-white p-3 text-left shadow-xs transition-all active:cursor-grabbing ${cardStateClass} ${isLocationHighlighted ? 'outline outline-4 outline-offset-2 outline-amber-300' : ''}`}
       >
         <Handle type="target" position={Position.Left} className="!h-2 !w-2 !border !border-white !bg-slate-400" />
         <Handle type="source" position={Position.Right} className="!h-2 !w-2 !border !border-white !bg-slate-400" />

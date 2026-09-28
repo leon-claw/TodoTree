@@ -12,6 +12,7 @@ export interface TodoNodeData {
   todo: Todo;
   tagsMap: Record<string, Tag>;
   isSelected: boolean;
+  isLocationHighlighted: boolean;
   onSelect: (id: string) => void;
   onRequestAdd: (parentId: string | null, targetLabel: string, anchor?: ComposerAnchor) => void;
   onRequestDelete: (id: string) => void;
@@ -33,6 +34,7 @@ export function buildTreeFlowElements(
   onSelect: (id: string) => void,
   onRequestAdd: (parentId: string | null, targetLabel: string, anchor?: ComposerAnchor) => void,
   onRequestDelete: (id: string) => void,
+  locationHighlightId: string | null = null,
 ): { nodes: Node<TodoNodeData>[]; edges: Edge[] } {
   if (rootTodos.length === 0) return { nodes: [], edges: [] };
 
@@ -74,6 +76,7 @@ export function buildTreeFlowElements(
         todo,
         tagsMap,
         isSelected: selectedId === todo.id,
+        isLocationHighlighted: locationHighlightId === todo.id,
         onSelect,
         onRequestAdd,
         onRequestDelete,

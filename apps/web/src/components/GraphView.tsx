@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Background,
   BackgroundVariant,
@@ -11,6 +11,9 @@ import {
 } from '@xyflow/react';
 import type { Edge, Node, NodeMouseHandler, OnNodeDrag } from '@xyflow/react';
 import { Plus } from 'lucide-react';
+import { FlowNavigator } from './FlowNavigator';
+import { indexFlowTodos } from '../flowNavigation';
+import type { FlowLocationRequest } from '../flowNavigation';
 import { canMoveTodoUnderParent } from '../storage';
 import { buildTreeFlowElements, NODE_HEIGHT, NODE_WIDTH, TodoNodeData } from '../treeLayout';
 import { ComposerAnchor, Tag, Todo } from '../types';
@@ -25,6 +28,11 @@ interface GraphViewProps {
   onMoveTodo: (todoId: string, parentId: string) => void;
   onRequestAdd: (parentId: string | null, targetLabel: string, anchor?: ComposerAnchor) => void;
   onRequestDelete: (id: string) => void;
+  active: boolean;
+  locationRequest: FlowLocationRequest | null;
+  onLocateTodo: (id: string) => void;
+  onLocationHandled: (sequence: number) => void;
+  onLocationMissing: (id: string) => void;
 }
 
 function FlowCanvas({
@@ -36,21 +44,71 @@ function FlowCanvas({
   onMoveTodo,
   onRequestAdd,
   onRequestDelete,
+  active,
+  locationRequest,
+  onLocateTodo,
+  onLocationHandled,
+  onLocationMissing,
 }: GraphViewProps) {
   const nodeTypes = useMemo(() => ({ todoNode: TodoNode }), []);
+  const [locationHighlightId, setLocationHighlightId] = useState<string | null>(null);
+  const [locationFeedback, setLocationFeedback] = useState<string | null>(null);
+  const locationSequenceRef = useRef<number | null>(null);
+  const locationTimerRef = useRef<number | null>(null);
+  const flowEntries = useMemo(() => indexFlowTodos(todos), [todos]);
   const { nodes: calculatedNodes, edges: calculatedEdges } = useMemo(
-    () => buildTreeFlowElements(todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete),
-    [todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete],
+    () => buildTreeFlowElements(todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete, locationHighlightId),
+    [todos, tags, selectedId, onSelectTodo, onRequestAdd, onRequestDelete, locationHighlightId],
   );
   const [nodes, setNodes, onNodesChange] = useNodesState(calculatedNodes);
   const [edges, setEdges] = useEdgesState(calculatedEdges);
-  const { getIntersectingNodes, getNodes } = useReactFlow<Node<TodoNodeData>, Edge>();
+  const { getIntersectingNodes, getNodes, getZoom, setCenter } = useReactFlow<Node<TodoNodeData>, Edge>();
   const lastDragDiagnostic = useRef<{ draggedId: string; targetId: string | null; valid: boolean; lastPosition: { x: number; y: number }; loggedFirstMove: boolean } | null>(null);
 
   useEffect(() => {
     setNodes(calculatedNodes);
     setEdges(calculatedEdges);
   }, [calculatedNodes, calculatedEdges, setNodes, setEdges]);
+
+  useEffect(() => {
+    if (!locationRequest || locationSequenceRef.current === locationRequest.sequence) return;
+    if (!flowEntries.some((entry) => entry.id === locationRequest.id)) {
+      locationSequenceRef.current = locationRequest.sequence;
+      setLocationFeedback('任务已不存在，已取消定位');
+      if (locationTimerRef.current !== null) window.clearTimeout(locationTimerRef.current);
+      locationTimerRef.current = window.setTimeout(() => setLocationFeedback(null), 3200);
+      onLocationMissing(locationRequest.id);
+      onLocationHandled(locationRequest.sequence);
+      return;
+    }
+    const target = calculatedNodes.find((node) => node.id === locationRequest.id);
+    if (!target) return;
+
+    locationSequenceRef.current = locationRequest.sequence;
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        const zoom = Math.max(getZoom() || 1, 0.9);
+        setCenter(
+          target.position.x + NODE_WIDTH / 2,
+          target.position.y + NODE_HEIGHT / 2,
+          { zoom, duration: 320 },
+        );
+        setLocationHighlightId(locationRequest.id);
+        if (locationTimerRef.current !== null) window.clearTimeout(locationTimerRef.current);
+        locationTimerRef.current = window.setTimeout(() => setLocationHighlightId(null), 1400);
+        onLocationHandled(locationRequest.sequence);
+      });
+    });
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.cancelAnimationFrame(secondFrame);
+    };
+  }, [calculatedNodes, flowEntries, getZoom, locationRequest, onLocationHandled, onLocationMissing, setCenter]);
+
+  useEffect(() => () => {
+    if (locationTimerRef.current !== null) window.clearTimeout(locationTimerRef.current);
+  }, []);
 
   const getDragState = useCallback((
     draggedNode: Node<TodoNodeData>,
@@ -204,10 +262,16 @@ function FlowCanvas({
           <Plus className="h-4 w-4" aria-hidden="true" />
           <span>新建根待办</span>
         </button>
+        <FlowNavigator entries={flowEntries} tags={tags} selectedId={selectedId} active={active} onLocate={onLocateTodo} />
         <span className="hidden rounded-md border border-slate-200 bg-white/90 px-2.5 py-1.5 text-xs text-slate-500 shadow-2xs backdrop-blur-xs sm:inline-block">
           拖到节点上可设为子任务 · 点击节点查看详情
         </span>
       </div>
+      {locationFeedback && (
+        <div role="status" aria-live="polite" className="absolute right-4 top-4 z-20 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900 shadow-sm">
+          {locationFeedback}
+        </div>
+      )}
       {nodes.length === 0 ? (
         <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center">
           <p className="mb-4 text-sm text-slate-500">暂无待办事项，点击上方按钮开始创建</p>
