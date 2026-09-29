@@ -1,15 +1,17 @@
-import { ArrowLeft, CheckSquare, GitFork, Settings } from 'lucide-react';
+import { ArrowLeft, Bot, CheckSquare, GitFork, Settings } from 'lucide-react';
 import { ActiveTab } from '../types';
 
 interface NavbarProps {
   activeTab: ActiveTab;
   onTabChange: (tab: ActiveTab) => void;
+  agentOpen: boolean;
+  onToggleAgent: () => void;
   showBack?: boolean;
   backLabel?: string;
   onBack?: () => void;
 }
 
-export function Navbar({ activeTab, onTabChange, showBack = false, backLabel = '返回', onBack }: NavbarProps) {
+export function Navbar({ activeTab, onTabChange, agentOpen, onToggleAgent, showBack = false, backLabel = '返回', onBack }: NavbarProps) {
   const tabs: { id: ActiveTab; label: string; compact: string; Icon: typeof CheckSquare }[] = [
     { id: 'graph', label: '图表视图', compact: '图表', Icon: GitFork },
     { id: 'list', label: '列表视图', compact: '列表', Icon: CheckSquare },
@@ -49,7 +51,7 @@ export function Navbar({ activeTab, onTabChange, showBack = false, backLabel = '
           </button>
         ))}
       </nav>
-      <div className="hidden shrink-0 items-center text-xs font-normal text-slate-500 sm:flex">本地存储</div>
+      <button type="button" onClick={onToggleAgent} aria-label="打开 Agent" aria-expanded={agentOpen} className={`inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-colors sm:px-3 sm:text-sm ${agentOpen ? 'bg-blue-600 text-white' : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-100'}`}><Bot className="h-4 w-4" /><span className="hidden sm:inline">Agent</span></button>
     </header>
   );
 }

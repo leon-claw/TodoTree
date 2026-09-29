@@ -6,7 +6,7 @@ import { ConfirmModal } from './ConfirmModal';
 
 interface SettingsPageProps {
   appData: AppData;
-  onImportAppData: (data: AppData) => void;
+  onImportAppData: (data: AppData) => boolean;
   onOpenTagManagement: () => void;
 }
 
@@ -63,9 +63,12 @@ export function SettingsPage({ appData, onImportAppData, onOpenTagManagement }: 
   };
   const confirmImport = () => {
     if (!importPendingData) return;
-    onImportAppData(importPendingData);
-    setImportPendingData(null);
-    setImportSuccessMsg('数据导入成功，已整体替换现有数据。');
+    if (onImportAppData(importPendingData)) {
+      setImportPendingData(null);
+      setImportSuccessMsg('数据导入成功，已整体替换现有数据。');
+    } else {
+      setImportError('数据保存失败，导入未应用。');
+    }
   };
 
   return (

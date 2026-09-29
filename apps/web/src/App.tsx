@@ -4,6 +4,10 @@ import { indexFlowTodos } from './flowNavigation';
 import type { FlowLocationRequest } from './flowNavigation';
 import { ListView } from './components/ListView';
 import { Navbar } from './components/Navbar';
+import { AgentDrawer } from './components/AgentDrawer';
+import { commitAgentProposal, undoAgentCommit } from './agent/commit';
+import type { AgentCommitReceipt } from './agent/commit';
+import type { AgentProposal } from './agent/proposal';
 import { ConfirmModal } from './components/ConfirmModal';
 import { SettingsPage } from './components/SettingsPage';
 import { SettingsPanel } from './components/SettingsPanel';
@@ -48,6 +52,10 @@ export default function App() {
   const [loadedData] = useState(() => loadAppData());
   const [appData, setAppData] = useState<AppData>(loadedData.data);
   const [storageError, setStorageError] = useState<string | null>(loadedData.error);
+  const [loadError, setLoadError] = useState(loadedData.error !== null);
+  const [agentOpen, setAgentOpen] = useState(false);
+  const [agentReceipt, setAgentReceipt] = useState<AgentCommitReceipt | null>(null);
+  const saveTimer = useRef<number | null>(null);
   const latestAppData = useRef(loadedData.data);
   const lastSavedData = useRef(loadedData.data);
   const [route, setRoute] = useState<AppRoute>(() => parseAppRoute(window.location.pathname) ?? '/graph');
@@ -67,14 +75,20 @@ export default function App() {
   latestAppData.current = appData;
 
   useEffect(() => {
-    if (lastSavedData.current === appData) return;
+    if (loadError || lastSavedData.current === appData) return;
     const timeoutId = window.setTimeout(() => {
+      saveTimer.current = null;
       const error = saveAppData(appData);
       if (!error) lastSavedData.current = appData;
-      setStorageError(error);
+      if (!loadError) setStorageError(error);
     }, 700);
-    return () => window.clearTimeout(timeoutId);
-  }, [appData]);
+    saveTimer.current = timeoutId;
+    return () => { window.clearTimeout(timeoutId); if (saveTimer.current === timeoutId) saveTimer.current = null; };
+  }, [appData, loadError]);
+
+  useEffect(() => {
+    if (agentReceipt && JSON.stringify(appData) !== JSON.stringify(agentReceipt.after)) setAgentReceipt(null);
+  }, [appData, agentReceipt]);
 
   useEffect(() => {
     const currentRoute = parseAppRoute(window.location.pathname) ?? '/graph';
@@ -100,15 +114,16 @@ export default function App() {
 
   useEffect(() => {
     const flushPendingSave = () => {
+      if (loadError) return;
       const data = latestAppData.current;
       if (data === lastSavedData.current) return;
       const error = saveAppData(data);
       if (!error) lastSavedData.current = data;
-      setStorageError(error);
+      if (!loadError) setStorageError(error);
     };
     window.addEventListener('pagehide', flushPendingSave);
     return () => window.removeEventListener('pagehide', flushPendingSave);
-  }, []);
+  }, [loadError]);
 
   useEffect(() => {
     if (activeTab === 'graph') setHasVisitedGraph(true);
@@ -299,9 +314,49 @@ export default function App() {
     });
   };
 
-  const handleImportAppData = (imported: AppData) => {
+  const cancelPendingSave = () => {
+    if (saveTimer.current !== null) window.clearTimeout(saveTimer.current);
+    saveTimer.current = null;
+  };
+
+  const handleApplyAgent = (proposal: AgentProposal): string | null => {
+    if (loadError) return '请先恢复本地数据';
+    const result = commitAgentProposal(latestAppData.current, proposal, saveAppData);
+    if (!result.ok) return result.error;
+    cancelPendingSave();
+    latestAppData.current = result.data;
+    lastSavedData.current = result.data;
+    setAppData(result.data);
+    setAgentReceipt(result.receipt);
+    setStorageError(null);
+    return null;
+  };
+
+  const handleUndoAgent = (): string | null => {
+    if (!agentReceipt) return '没有可撤销的 Agent 变更';
+    const result = undoAgentCommit(latestAppData.current, agentReceipt, saveAppData);
+    if (!result.ok) return result.error;
+    cancelPendingSave();
+    latestAppData.current = result.data;
+    lastSavedData.current = result.data;
+    setAppData(result.data);
+    setAgentReceipt(null);
+    setStorageError(null);
+    return null;
+  };
+
+  const handleImportAppData = (imported: AppData): boolean => {
+    const error = saveAppData(imported);
+    if (error) { setStorageError(error); return false; }
+    cancelPendingSave();
+    latestAppData.current = imported;
+    lastSavedData.current = imported;
     setAppData(imported);
+    setAgentReceipt(null);
+    setLoadError(false);
+    setStorageError(null);
     setTreeRevision((revision) => revision + 1);
+    return true;
   };
 
   const detailReturnRoute = (window.history.state as AppHistoryState | null)?.treeTodoParentRoute;
@@ -316,6 +371,8 @@ export default function App() {
       <Navbar
         activeTab={activeTab}
         onTabChange={handleTabChange}
+        agentOpen={agentOpen}
+        onToggleAgent={() => setAgentOpen((value) => !value)}
         showBack={route === '/settings/tags' || selectedTodoId !== null}
         backLabel={backLabel}
         onBack={route === '/settings/tags' ? handleRouteBack : () => handleSelectTodo(null)}
@@ -365,7 +422,7 @@ export default function App() {
         {route === '/settings/tags' && (
           <TagManagementPage tags={appData.tags} onUpdateTags={handleUpdateTags} />
         )}
-        {activeTab !== 'settings' && selectedTodo && (
+        {!agentOpen && activeTab !== 'settings' && selectedTodo && (
           <SettingsPanel
             todo={selectedTodo}
             path={selectedTodoPath}
@@ -378,6 +435,15 @@ export default function App() {
             overlay={activeTab === 'list'}
           />
         )}
+        <AgentDrawer
+          open={agentOpen}
+          onClose={() => setAgentOpen(false)}
+          getData={() => latestAppData.current}
+          dataAvailable={!loadError}
+          onApply={handleApplyAgent}
+          canUndo={agentReceipt !== null && JSON.stringify(appData) === JSON.stringify(agentReceipt.after)}
+          onUndo={handleUndoAgent}
+        />
         {composerTarget && (
           <TaskComposer
             targetLabel={composerTarget.label}
