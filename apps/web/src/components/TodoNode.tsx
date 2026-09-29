@@ -2,6 +2,7 @@ import React from 'react';
 import { Handle, Position } from '@xyflow/react';
 import { Calendar, CheckCircle2, ChevronDown, ChevronRight, Circle, Plus, Trash2 } from 'lucide-react';
 import { TodoNodeData } from '../treeLayout';
+import { getTagBorderStyle } from '../tagBorder';
 
 interface TodoNodeProps {
   data: TodoNodeData;
@@ -38,10 +39,17 @@ export const TodoNode: React.FC<TodoNodeProps> = ({ data }) => {
     parentId,
     parentTitle,
   } = data;
+  const borderGradientId = `todo-border-${React.useId().replace(/:/g, '')}`;
   const isParent = todo.children.length > 0;
   const completedLeaf = !isParent && todo.completed;
   const isCompact = semanticZoomLevel === 'compact';
   const isOverview = semanticZoomLevel === 'overview';
+  const tagColors = todo.tagIds.flatMap((tagId) => {
+    const color = tagsMap[tagId]?.color;
+    return color ? [color] : [];
+  });
+  const tagBorder = getTagBorderStyle(tagColors);
+  const nodeBorder = dropTargetState === null ? tagBorder : {};
   const cardStateClass = dropTargetState === 'valid'
     ? 'border-emerald-500 ring-4 ring-emerald-400/30 shadow-md'
     : dropTargetState === 'invalid'
@@ -79,17 +87,30 @@ export const TodoNode: React.FC<TodoNodeProps> = ({ data }) => {
             onSelect(todo.id);
           }
         }}
-        className={`absolute inset-0 box-border flex ${isCompact || isOverview ? 'cursor-pointer' : 'cursor-grab active:cursor-grabbing'} select-none flex-col overflow-hidden rounded-lg border bg-white text-left shadow-xs transition-all ${cardStateClass} ${isLocationHighlighted ? 'outline outline-4 outline-offset-2 outline-amber-300' : ''} ${isOverview ? '!border-slate-300 !bg-slate-100/90 shadow-none' : 'p-3'}`}
+        style={nodeBorder}
+        className={`absolute inset-0 box-border flex ${isCompact || isOverview ? 'cursor-pointer' : 'cursor-grab active:cursor-grabbing'} select-none flex-col ${isOverview ? 'overflow-visible border-slate-300 shadow-none' : 'overflow-hidden bg-white p-3'} rounded-lg border text-left shadow-xs transition-all ${cardStateClass} ${isLocationHighlighted ? 'outline outline-4 outline-offset-2 outline-amber-300' : ''}`}
       >
         <Handle type="target" position={Position.Left} className={`!h-2 !w-2 !border !border-white !bg-slate-400 ${isCompact || isOverview ? '!pointer-events-none !opacity-0' : ''}`} />
         <Handle type="source" position={Position.Right} className={`!h-2 !w-2 !border !border-white !bg-slate-400 ${isCompact || isOverview ? '!pointer-events-none !opacity-0' : ''}`} />
 
         {isOverview ? (
-          <span
-            aria-hidden="true"
-            className={`m-auto block shrink-0 rounded-full ${completedLeaf ? 'bg-emerald-500' : isSelected ? 'bg-blue-600' : 'bg-slate-400'}`}
-            style={{ width: `${2 * compactFontSize / 3}px`, height: `${2 * compactFontSize / 3}px` }}
-          />
+          <div className="m-auto flex min-h-0 w-full items-center justify-center px-3 py-2 text-center">
+            <span
+              className="w-full break-words font-medium text-slate-900"
+              style={{
+                display: '-webkit-box',
+                WebkitBoxOrient: 'vertical',
+                WebkitLineClamp: 2,
+                overflow: 'hidden',
+                maxHeight: `${Math.ceil(compactFontSize * 1.15 * 2)}px`,
+                fontSize: `${compactFontSize}px`,
+                lineHeight: `${Math.ceil(compactFontSize * 1.15)}px`,
+                overflowWrap: 'anywhere',
+              }}
+            >
+              {todo.title || '未命名待办'}
+            </span>
+          </div>
         ) : isCompact ? (
           <div className="flex h-full min-h-0 flex-col justify-center gap-1 overflow-hidden">
             <div className="flex min-w-0 items-center gap-2 overflow-hidden" style={{ height: `${34 * compactFontSize / 12}px` }}>
@@ -177,6 +198,24 @@ export const TodoNode: React.FC<TodoNodeProps> = ({ data }) => {
           </>
         )}
       </div>
+
+      {dropTargetState === null && tagBorder.gradientStops && (
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-10 h-full w-full"
+          viewBox="0 0 270 124"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id={borderGradientId} x1="0%" y1="0%" x2="100%" y2="0%">
+              {tagBorder.gradientStops.map((stop, index) => (
+                <stop key={`${stop.offset}-${index}`} offset={stop.offset} stopColor={stop.color} />
+              ))}
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="268" height="122" rx="8" ry="8" fill="none" stroke={`url(#${borderGradientId})`} strokeWidth="2" />
+        </svg>
+      )}
 
       {semanticZoomLevel === 'detail' && (
         <div
