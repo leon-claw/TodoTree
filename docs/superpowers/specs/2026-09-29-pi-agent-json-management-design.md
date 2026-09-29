@@ -30,7 +30,7 @@ Patch 只是 Agent 的提案格式；它不改变导入导出的 `formatVersion:
 
 浏览器运行 `@earendil-works/pi-agent-core` 的 Agent 循环。仅提供两个应用工具：`read_app_data` 返回当前完整 `AppData` 及基版标识；`propose_app_data_patch` 接收基版标识和 RFC 6902 操作数组，生成提案。不给 Pi 文件、Shell、网络或直接保存 JSON 的工具。模型回复可解释提案，但不能绕过提案提交。
 
-本轮新增一个 Node.js 22.19+ 的本机服务进程：开发时与 Vite 同源转发，构建后由该进程提供 Web 静态文件和 `/api/agent-config`、`/api/stream`。`agent-config` 只返回模型元数据，不返回密钥。服务端通过 `TODOTREE_AGENT_PROVIDER`、`TODOTREE_AGENT_MODEL` 和相应供应商的服务端密钥环境变量配置一个 Pi 支持的模型；缺失配置时抽屉显示不可用。`/api/stream` 实现 Pi `streamProxy` 所需的 Bearer 请求和 SSE 事件协议，只接受服务端选定的模型及受限请求体，不接受浏览器指定的任意供应商地址。服务端不保存任务 JSON 或 Pi 会话。
+本轮在现有 pnpm workspace 中新增一个基于 **Fastify** 的 Node.js 22.19+ 后端应用。它只负责 Agent 模型代理与 Web 静态资源：开发时由 Vite 同源转发 API，构建后由 Fastify 配合 `@fastify/static` 提供 Web 产物，并提供 `/api/agent-config`、`/api/stream`。Fastify 原生支持 TypeScript 类型与流式响应，因此 SSE 不另建一层 HTTP 框架。`agent-config` 只返回模型元数据，不返回密钥。服务端通过 `TODOTREE_AGENT_PROVIDER`、`TODOTREE_AGENT_MODEL` 和相应供应商的服务端密钥环境变量配置一个 Pi 支持的模型；缺失配置时抽屉显示不可用。`/api/stream` 实现 Pi `streamProxy` 所需的 Bearer 请求和 SSE 事件协议，只接受服务端选定的模型及受限请求体，不接受浏览器指定的任意供应商地址。服务端不保存任务 JSON 或 Pi 会话。
 
 本轮支持本机或已有外层访问控制的私人部署：本机进程只监听 loopback；代理协议中的浏览器令牌不被当作公网身份认证。未接入外层认证和请求限额的公网部署不属于本轮支持范围。模型密钥只留在服务端。Pi 当前包要求 Node.js 22.19 及以上，实施时统一项目的开发与构建运行时要求。
 
@@ -58,7 +58,7 @@ Patch 只是 Agent 的提案格式；它不改变导入导出的 `formatVersion:
 
 ## 代码边界
 
-以现有 `App.tsx` 的 `AppData` 为唯一权威状态，复用 `storage.ts` 的保存和校验入口；将 Agent 会话、Patch 提案校验/差异计算、抽屉 UI、模型代理分别放在职责明确的模块中。JSON 导入导出仍使用完整 `AppData`；本轮不增加云存储适配层。
+以现有 `App.tsx` 的 `AppData` 为唯一权威状态，复用 `storage.ts` 的保存和校验入口；将 Agent 会话、Patch 提案校验/差异计算、抽屉 UI 分别放在前端职责明确的模块中。Fastify 后端单独置于 `apps/api`，仅实现模型配置、Pi 代理和静态资源服务，不复制任务数据状态。JSON 导入导出仍使用完整 `AppData`；本轮不增加云存储适配层。
 
 ## 依据
 
@@ -66,3 +66,4 @@ Patch 只是 Agent 的提案格式；它不改变导入导出的 `formatVersion:
 - Pi Agent Core 的浏览器代理与工具接口：[官方 Agent 文档](https://raw.githubusercontent.com/earendil-works/pi/main/packages/agent/README.md)。
 - Pi 的浏览器密钥说明：[官方模型文档](https://raw.githubusercontent.com/earendil-works/pi/main/packages/ai/README.md)。
 - Patch 操作语义：[RFC 6902](https://www.rfc-editor.org/info/rfc6902/)。
+- Node 后端框架选型：[Fastify TypeScript 文档](https://fastify.dev/docs/latest/Reference/TypeScript/)、[流式响应文档](https://fastify.dev/docs/latest/Reference/Reply/)、[官方插件列表](https://fastify.dev/docs/latest/Guides/Ecosystem/)。
