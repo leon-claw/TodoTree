@@ -1,18 +1,25 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { chmod, mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import Fastify from 'fastify';
 import { registerGraphRoutes } from './graphRoutes';
 import { createApi } from './app';
 
+const execFileAsync = promisify(execFile);
 let root: string;
 let executable: string;
 let capture: string;
 beforeEach(async () => {
   root = await mkdtemp(join(tmpdir(), 'todotree-graph-routes-'));
   await mkdir(join(root, 'graphify-out'));
-  await writeFile(join(root, 'graphify-out', 'graph.json'), JSON.stringify({ built_at_commit: 'feedbeef', nodes: [] }));
+  await mkdir(join(root, 'apps/web/src'), { recursive: true });
+  await writeFile(join(root, 'apps/web/src/storage.ts'), Array.from({ length: 100 }, (_, i) => `source-${i + 1}`).join('\n'));
+  await execFileAsync('git', ['init', '--quiet'], { cwd: root });
+  await execFileAsync('git', ['add', '--', 'apps/web/src/storage.ts'], { cwd: root });
+  await writeFile(join(root, 'graphify-out', 'graph.json'), JSON.stringify({ built_at_commit: 'feedbeef', nodes: [{ source_file: 'apps/web/src/storage.ts' }] }));
   executable = join(root, 'fake graphify');
   capture = join(root, 'args.json');
   await writeFile(executable, `#!/usr/bin/env node\nconst fs=require('node:fs'); fs.writeFileSync(process.env.GRAPHIFY_CAPTURE,JSON.stringify(process.argv.slice(2))); process.stdout.write('scoped result');\n`);
@@ -34,6 +41,9 @@ describe('read-only Graphify routes', () => {
       expect((await app.inject({ method: 'POST', url: '/api/graph/query', payload: { question: 'AppData' } })).json()).toEqual({ result: 'scoped result' });
       expect((await app.inject({ method: 'POST', url: '/api/graph/path', payload: { from: 'App', to: 'Storage' } })).json()).toEqual({ result: 'scoped result' });
       expect((await app.inject({ method: 'POST', url: '/api/graph/explain', payload: { node: 'AppData' } })).json()).toEqual({ result: 'scoped result' });
+      const source = await app.inject({ method: 'POST', url: '/api/graph/source', payload: { sourceFile: 'apps/web/src/storage.ts', startLine: 2 } });
+      expect(source.json()).toMatchObject({ path: 'apps/web/src/storage.ts', startLine: 2 });
+      expect(source.json().lines).toHaveLength(80);
     } finally { await app.close(); }
   });
 
@@ -58,6 +68,7 @@ describe('read-only Graphify routes', () => {
     try {
       expect((await app.inject({ method: 'POST', url: '/api/graph/query', payload: { question: '' } })).statusCode).toBe(400);
       expect((await app.inject({ method: 'POST', url: '/api/graph/path', payload: { from: 'A' } })).statusCode).toBe(400);
+      expect((await app.inject({ method: 'POST', url: '/api/graph/source', payload: { sourceFile: '../secret', startLine: 1 } })).statusCode).toBe(403);
       await rm(join(root, 'graphify-out', 'graph.json'));
       const status = await app.inject({ url: '/api/graph/status' });
       const query = await app.inject({ method: 'POST', url: '/api/graph/query', payload: { question: 'AppData' } });

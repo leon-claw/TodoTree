@@ -1,6 +1,7 @@
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import { GraphifyError, readGraphStatus, runGraphify } from './graphRunner.js';
 import type { GraphifyInput, GraphifyOptions } from './graphRunner.js';
+import { readIndexedSource, SourceExcerptError } from './sourceExcerpt.js';
 
 interface Counter { windowStartedAt: number; count: number; active: number }
 const WINDOW_MS = 60_000;
@@ -57,4 +58,17 @@ export function registerGraphRoutes(app: FastifyInstance, projectRoot: string, o
   registerOperation('/api/graph/query', (body) => ({ kind: 'query', question: body.question as string }));
   registerOperation('/api/graph/path', (body) => ({ kind: 'path', from: body.from as string, to: body.to as string }));
   registerOperation('/api/graph/explain', (body) => ({ kind: 'explain', node: body.node as string }));
+
+  app.post('/api/graph/source', async (request, reply) => {
+    if (!isRecord(request.body)) return reply.code(400).send({ error: '请求内容必须是 JSON 对象' });
+    const release = acquire(request);
+    if (!release) return reply.code(429).send({ error: 'Graphify 查询过于频繁，请稍后重试' });
+    try {
+      const result = await readIndexedSource(projectRoot, request.body.sourceFile as string, request.body.startLine as number);
+      return result;
+    } catch (error) {
+      if (error instanceof SourceExcerptError) return reply.code(error.statusCode).send({ error: error.message });
+      return reply.code(502).send({ error: '读取索引源码失败' });
+    } finally { release(); }
+  });
 }
