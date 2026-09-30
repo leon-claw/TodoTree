@@ -72,19 +72,6 @@
       "norm_label": "confirmmodalprops"
     },
     {
-      "label": "ListViewProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ListView.tsx",
-      "source_location": "L5",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_listview_listviewprops",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "listviewprops"
-    },
-    {
       "label": "NavbarProps",
       "file_type": "code",
       "source_file": "apps/web/src/components/Navbar.tsx",
@@ -96,19 +83,6 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "navbarprops"
-    },
-    {
-      "label": "ScoreCoordinatePickerProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
-      "source_location": "L5",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepickerprops",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "scorecoordinatepickerprops"
     },
     {
       "label": "SettingsPageProps",
@@ -135,32 +109,6 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "tagmanagementpageprops"
-    },
-    {
-      "label": "TaskComposerProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TaskComposer.tsx",
-      "source_location": "L5",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_taskcomposer_taskcomposerprops",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "taskcomposerprops"
-    },
-    {
-      "label": "LeafItem",
-      "file_type": "code",
-      "source_file": "apps/web/src/storage.ts",
-      "source_location": "L266",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_storage_leafitem",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "leafitem"
     },
     {
       "label": "LeafPathItem",
@@ -200,19 +148,6 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "approute"
-    },
-    {
-      "label": "ComposerAnchor",
-      "file_type": "code",
-      "source_file": "apps/web/src/types.ts",
-      "source_location": "L30",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_types_composeranchor",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "composeranchor"
     },
     {
       "label": "CodeAgentDependencies",
@@ -410,19 +345,6 @@
       "norm_label": "modelstreamer"
     },
     {
-      "label": "ServerModelConfig",
-      "file_type": "code",
-      "source_file": "apps/api/src/config.ts",
-      "source_location": "L4",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_api_src_config_servermodelconfig",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "servermodelconfig"
-    },
-    {
       "label": "Counter",
       "file_type": "code",
       "source_file": "apps/api/src/graphRoutes.ts",
@@ -475,6 +397,19 @@
       "norm_label": "graphifyoptions"
     },
     {
+      "label": "SourceExcerptError",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L15",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_sourceexcerpterror",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "sourceexcerpterror"
+    },
+    {
       "label": "PathKind",
       "file_type": "code",
       "source_file": "apps/web/src/agent/proposal.ts",
@@ -501,17 +436,121 @@
       "norm_label": "proposalresult"
     },
     {
-      "label": "SourceExcerptError",
+      "label": "ServerModelConfig",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L15",
+      "source_file": "apps/api/src/config.ts",
+      "source_location": "L5",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_sourceexcerpterror",
+      "id": "apps_api_src_config_servermodelconfig",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "sourceexcerpterror"
+      "community_name": "profileStore.ts",
+      "norm_label": "servermodelconfig"
+    },
+    {
+      "label": "AgentProfile",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L7",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_agentprofile",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "agentprofile"
+    },
+    {
+      "label": "AgentProfileInput",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L16",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_agentprofileinput",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "agentprofileinput"
+    },
+    {
+      "label": "AgentProfileStore",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L42",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_agentprofilestore",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "agentprofilestore"
+    },
+    {
+      "label": "AgentProfileUpdate",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L23",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_agentprofileupdate",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "agentprofileupdate"
+    },
+    {
+      "label": "OpenStoreOptions",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L56",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_openstoreoptions",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "openstoreoptions"
+    },
+    {
+      "label": "ProfileSnapshot",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L35",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_profilesnapshot",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "profilesnapshot"
+    },
+    {
+      "label": "PublicAgentProfile",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L31",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_publicagentprofile",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "publicagentprofile"
+    },
+    {
+      "label": "StoredProfiles",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L51",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_storedprofiles",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "storedprofiles"
     },
     {
       "label": "IndexedTodo",
@@ -553,6 +592,32 @@
       "norm_label": "graphviewprops"
     },
     {
+      "label": "ListViewProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ListView.tsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_listview_listviewprops",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "listviewprops"
+    },
+    {
+      "label": "ScoreCoordinatePickerProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepickerprops",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "scorecoordinatepickerprops"
+    },
+    {
       "label": "SettingsPanelProps",
       "file_type": "code",
       "source_file": "apps/web/src/components/SettingsPanel.tsx",
@@ -564,6 +629,19 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "settingspanelprops"
+    },
+    {
+      "label": "TaskComposerProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TaskComposer.tsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_taskcomposer_taskcomposerprops",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "taskcomposerprops"
     },
     {
       "label": "TodoNodeProps",
@@ -644,6 +722,19 @@
       "norm_label": "semanticzoomlevel"
     },
     {
+      "label": "LeafItem",
+      "file_type": "code",
+      "source_file": "apps/web/src/storage.ts",
+      "source_location": "L266",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_storage_leafitem",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "leafitem"
+    },
+    {
       "label": "TagBorderStyle",
       "file_type": "code",
       "source_file": "apps/web/src/tagBorder.ts",
@@ -681,6 +772,19 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "todonodedata"
+    },
+    {
+      "label": "ComposerAnchor",
+      "file_type": "code",
+      "source_file": "apps/web/src/types.ts",
+      "source_location": "L30",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_types_composeranchor",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "composeranchor"
     },
     {
       "label": "Tag",
@@ -721,30 +825,6 @@
       "norm_label": "commitagentproposal()"
     },
     {
-      "label": "data()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
-      "source_location": "L6",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test_data",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "data()"
-    },
-    {
-      "label": "proposal()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
-      "source_location": "L7",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test_proposal",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "proposal()"
-    },
-    {
       "label": "undoAgentCommit()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/commit.ts",
@@ -755,6 +835,18 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "undoagentcommit()"
+    },
+    {
+      "label": "revalidateProposal()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L159",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_revalidateproposal",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "revalidateproposal()"
     },
     {
       "label": "App()",
@@ -781,18 +873,6 @@
       "norm_label": "confirmmodal()"
     },
     {
-      "label": "ListView()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ListView.tsx",
-      "source_location": "L15",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_listview_listview",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "listview()"
-    },
-    {
       "label": "Navbar()",
       "file_type": "code",
       "source_file": "apps/web/src/components/Navbar.tsx",
@@ -803,30 +883,6 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "navbar()"
-    },
-    {
-      "label": "clampScore()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
-      "source_location": "L17",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_scorecoordinatepicker_clampscore",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "clampscore()"
-    },
-    {
-      "label": "ScoreCoordinatePicker()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
-      "source_location": "L19",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepicker",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "scorecoordinatepicker()"
     },
     {
       "label": "countTodos()",
@@ -875,18 +931,6 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "tagmanagementpage()"
-    },
-    {
-      "label": "TaskComposer()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TaskComposer.tsx",
-      "source_location": "L13",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_taskcomposer_taskcomposer",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "taskcomposer()"
     },
     {
       "label": "baseRouteFor()",
@@ -1561,18 +1605,6 @@
       "norm_label": "[symbol.asynciterator]()"
     },
     {
-      "label": "loadAgentConfig()",
-      "file_type": "code",
-      "source_file": "apps/api/src/config.ts",
-      "source_location": "L17",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_api_src_config_loadagentconfig",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "loadagentconfig()"
-    },
-    {
       "label": "clientKey()",
       "file_type": "code",
       "source_file": "apps/api/src/graphRoutes.ts",
@@ -1741,6 +1773,102 @@
       "norm_label": "validatetext()"
     },
     {
+      "label": "indexedSources()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L46",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_indexedsources",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "indexedsources()"
+    },
+    {
+      "label": "isWithin()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L22",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_iswithin",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "iswithin()"
+    },
+    {
+      "label": "normalizeSourcePath()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L27",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_normalizesourcepath",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "normalizesourcepath()"
+    },
+    {
+      "label": "readIndexedSource()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L84",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_readindexedsource",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "readindexedsource()"
+    },
+    {
+      "label": "requireTrackedFile()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L73",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_requiretrackedfile",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "requiretrackedfile()"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L16",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_sourceexcerpterror_constructor",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": "data()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_location": "L6",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_test_data",
+      "community": 23,
+      "community_name": "proposal.ts",
+      "norm_label": "data()"
+    },
+    {
+      "label": "proposal()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_test_proposal",
+      "community": 23,
+      "community_name": "proposal.ts",
+      "norm_label": "proposal()"
+    },
+    {
       "label": "checkIdentityAndExtraFields()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/proposal.ts",
@@ -1813,18 +1941,6 @@
       "norm_label": "readsnapshot()"
     },
     {
-      "label": "revalidateProposal()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L159",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_revalidateproposal",
-      "community": 23,
-      "community_name": "proposal.ts",
-      "norm_label": "revalidateproposal()"
-    },
-    {
       "label": "baseData()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/proposal.test.ts",
@@ -1873,76 +1989,160 @@
       "norm_label": "unknownfields()"
     },
     {
-      "label": "indexedSources()",
+      "label": "loadAgentConfig()",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_file": "apps/api/src/config.ts",
+      "source_location": "L18",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_config_loadagentconfig",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "loadagentconfig()"
+    },
+    {
+      "label": "loadLegacyAgentProfile()",
+      "file_type": "code",
+      "source_file": "apps/api/src/config.ts",
+      "source_location": "L29",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_config_loadlegacyagentprofile",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "loadlegacyagentprofile()"
+    },
+    {
+      "label": ".activate()",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L47",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_agentprofilestore_activate",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": ".activate()"
+    },
+    {
+      "label": ".create()",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L45",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_agentprofilestore_create",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": ".create()"
+    },
+    {
+      "label": ".get()",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L44",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_agentprofilestore_get",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": ".get()"
+    },
+    {
+      "label": ".remove()",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L48",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_agentprofilestore_remove",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": ".remove()"
+    },
+    {
+      "label": ".snapshot()",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L43",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_agentprofilestore_snapshot",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": ".snapshot()"
+    },
+    {
+      "label": ".update()",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
       "source_location": "L46",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_indexedsources",
+      "id": "apps_api_src_profilestore_agentprofilestore_update",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "indexedsources()"
+      "community_name": "profileStore.ts",
+      "norm_label": ".update()"
     },
     {
-      "label": "isWithin()",
+      "label": "openAgentProfileStore()",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L22",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L100",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_iswithin",
+      "id": "apps_api_src_profilestore_openagentprofilestore",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "iswithin()"
+      "community_name": "profileStore.ts",
+      "norm_label": "openagentprofilestore()"
     },
     {
-      "label": "normalizeSourcePath()",
+      "label": "makeConfigDir()",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L27",
+      "source_file": "apps/api/src/profileStore.test.ts",
+      "source_location": "L9",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_normalizesourcepath",
+      "id": "apps_api_src_profilestore_test_makeconfigdir",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "normalizesourcepath()"
+      "community_name": "profileStore.ts",
+      "norm_label": "makeconfigdir()"
     },
     {
-      "label": "readIndexedSource()",
+      "label": "profile()",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L84",
+      "source_file": "apps/api/src/profileStore.test.ts",
+      "source_location": "L15",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_readindexedsource",
+      "id": "apps_api_src_profilestore_test_profile",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "readindexedsource()"
+      "community_name": "profileStore.ts",
+      "norm_label": "profile()"
     },
     {
-      "label": "requireTrackedFile()",
+      "label": "validateField()",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L73",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L64",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_requiretrackedfile",
+      "id": "apps_api_src_profilestore_validatefield",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "requiretrackedfile()"
+      "community_name": "profileStore.ts",
+      "norm_label": "validatefield()"
     },
     {
-      "label": ".constructor()",
+      "label": "validateStoredProfiles()",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L16",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L71",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_sourceexcerpterror_constructor",
+      "id": "apps_api_src_profilestore_validatestoredprofiles",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": ".constructor()"
+      "community_name": "profileStore.ts",
+      "norm_label": "validatestoredprofiles()"
     },
     {
       "label": "FlowNavigator()",
@@ -1979,6 +2179,54 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "graphview()"
+    },
+    {
+      "label": "ListView()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ListView.tsx",
+      "source_location": "L15",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_listview_listview",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "listview()"
+    },
+    {
+      "label": "clampScore()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L17",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker_clampscore",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "clampscore()"
+    },
+    {
+      "label": "ScoreCoordinatePicker()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L19",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepicker",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "scorecoordinatepicker()"
+    },
+    {
+      "label": "TaskComposer()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TaskComposer.tsx",
+      "source_location": "L13",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_taskcomposer_taskcomposer",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "taskcomposer()"
     },
     {
       "label": "getComposerAnchor()",
@@ -2112,17 +2360,6 @@
       "norm_label": "commit.ts"
     },
     {
-      "label": "commit.test.ts",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "commit.test.ts"
-    },
-    {
       "label": "App.tsx",
       "file_type": "code",
       "source_file": "apps/web/src/App.tsx",
@@ -2145,17 +2382,6 @@
       "norm_label": "confirmmodal.tsx"
     },
     {
-      "label": "ListView.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ListView.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_listview",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "listview.tsx"
-    },
-    {
       "label": "Navbar.tsx",
       "file_type": "code",
       "source_file": "apps/web/src/components/Navbar.tsx",
@@ -2167,17 +2393,6 @@
       "norm_label": "navbar.tsx"
     },
     {
-      "label": "ScoreCoordinatePicker.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_scorecoordinatepicker",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "scorecoordinatepicker.tsx"
-    },
-    {
       "label": "SettingsPage.tsx",
       "file_type": "code",
       "source_file": "apps/web/src/components/SettingsPage.tsx",
@@ -2187,17 +2402,6 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "settingspage.tsx"
-    },
-    {
-      "label": "SettingsPanel.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/SettingsPanel.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_settingspanel",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "settingspanel.tsx"
     },
     {
       "label": "TagManagementPage.tsx",
@@ -2220,17 +2424,6 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "preset_colors"
-    },
-    {
-      "label": "TaskComposer.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TaskComposer.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_taskcomposer",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "taskcomposer.tsx"
     },
     {
       "label": "main.tsx",
@@ -2286,17 +2479,6 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "initial_data"
-    },
-    {
-      "label": "types.ts",
-      "file_type": "code",
-      "source_file": "apps/web/src/types.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_types",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "types.ts"
     },
     {
       "label": "web/package.json",
@@ -3278,50 +3460,6 @@
       "norm_label": "usage"
     },
     {
-      "label": "config.ts",
-      "file_type": "code",
-      "source_file": "apps/api/src/config.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_api_src_config",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "config.ts"
-    },
-    {
-      "label": "models",
-      "file_type": "code",
-      "source_file": "apps/api/src/config.ts",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "apps_api_src_config_models",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "models"
-    },
-    {
-      "label": "providerKeyNames",
-      "file_type": "code",
-      "source_file": "apps/api/src/config.ts",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "apps_api_src_config_providerkeynames",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "providerkeynames"
-    },
-    {
-      "label": "config.test.ts",
-      "file_type": "code",
-      "source_file": "apps/api/src/config.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_api_src_config_test",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "config.test.ts"
-    },
-    {
       "label": "graphRoutes.ts",
       "file_type": "code",
       "source_file": "apps/api/src/graphRoutes.ts",
@@ -3377,59 +3515,92 @@
       "norm_label": "graphrunner.test.ts"
     },
     {
-      "label": "index.ts",
+      "label": "sourceExcerpt.ts",
       "file_type": "code",
-      "source_file": "apps/api/src/index.ts",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_api_src_index",
+      "id": "apps_api_src_sourceexcerpt",
       "community": 18,
       "community_name": "app.ts",
-      "norm_label": "index.ts"
+      "norm_label": "sourceexcerpt.ts"
     },
     {
-      "label": "app",
+      "label": "execFileAsync",
       "file_type": "code",
-      "source_file": "apps/api/src/index.ts",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "apps_api_src_index_app",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "app"
-    },
-    {
-      "label": "port",
-      "file_type": "code",
-      "source_file": "apps/api/src/index.ts",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "apps_api_src_index_port",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "port"
-    },
-    {
-      "label": "projectRoot",
-      "file_type": "code",
-      "source_file": "apps/api/src/index.ts",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "apps_api_src_index_projectroot",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "projectroot"
-    },
-    {
-      "label": "webDist",
-      "file_type": "code",
-      "source_file": "apps/api/src/index.ts",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "apps_api_src_index_webdist",
+      "id": "apps_api_src_sourceexcerpt_execfileasync",
       "community": 18,
       "community_name": "app.ts",
-      "norm_label": "webdist"
+      "norm_label": "execfileasync"
+    },
+    {
+      "label": "FORBIDDEN_DIRECTORY",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_forbidden_directory",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "forbidden_directory"
+    },
+    {
+      "label": "ROOT_DOCUMENTS",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_root_documents",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "root_documents"
+    },
+    {
+      "label": "sourceExcerpt.test.ts",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_test",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "sourceexcerpt.test.ts"
+    },
+    {
+      "label": "execFileAsync",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.test.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_test_execfileasync",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "execfileasync"
+    },
+    {
+      "label": "indexed",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.test.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_test_indexed",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "indexed"
+    },
+    {
+      "label": "sourceLines",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.test.ts",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_test_sourcelines",
+      "community": 18,
+      "community_name": "app.ts",
+      "norm_label": "sourcelines"
     },
     {
       "label": "2026-09-29-pi-agent-graphify-code-qa-design.md",
@@ -3636,6 +3807,116 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "docs_superpowers_specs_2026_09_29_pi_agent_json_management_design_\u9a8c\u6536",
+      "community": 19,
+      "community_name": "TodoTree \u5185\u7f6e Pi Agent \u7ba1\u7406 JSON\uff1a\u8bbe\u8ba1\u89c4\u683c",
+      "norm_label": "\u9a8c\u6536"
+    },
+    {
+      "label": "2026-09-30-pi-agent-unified-profiles-design.md",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design",
+      "community": 19,
+      "community_name": "TodoTree \u5185\u7f6e Pi Agent \u7ba1\u7406 JSON\uff1a\u8bbe\u8ba1\u89c4\u683c",
+      "norm_label": "2026-09-30-pi-agent-unified-profiles-design.md"
+    },
+    {
+      "label": "TodoTree \u7edf\u4e00 Pi Agent \u4e0e\u6a21\u578b\u914d\u7f6e\uff1a\u8bbe\u8ba1\u89c4\u683c",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_todotree_\u7edf\u4e00_pi_agent_\u4e0e\u6a21\u578b\u914d\u7f6e_\u8bbe\u8ba1\u89c4\u683c",
+      "community": 19,
+      "community_name": "TodoTree \u5185\u7f6e Pi Agent \u7ba1\u7406 JSON\uff1a\u8bbe\u8ba1\u89c4\u683c",
+      "norm_label": "todotree \u7edf\u4e00 pi agent \u4e0e\u6a21\u578b\u914d\u7f6e:\u8bbe\u8ba1\u89c4\u683c"
+    },
+    {
+      "label": "\u4f9d\u636e",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u4f9d\u636e",
+      "community": 19,
+      "community_name": "TodoTree \u5185\u7f6e Pi Agent \u7ba1\u7406 JSON\uff1a\u8bbe\u8ba1\u89c4\u683c",
+      "norm_label": "\u4f9d\u636e"
+    },
+    {
+      "label": "\u5355 Pi Agent \u4e0e\u5de5\u5177\u8fb9\u754c",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u5355_pi_agent_\u4e0e\u5de5\u5177\u8fb9\u754c",
+      "community": 19,
+      "community_name": "TodoTree \u5185\u7f6e Pi Agent \u7ba1\u7406 JSON\uff1a\u8bbe\u8ba1\u89c4\u683c",
+      "norm_label": "\u5355 pi agent \u4e0e\u5de5\u5177\u8fb9\u754c"
+    },
+    {
+      "label": "\u65b9\u6848\u9009\u62e9",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u65b9\u6848\u9009\u62e9",
+      "community": 19,
+      "community_name": "TodoTree \u5185\u7f6e Pi Agent \u7ba1\u7406 JSON\uff1a\u8bbe\u8ba1\u89c4\u683c",
+      "norm_label": "\u65b9\u6848\u9009\u62e9"
+    },
+    {
+      "label": "\u76ee\u6807\u4e0e\u8303\u56f4",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u76ee\u6807\u4e0e\u8303\u56f4",
+      "community": 19,
+      "community_name": "TodoTree \u5185\u7f6e Pi Agent \u7ba1\u7406 JSON\uff1a\u8bbe\u8ba1\u89c4\u683c",
+      "norm_label": "\u76ee\u6807\u4e0e\u8303\u56f4"
+    },
+    {
+      "label": "\u8bbe\u7f6e\u9875\u4e0e\u4ea4\u4e92",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u8bbe\u7f6e\u9875\u4e0e\u4ea4\u4e92",
+      "community": 19,
+      "community_name": "TodoTree \u5185\u7f6e Pi Agent \u7ba1\u7406 JSON\uff1a\u8bbe\u8ba1\u89c4\u683c",
+      "norm_label": "\u8bbe\u7f6e\u9875\u4e0e\u4ea4\u4e92"
+    },
+    {
+      "label": "\u914d\u7f6e\u5b58\u50a8\u4e0e API",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u914d\u7f6e\u5b58\u50a8\u4e0e_api",
+      "community": 19,
+      "community_name": "TodoTree \u5185\u7f6e Pi Agent \u7ba1\u7406 JSON\uff1a\u8bbe\u8ba1\u89c4\u683c",
+      "norm_label": "\u914d\u7f6e\u5b58\u50a8\u4e0e api"
+    },
+    {
+      "label": "\u9519\u8bef\u5904\u7406\u4e0e\u6570\u636e\u5b89\u5168",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u9519\u8bef\u5904\u7406\u4e0e\u6570\u636e\u5b89\u5168",
+      "community": 19,
+      "community_name": "TodoTree \u5185\u7f6e Pi Agent \u7ba1\u7406 JSON\uff1a\u8bbe\u8ba1\u89c4\u683c",
+      "norm_label": "\u9519\u8bef\u5904\u7406\u4e0e\u6570\u636e\u5b89\u5168"
+    },
+    {
+      "label": "\u9a8c\u6536",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u9a8c\u6536",
       "community": 19,
       "community_name": "TodoTree \u5185\u7f6e Pi Agent \u7ba1\u7406 JSON\uff1a\u8bbe\u8ba1\u89c4\u683c",
       "norm_label": "\u9a8c\u6536"
@@ -4367,6 +4648,17 @@
       "norm_label": "todotree pi agent graphify code q&a implementation plan"
     },
     {
+      "label": "commit.test.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_test",
+      "community": 23,
+      "community_name": "proposal.ts",
+      "norm_label": "commit.test.ts"
+    },
+    {
       "label": "proposal.ts",
       "file_type": "code",
       "source_file": "apps/web/src/agent/proposal.ts",
@@ -4422,92 +4714,268 @@
       "norm_label": "unsafetokens"
     },
     {
-      "label": "sourceExcerpt.ts",
+      "label": "config.ts",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_file": "apps/api/src/config.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt",
+      "id": "apps_api_src_config",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "sourceexcerpt.ts"
+      "community_name": "profileStore.ts",
+      "norm_label": "config.ts"
     },
     {
-      "label": "execFileAsync",
+      "label": "models",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L6",
+      "source_file": "apps/api/src/config.ts",
+      "source_location": "L10",
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_execfileasync",
+      "id": "apps_api_src_config_models",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "execfileasync"
+      "community_name": "profileStore.ts",
+      "norm_label": "models"
     },
     {
-      "label": "FORBIDDEN_DIRECTORY",
+      "label": "providerKeyNames",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_forbidden_directory",
-      "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "forbidden_directory"
-    },
-    {
-      "label": "ROOT_DOCUMENTS",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_file": "apps/api/src/config.ts",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_root_documents",
+      "id": "apps_api_src_config_providerkeynames",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "root_documents"
+      "community_name": "profileStore.ts",
+      "norm_label": "providerkeynames"
     },
     {
-      "label": "sourceExcerpt.test.ts",
+      "label": "config.test.ts",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.test.ts",
+      "source_file": "apps/api/src/config.test.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_test",
+      "id": "apps_api_src_config_test",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "sourceexcerpt.test.ts"
+      "community_name": "profileStore.ts",
+      "norm_label": "config.test.ts"
     },
     {
-      "label": "execFileAsync",
+      "label": "index.ts",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.test.ts",
+      "source_file": "apps/api/src/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_api_src_index",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "app",
+      "file_type": "code",
+      "source_file": "apps/api/src/index.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "apps_api_src_index_app",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "app"
+    },
+    {
+      "label": "port",
+      "file_type": "code",
+      "source_file": "apps/api/src/index.ts",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_test_execfileasync",
+      "id": "apps_api_src_index_port",
       "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "execfileasync"
+      "community_name": "profileStore.ts",
+      "norm_label": "port"
     },
     {
-      "label": "indexed",
+      "label": "projectRoot",
       "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.test.ts",
+      "source_file": "apps/api/src/index.ts",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "apps_api_src_index_projectroot",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "projectroot"
+    },
+    {
+      "label": "webDist",
+      "file_type": "code",
+      "source_file": "apps/api/src/index.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "apps_api_src_index_webdist",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "webdist"
+    },
+    {
+      "label": "profileStore.ts",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "profilestore.ts"
+    },
+    {
+      "label": "MAX_LENGTHS",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_max_lengths",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "max_lengths"
+    },
+    {
+      "label": "profileStore.test.ts",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_test",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "profilestore.test.ts"
+    },
+    {
+      "label": "directories",
+      "file_type": "code",
+      "source_file": "apps/api/src/profileStore.test.ts",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "apps_api_src_profilestore_test_directories",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "directories"
+    },
+    {
+      "label": "2026-09-30-pi-agent-unified-profiles.md",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles",
+      "community": 25,
+      "community_name": "Review Focus",
+      "norm_label": "2026-09-30-pi-agent-unified-profiles.md"
+    },
+    {
+      "label": "Global Constraints",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_test_indexed",
-      "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "indexed"
+      "id": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_global_constraints",
+      "community": 25,
+      "community_name": "Review Focus",
+      "norm_label": "global constraints"
     },
     {
-      "label": "sourceLines",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.test.ts",
-      "source_location": "L12",
+      "label": "Review Focus",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L24",
       "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_test_sourcelines",
-      "community": 24,
-      "community_name": "sourceExcerpt.ts",
-      "norm_label": "sourcelines"
+      "id": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_review_focus",
+      "community": 25,
+      "community_name": "Review Focus",
+      "norm_label": "review focus"
+    },
+    {
+      "label": "Self-review Coverage",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L140",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_self_review_coverage",
+      "community": 25,
+      "community_name": "Review Focus",
+      "norm_label": "self-review coverage"
+    },
+    {
+      "label": "Task 1: \u5b89\u5168\u7684 profile \u6587\u4ef6\u5b58\u50a8\u4e0e\u517c\u5bb9\u52a0\u8f7d",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_1_\u5b89\u5168\u7684_profile_\u6587\u4ef6\u5b58\u50a8\u4e0e\u517c\u5bb9\u52a0\u8f7d",
+      "community": 25,
+      "community_name": "Review Focus",
+      "norm_label": "task 1: \u5b89\u5168\u7684 profile \u6587\u4ef6\u5b58\u50a8\u4e0e\u517c\u5bb9\u52a0\u8f7d"
+    },
+    {
+      "label": "Task 2: profile \u7ba1\u7406\u3001Pi \u6d41\u5f0f\u4ee3\u7406\u4e0e\u8fde\u63a5\u6d4b\u8bd5 API",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_2_profile_\u7ba1\u7406_pi_\u6d41\u5f0f\u4ee3\u7406\u4e0e\u8fde\u63a5\u6d4b\u8bd5_api",
+      "community": 25,
+      "community_name": "Review Focus",
+      "norm_label": "task 2: profile \u7ba1\u7406\u3001pi \u6d41\u5f0f\u4ee3\u7406\u4e0e\u8fde\u63a5\u6d4b\u8bd5 api"
+    },
+    {
+      "label": "Task 3: \u5c06\u4efb\u52a1\u5de5\u5177\u548c Graphify \u5de5\u5177\u7ec4\u88c5\u6210\u4e00\u4e2a Pi Agent",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_3_\u5c06\u4efb\u52a1\u5de5\u5177\u548c_graphify_\u5de5\u5177\u7ec4\u88c5\u6210\u4e00\u4e2a_pi_agent",
+      "community": 25,
+      "community_name": "Review Focus",
+      "norm_label": "task 3: \u5c06\u4efb\u52a1\u5de5\u5177\u548c graphify \u5de5\u5177\u7ec4\u88c5\u6210\u4e00\u4e2a pi agent"
+    },
+    {
+      "label": "Task 4: \u8bbe\u7f6e\u9875\u6a21\u578b profile \u7ba1\u7406\u548c\u8fde\u63a5\u6d4b\u8bd5",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L90",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_4_\u8bbe\u7f6e\u9875\u6a21\u578b_profile_\u7ba1\u7406\u548c\u8fde\u63a5\u6d4b\u8bd5",
+      "community": 25,
+      "community_name": "Review Focus",
+      "norm_label": "task 4: \u8bbe\u7f6e\u9875\u6a21\u578b profile \u7ba1\u7406\u548c\u8fde\u63a5\u6d4b\u8bd5"
+    },
+    {
+      "label": "Task 5: Agent \u62bd\u5c49\u5408\u5e76\u4f1a\u8bdd\u5e76\u4fdd\u7559\u6a21\u578b\u5207\u6362",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_5_agent_\u62bd\u5c49\u5408\u5e76\u4f1a\u8bdd\u5e76\u4fdd\u7559\u6a21\u578b\u5207\u6362",
+      "community": 25,
+      "community_name": "Review Focus",
+      "norm_label": "task 5: agent \u62bd\u5c49\u5408\u5e76\u4f1a\u8bdd\u5e76\u4fdd\u7559\u6a21\u578b\u5207\u6362"
+    },
+    {
+      "label": "Task 6: \u66f4\u65b0\u90e8\u7f72\u6587\u6863\u548c\u5b8c\u6210\u7aef\u5230\u7aef\u590d\u6838",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L126",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_6_\u66f4\u65b0\u90e8\u7f72\u6587\u6863\u548c\u5b8c\u6210\u7aef\u5230\u7aef\u590d\u6838",
+      "community": 25,
+      "community_name": "Review Focus",
+      "norm_label": "task 6: \u66f4\u65b0\u90e8\u7f72\u6587\u6863\u548c\u5b8c\u6210\u7aef\u5230\u7aef\u590d\u6838"
+    },
+    {
+      "label": "TodoTree Unified Pi Agent and Model Profiles Implementation Plan",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_todotree_unified_pi_agent_and_model_profiles_implementation_plan",
+      "community": 25,
+      "community_name": "Review Focus",
+      "norm_label": "todotree unified pi agent and model profiles implementation plan"
     },
     {
       "label": "FlowNavigator.tsx",
@@ -4530,6 +4998,50 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "graphview.tsx"
+    },
+    {
+      "label": "ListView.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ListView.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_listview",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "listview.tsx"
+    },
+    {
+      "label": "ScoreCoordinatePicker.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "scorecoordinatepicker.tsx"
+    },
+    {
+      "label": "SettingsPanel.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/SettingsPanel.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_settingspanel",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "settingspanel.tsx"
+    },
+    {
+      "label": "TaskComposer.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TaskComposer.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_taskcomposer",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "taskcomposer.tsx"
     },
     {
       "label": "TodoNode.tsx",
@@ -4772,6 +5284,17 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "todos"
+    },
+    {
+      "label": "types.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/types.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_types",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "types.ts"
     },
     {
       "label": "web/tsconfig.json",
@@ -5328,36 +5851,6 @@
       "id": "apps_web_src_index"
     },
     {
-      "label": "lucide-react",
-      "file_type": "code",
-      "source_file": "apps/web/package.json",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "lucide-react",
-      "_origin": "semantic",
-      "id": "ref_lucide_react"
-    },
-    {
-      "label": "react",
-      "file_type": "code",
-      "source_file": "apps/web/package.json",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "react",
-      "_origin": "semantic",
-      "id": "ref_react"
-    },
-    {
       "label": "react-dom/client",
       "file_type": "code",
       "source_file": "apps/web/package.json",
@@ -5536,6 +6029,36 @@
       "norm_label": "d3-hierarchy",
       "_origin": "semantic",
       "id": "ref_d3_hierarchy"
+    },
+    {
+      "label": "lucide-react",
+      "file_type": "code",
+      "source_file": "apps/web/package.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "lucide-react",
+      "_origin": "semantic",
+      "id": "ref_lucide_react"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "apps/web/package.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "react",
+      "_origin": "semantic",
+      "id": "ref_react"
     },
     {
       "label": "@xyflow/react",
@@ -5879,6 +6402,18 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/config.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_config_loadlegacyagentprofile",
+      "target": "apps_api_src_config_loadagentconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
       "source_file": "apps/api/src/graphRoutes.ts",
       "source_location": "L22",
       "weight": 1.0,
@@ -6018,6 +6553,30 @@
       "source": "apps_api_src_graphrunner_rungraphify",
       "target": "apps_api_src_graphrunner_execute",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_openagentprofilestore",
+      "target": "apps_api_src_profilestore_validatestoredprofiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L126",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_openagentprofilestore",
+      "target": "apps_api_src_config_loadlegacyagentprofile"
     },
     {
       "relation": "calls",
@@ -7775,12 +8334,36 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/config.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_config",
+      "target": "apps_api_src_profilestore_agentprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/api/src/config.test.ts",
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_api_src_config_test",
       "target": "apps_api_src_config_loadagentconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/config.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_config_test",
+      "target": "apps_api_src_config_loadlegacyagentprofile",
       "confidence_score": 1.0
     },
     {
@@ -7937,6 +8520,30 @@
       "_origin": "ast",
       "source": "apps_api_src_index",
       "target": "apps_api_src_config_loadagentconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_config_loadlegacyagentprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_test",
+      "target": "apps_api_src_profilestore_openagentprofilestore",
       "confidence_score": 1.0
     },
     {
@@ -9959,6 +10566,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/config.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_config",
+      "target": "apps_api_src_profilestore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/api/src/config.test.ts",
       "source_location": "L2",
       "weight": 1.0,
@@ -10049,6 +10668,18 @@
       "_origin": "ast",
       "source": "apps_api_src_index",
       "target": "apps_api_src_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_test",
+      "target": "apps_api_src_profilestore",
       "confidence_score": 1.0
     },
     {
@@ -11722,6 +12353,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_api_src_config",
+      "target": "apps_api_src_config_models",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/config.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_config",
       "target": "apps_api_src_config_providerkeynames",
       "confidence_score": 1.0
     },
@@ -11729,7 +12371,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/api/src/config.ts",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_api_src_config",
@@ -11740,22 +12382,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/api/src/config.ts",
-      "source_location": "L4",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_api_src_config",
-      "target": "apps_api_src_config_servermodelconfig",
+      "target": "apps_api_src_config_loadlegacyagentprofile",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/api/src/config.ts",
-      "source_location": "L9",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_api_src_config",
-      "target": "apps_api_src_config_models",
+      "target": "apps_api_src_config_servermodelconfig",
       "confidence_score": 1.0
     },
     {
@@ -11987,6 +12629,171 @@
       "_origin": "ast",
       "source": "apps_api_src_index",
       "target": "apps_api_src_index_port",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_openagentprofilestore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_agentprofileinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_agentprofileupdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_publicagentprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_profilesnapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_agentprofilestore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_storedprofiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_openstoreoptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_max_lengths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_validatefield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_agentprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore",
+      "target": "apps_api_src_profilestore_validatestoredprofiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.test.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_test",
+      "target": "apps_api_src_profilestore_test_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.test.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_test",
+      "target": "apps_api_src_profilestore_test_directories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.test.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_test",
+      "target": "apps_api_src_profilestore_test_makeconfigdir",
       "confidence_score": 1.0
     },
     {
@@ -15127,6 +15934,116 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles",
+      "target": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_todotree_unified_pi_agent_and_model_profiles_implementation_plan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_review_focus",
+      "target": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_5_agent_\u62bd\u5c49\u5408\u5e76\u4f1a\u8bdd\u5e76\u4fdd\u7559\u6a21\u578b\u5207\u6362",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_review_focus",
+      "target": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_6_\u66f4\u65b0\u90e8\u7f72\u6587\u6863\u548c\u5b8c\u6210\u7aef\u5230\u7aef\u590d\u6838",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_review_focus",
+      "target": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_1_\u5b89\u5168\u7684_profile_\u6587\u4ef6\u5b58\u50a8\u4e0e\u517c\u5bb9\u52a0\u8f7d",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_review_focus",
+      "target": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_2_profile_\u7ba1\u7406_pi_\u6d41\u5f0f\u4ee3\u7406\u4e0e\u8fde\u63a5\u6d4b\u8bd5_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L72",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_review_focus",
+      "target": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_3_\u5c06\u4efb\u52a1\u5de5\u5177\u548c_graphify_\u5de5\u5177\u7ec4\u88c5\u6210\u4e00\u4e2a_pi_agent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L90",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_review_focus",
+      "target": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_task_4_\u8bbe\u7f6e\u9875\u6a21\u578b_profile_\u7ba1\u7406\u548c\u8fde\u63a5\u6d4b\u8bd5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_todotree_unified_pi_agent_and_model_profiles_implementation_plan",
+      "target": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_global_constraints",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L140",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_todotree_unified_pi_agent_and_model_profiles_implementation_plan",
+      "target": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_self_review_coverage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_todotree_unified_pi_agent_and_model_profiles_implementation_plan",
+      "target": "docs_superpowers_plans_2026_09_30_pi_agent_unified_profiles_review_focus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "docs/superpowers/specs/2026-09-29-pi-agent-graphify-code-qa-design.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -15314,6 +16231,105 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design",
+      "target": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_todotree_\u7edf\u4e00_pi_agent_\u4e0e\u6a21\u578b\u914d\u7f6e_\u8bbe\u8ba1\u89c4\u683c",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_todotree_\u7edf\u4e00_pi_agent_\u4e0e\u6a21\u578b\u914d\u7f6e_\u8bbe\u8ba1\u89c4\u683c",
+      "target": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u65b9\u6848\u9009\u62e9",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_todotree_\u7edf\u4e00_pi_agent_\u4e0e\u6a21\u578b\u914d\u7f6e_\u8bbe\u8ba1\u89c4\u683c",
+      "target": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u8bbe\u7f6e\u9875\u4e0e\u4ea4\u4e92",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_todotree_\u7edf\u4e00_pi_agent_\u4e0e\u6a21\u578b\u914d\u7f6e_\u8bbe\u8ba1\u89c4\u683c",
+      "target": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u914d\u7f6e\u5b58\u50a8\u4e0e_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_todotree_\u7edf\u4e00_pi_agent_\u4e0e\u6a21\u578b\u914d\u7f6e_\u8bbe\u8ba1\u89c4\u683c",
+      "target": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u5355_pi_agent_\u4e0e\u5de5\u5177\u8fb9\u754c",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_todotree_\u7edf\u4e00_pi_agent_\u4e0e\u6a21\u578b\u914d\u7f6e_\u8bbe\u8ba1\u89c4\u683c",
+      "target": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u9519\u8bef\u5904\u7406\u4e0e\u6570\u636e\u5b89\u5168",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_todotree_\u7edf\u4e00_pi_agent_\u4e0e\u6a21\u578b\u914d\u7f6e_\u8bbe\u8ba1\u89c4\u683c",
+      "target": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u76ee\u6807\u4e0e\u8303\u56f4",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_todotree_\u7edf\u4e00_pi_agent_\u4e0e\u6a21\u578b\u914d\u7f6e_\u8bbe\u8ba1\u89c4\u683c",
+      "target": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u9a8c\u6536",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_todotree_\u7edf\u4e00_pi_agent_\u4e0e\u6a21\u578b\u914d\u7f6e_\u8bbe\u8ba1\u89c4\u683c",
+      "target": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design_\u4f9d\u636e",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "package.json",
       "source_location": "L2",
       "weight": 1.0,
@@ -15435,6 +16451,72 @@
     {
       "relation": "method",
       "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_agentprofilestore",
+      "target": "apps_api_src_profilestore_agentprofilestore_snapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_agentprofilestore",
+      "target": "apps_api_src_profilestore_agentprofilestore_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_agentprofilestore",
+      "target": "apps_api_src_profilestore_agentprofilestore_create",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_agentprofilestore",
+      "target": "apps_api_src_profilestore_agentprofilestore_update",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_agentprofilestore",
+      "target": "apps_api_src_profilestore_agentprofilestore_activate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_agentprofilestore",
+      "target": "apps_api_src_profilestore_agentprofilestore_remove",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
       "source_file": "apps/api/src/sourceExcerpt.ts",
       "source_location": "L16",
       "weight": 1.0,
@@ -15455,6 +16537,28 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design",
+      "target": "docs_superpowers_specs_2026_09_29_pi_agent_graphify_code_qa_design",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_30_pi_agent_unified_profiles_design",
+      "target": "docs_superpowers_specs_2026_09_29_pi_agent_json_management_design",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "indirect_call",
       "confidence": "INFERRED",
       "source_file": "apps/api/src/graphRunner.test.ts",
@@ -15464,6 +16568,30 @@
       "context": "argument",
       "source": "apps_api_src_graphrunner_test",
       "target": "apps_api_src_graphrunner_test_harness",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L192",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_openagentprofilestore",
+      "target": "apps_api_src_profilestore_agentprofilestore_snapshot",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "source_file": "apps/api/src/profileStore.ts",
+      "source_location": "L193",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_api_src_profilestore_openagentprofilestore",
+      "target": "apps_api_src_profilestore_agentprofilestore_get",
       "confidence_score": 0.5
     },
     {
@@ -15759,5 +16887,5 @@
       "source_file": "docs/superpowers/specs/2026-09-27-recursive-todo-design.md"
     }
   ],
-  "built_at_commit": "6ece25a3178a7140666d9526891633bd27f0cea5"
+  "built_at_commit": "5b30adbfd81e833b9ea126a9bd3f7cc385d79f58"
 }

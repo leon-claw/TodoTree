@@ -210,13 +210,13 @@
     "semantic_hash": ""
   },
   "apps/api/src/config.test.ts": {
-    "mtime": 1790684575.3481517,
-    "ast_hash": "b641cd48ff01c6835d0f1cf4bfdf1756",
+    "mtime": 1790781641.0812645,
+    "ast_hash": "ba55479a463c1167b4e550776b3f3c2f",
     "semantic_hash": ""
   },
   "apps/api/src/config.ts": {
-    "mtime": 1790684635.4728372,
-    "ast_hash": "6c41f08c0bb22a015b9bc3adc589f307",
+    "mtime": 1790781675.2913103,
+    "ast_hash": "6f64c29fbf038aed5c386df29c600886",
     "semantic_hash": ""
   },
   "apps/api/src/index.ts": {
@@ -342,6 +342,26 @@
   "apps/web/src/agent/codeAgent.ts": {
     "mtime": 1790777467.1533327,
     "ast_hash": "6ad04cbe75d44abf86f67d1fc03ee147",
+    "semantic_hash": ""
+  },
+  "apps/api/src/profileStore.test.ts": {
+    "mtime": 1790781494.0913868,
+    "ast_hash": "31d70148175a09f2d9bee8af6a6acac2",
+    "semantic_hash": ""
+  },
+  "apps/api/src/profileStore.ts": {
+    "mtime": 1790781623.6575048,
+    "ast_hash": "abfc93614764b21e347fc8bc8a9e93da",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md": {
+    "mtime": 1790780714.1246629,
+    "ast_hash": "afa585f8886e9f1b37ca0e91ab25abdc",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md": {
+    "mtime": 1790780117.192357,
+    "ast_hash": "3a6c69ec8b33600053cc38a99bb50f3d",
     "semantic_hash": ""
   }
 }

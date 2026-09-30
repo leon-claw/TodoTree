@@ -1,5 +1,6 @@
 import { builtinModels } from '@earendil-works/pi-ai/providers/all';
 import type { Api, Model } from '@earendil-works/pi-ai';
+import type { AgentProfile } from './profileStore.js';
 
 export interface ServerModelConfig {
   model: Model<Api>;
@@ -23,4 +24,18 @@ export function loadAgentConfig(env: NodeJS.ProcessEnv): ServerModelConfig | nul
   const keyName = providerKeyNames[provider] ?? `${provider.replace(/-/g, '_').toUpperCase()}_API_KEY`;
   const apiKey = env[keyName]?.trim();
   return apiKey ? { model, apiKey } : null;
+}
+
+export function loadLegacyAgentProfile(env: NodeJS.ProcessEnv, profileFileExists = false): AgentProfile | null {
+  if (profileFileExists) return null;
+  const config = loadAgentConfig(env);
+  if (!config) return null;
+  return {
+    id: 'legacy-env-profile',
+    name: '环境变量',
+    apiBaseUrl: config.model.baseUrl,
+    modelId: config.model.id,
+    apiKey: config.apiKey,
+    legacy: true,
+  };
 }
