@@ -5,6 +5,8 @@ import { promisify } from 'node:util';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import Fastify from 'fastify';
+import type { AgentProfileRuntime } from './profileModel';
+import { openAgentProfileStore } from './profileStore';
 import { registerGraphRoutes } from './graphRoutes';
 import { createApi } from './app';
 
@@ -49,14 +51,21 @@ describe('read-only Graphify routes', () => {
 
 
   it('keeps the model stream available while the Graphify graph is missing', async () => {
-    const model = { provider: 'openai', id: 'test-model', api: 'openai-responses', baseUrl: 'https://api.openai.com/v1' };
-    const fakeStream = (() => ({ async *[Symbol.asyncIterator]() { yield { type: 'start' }; } })) as never;
-    const app = createApi({ model, apiKey: 'server-secret' } as never, fakeStream, undefined, root, { executable });
+    const store = await openAgentProfileStore({ configDir: join(root, 'config'), env: {} });
+    await store.create({ name: 'Test model', apiBaseUrl: 'not a URL', modelId: 'test-model', apiKey: 'server-secret' });
+    const profileId = store.snapshot().profiles[0].id;
+    const runtime: AgentProfileRuntime = {
+      stream: () => ({ async *[Symbol.asyncIterator]() { yield { type: 'start' } as never; } }),
+      test: async () => {},
+    };
+    const app = createApi(store, runtime, undefined, root, { executable });
     await rm(join(root, 'graphify-out', 'graph.json'));
     try {
       const status = await app.inject({ url: '/api/graph/status' });
+      const model = (await app.inject({ url: '/api/agent-profiles' })).json().profiles[0].model;
       const stream = await app.inject({ method: 'POST', url: '/api/stream', headers: { authorization: 'Bearer local' },
-        payload: { model, context: { messages: [{ role: 'user', content: 'hello', timestamp: 1 }] } } });
+        payload: { model, context: { messages: [{ role: 'user', content: 'hello', timestamp: 1 }] },
+          options: { metadata: { todoTreeProfileId: profileId } } } });
       expect(status.json()).toMatchObject({ available: false });
       expect(stream.statusCode).toBe(200);
       expect(stream.headers['content-type']).toContain('text/event-stream');

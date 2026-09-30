@@ -200,13 +200,13 @@
     "semantic_hash": ""
   },
   "apps/api/src/app.test.ts": {
-    "mtime": 1790684750.4509614,
-    "ast_hash": "65e68a03a4194bf326c20ad6fc4b721c",
+    "mtime": 1790786167.4069693,
+    "ast_hash": "d9739cd71aedd0d06e73b640c6da435e",
     "semantic_hash": ""
   },
   "apps/api/src/app.ts": {
-    "mtime": 1790774820.1088445,
-    "ast_hash": "ce47acfd357787620ab1d9f224ee1a79",
+    "mtime": 1790786049.7659853,
+    "ast_hash": "b104aa3f9ced8e4f5562a50d7e21cf64",
     "semantic_hash": ""
   },
   "apps/api/src/config.test.ts": {
@@ -220,8 +220,8 @@
     "semantic_hash": ""
   },
   "apps/api/src/index.ts": {
-    "mtime": 1790774820.1092908,
-    "ast_hash": "5b348a081b6db6ae1f31906fc963f61b",
+    "mtime": 1790786060.9992557,
+    "ast_hash": "9d7ae047ac18e459a3e91bdc08131745",
     "semantic_hash": ""
   },
   "apps/api/tsconfig.json": {
@@ -305,8 +305,8 @@
     "semantic_hash": ""
   },
   "apps/api/src/graphRoutes.test.ts": {
-    "mtime": 1790775236.4463716,
-    "ast_hash": "5ffb13c45e5a320b3360ebf3e5f72266",
+    "mtime": 1790785990.5072997,
+    "ast_hash": "06577062abc8396e083eb9c88b42d732",
     "semantic_hash": ""
   },
   "apps/api/src/graphRoutes.ts": {
@@ -355,13 +355,33 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md": {
-    "mtime": 1790780714.1246629,
-    "ast_hash": "afa585f8886e9f1b37ca0e91ab25abdc",
+    "mtime": 1790786239.662282,
+    "ast_hash": "f3c51a0d2f68cf6937b6b0c6f3c12b1a",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md": {
     "mtime": 1790780117.192357,
     "ast_hash": "3a6c69ec8b33600053cc38a99bb50f3d",
+    "semantic_hash": ""
+  },
+  "apps/api/src/profileModel.test.ts": {
+    "mtime": 1790786150.0271804,
+    "ast_hash": "8669dc437b8efafcafc52aa536e09e8c",
+    "semantic_hash": ""
+  },
+  "apps/api/src/profileModel.ts": {
+    "mtime": 1790782617.5202923,
+    "ast_hash": "522a76cc3ed60dbfb05a0420bf6d5521",
+    "semantic_hash": ""
+  },
+  "apps/api/src/profileRoutes.test.ts": {
+    "mtime": 1790782509.4311006,
+    "ast_hash": "6e4a746d9b92ca14e3f189a0cd51a449",
+    "semantic_hash": ""
+  },
+  "apps/api/src/profileRoutes.ts": {
+    "mtime": 1790786265.1276803,
+    "ast_hash": "1fc16f6b4a78663e227f88b0f14d1028",
     "semantic_hash": ""
   }
 }

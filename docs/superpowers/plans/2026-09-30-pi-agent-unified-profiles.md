@@ -61,13 +61,13 @@
 - `GET` 返回 `{ profiles, activeProfileId, unavailableReason? }`；profile 含配置名称、API 地址、模型 ID、`hasApiKey` 和 Pi 公共模型描述，不含 Key。测试端点接收 `{ profileId?, name?, apiBaseUrl, modelId, apiKey? }`；有 ID 时用已保存 Key（除非传入新 Key），无 ID 时用表单 Key。表单值只用于本次测试。
 - Pi `streamProxy` 的 `options.metadata.todoTreeProfileId` 携带当前 profile ID；`/api/stream` 先查服务端 profile，再严格比对公开模型描述，然后用服务器 Key 调用对应地址。该内部 ID 字段必须从 provider options 中剥离，不能转发给 LLM。不得信任请求自带的替代地址或 Key。
 
-- [ ] **Step 1: 写失败路由测试。** 使用临时目录和 fake model runtime，验证 profile CRUD 和激活；删除活动 profile 前须先切换，有其他 profile 时返回冲突；读取响应不含 Key；无效/伪造 ID 或修改 model base URL 的流式请求被拒绝；无 Key 时拒绝模型请求；合法 Pi SSE 保留原事件行为。
-- [ ] **Step 2: 写失败连接测试。** 成功时返回 `ok: true`；无效地址、错误 Key/模型及超时返回 `ok: false` 与安全摘要；不回显 Key/上游原始响应体、不保存未保存草稿、不发送任何任务/Graphify 工具结果。固定提示短小、`maxTokens` 不高于 8，设置 30 秒超时。
-- [ ] **Step 3: 运行路由测试确认失败。** `pnpm --filter @todotree/api test -- src/profileRoutes.test.ts src/app.test.ts`；预期新路由和 runtime 尚不存在。
-- [ ] **Step 4: 实现 Pi OpenAI-compatible profile runtime。** 根据 profile 构造 `openai-completions` Pi model/custom provider，并把 profile ID 编进服务端生成的 `model.provider`；使用 `apiKey` 请求选项。连接测试调用同一 runtime 和一个固定短提示，所有错误摘要先剥除 Key 与不安全上游内容。
-- [ ] **Step 5: 实现 profile 路由并替换固定模型代理。** 路由通过 Task 1 store 读写；`/api/stream` 由请求模型 provider 定位 profile 并精确核对模型。将 `/api/agent-config` 替换为安全的 profile 列表 API；保持静态资源、断连取消和现有 SSE 协议。
-- [ ] **Step 6: 运行 API 测试。** `pnpm --filter @todotree/api test && pnpm --filter @todotree/api build`；预期全部通过。
-- [ ] **Step 7: 更新图谱并提交。** `graphify update .` 后提交后端 runtime、路由及测试。
+- [x] **Step 1: 写失败路由测试。** 使用临时目录和 fake model runtime，验证 profile CRUD 和激活；删除活动 profile 前须先切换，有其他 profile 时返回冲突；读取响应不含 Key；无效/伪造 ID 或修改 model base URL 的流式请求被拒绝；无 Key 时拒绝模型请求；合法 Pi SSE 保留原事件行为。
+- [x] **Step 2: 写失败连接测试。** 成功时返回 `ok: true`；无效地址、错误 Key/模型及超时返回 `ok: false` 与安全摘要；不回显 Key/上游原始响应体、不保存未保存草稿、不发送任何任务/Graphify 工具结果。固定提示短小、`maxTokens` 不高于 8，设置 30 秒超时。
+- [x] **Step 3: 运行路由测试确认失败。** `pnpm --filter @todotree/api test -- src/profileRoutes.test.ts src/app.test.ts`；预期新路由和 runtime 尚不存在。
+- [x] **Step 4: 实现 Pi OpenAI-compatible profile runtime。** 根据 profile 构造 `openai-completions` Pi model/custom provider，并把 profile ID 编进服务端生成的 `model.provider`；使用 `apiKey` 请求选项。连接测试调用同一 runtime 和一个固定短提示，所有错误摘要先剥除 Key 与不安全上游内容。
+- [x] **Step 5: 实现 profile 路由并替换固定模型代理。** 路由通过 Task 1 store 读写；`/api/stream` 由请求模型 provider 定位 profile 并精确核对模型。将 `/api/agent-config` 替换为安全的 profile 列表 API；保持静态资源、断连取消和现有 SSE 协议。
+- [x] **Step 6: 运行 API 测试。** `pnpm --filter @todotree/api test && pnpm --filter @todotree/api build`；预期全部通过。
+- [x] **Step 7: 更新图谱并提交。** `graphify update .` 后提交后端 runtime、路由及测试。
 
 ### Task 3: 将任务工具和 Graphify 工具组装成一个 Pi Agent
 

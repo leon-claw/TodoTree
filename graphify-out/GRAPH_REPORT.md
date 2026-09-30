@@ -1,26 +1,26 @@
-# Graph Report - TodoTree  (2026-09-30)
+# Graph Report - TodoTree  (2026-10-01)
 
 ## Corpus Check
-- 70 files · ~32,663 words
+- 74 files · ~35,407 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 541 nodes · 912 edges · 26 communities (24 shown, 2 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.72)
+- 571 nodes · 1022 edges · 25 communities (23 shown, 2 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.74)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5b30adbf`
+- Built from commit: `bb8ffcee`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - App.tsx
-- dependencies
+- devDependencies
 - TodoTree 产品体验与整改建议
 - GraphView.tsx
 - compilerOptions
-- devDependencies
+- diff.ts
 - package.json
 - Recursive JSON Todo Tree
 - Tree Todo Application
@@ -29,16 +29,15 @@
 - vite.config.ts
 - Web Application HTML Shell
 - TodoTree 完整功能实现计划
-- AgentDrawer.tsx
+- proposal.ts
 - 桌面任务拆分与执行流程整改实施计划
 - 导航、详情布局与标签页整改计划
 - api/package.json
-- app.ts
+- graphRoutes.ts
 - TodoTree 内置 Pi Agent 管理 JSON：设计规格
 - compilerOptions
 - Review Focus
 - Review Focus
-- proposal.ts
 - profileStore.ts
 - Review Focus
 
@@ -47,12 +46,12 @@
 2. `Todo` - 21 edges
 3. `Tag` - 19 edges
 4. `AppData` - 19 edges
-5. `describeAppDataChange()` - 12 edges
-6. `compilerOptions` - 12 edges
-7. `lucide-react` - 12 edges
-8. `react` - 12 edges
-9. `createProposal()` - 11 edges
-10. `TodoTree 产品体验与整改建议` - 11 edges
+5. `registerProfileRoutes()` - 17 edges
+6. `createApi()` - 16 edges
+7. `openAgentProfileStore()` - 14 edges
+8. `describeAppDataChange()` - 12 edges
+9. `compilerOptions` - 12 edges
+10. `lucide-react` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Local Tree Todo Product` --semantically_similar_to--> `Tree Todo Application`  [INFERRED] [semantically similar]
@@ -72,15 +71,15 @@
 ## Hyperedges (group relationships)
 - **Recursive Tree Data Model and Its Views** — docs_superpowers_specs_2026_09_27_recursive_todo_design_recursive_json_tree, docs_superpowers_specs_2026_09_27_recursive_todo_design_list_view, docs_superpowers_specs_2026_09_27_recursive_todo_design_graph_view [EXTRACTED 1.00]
 
-## Communities (26 total, 2 thin omitted)
+## Communities (25 total, 2 thin omitted)
 
 ### Community 0 - "App.tsx"
-Cohesion: 0.08
-Nodes (48): AgentCommitReceipt, commitAgentProposal(), CommitResult, undoAgentCommit(), revalidateProposal(), App(), AppHistoryState, ConfirmModal() (+40 more)
+Cohesion: 0.09
+Nodes (44): undoAgentCommit(), App(), AppHistoryState, ConfirmModal(), ConfirmModalProps, GraphView(), Navbar(), NavbarProps (+36 more)
 
-### Community 1 - "dependencies"
-Cohesion: 0.07
-Nodes (26): dependencies, d3-hierarchy, @earendil-works/pi-agent-core, @earendil-works/pi-ai, fast-json-patch, lucide-react, react, react-dom (+18 more)
+### Community 1 - "devDependencies"
+Cohesion: 0.04
+Nodes (45): dependencies, d3-hierarchy, @earendil-works/pi-agent-core, @earendil-works/pi-ai, fast-json-patch, lucide-react, react, react-dom (+37 more)
 
 ### Community 2 - "TodoTree 产品体验与整改建议"
 Cohesion: 0.06
@@ -88,15 +87,15 @@ Nodes (30): 10. 实现定位与约束, 1. 产品要帮助用户完成什么, 2.1
 
 ### Community 3 - "GraphView.tsx"
 Cohesion: 0.07
-Nodes (54): IndexedTodo, FlowNavigator(), FlowNavigatorProps, FlowCanvas(), GraphView(), GraphViewProps, ListView(), ListViewProps (+46 more)
+Nodes (53): FlowNavigator(), FlowNavigatorProps, FlowCanvas(), GraphViewProps, ListView(), ListViewProps, clampScore(), ScoreCoordinatePicker() (+45 more)
 
 ### Community 4 - "compilerOptions"
 Cohesion: 0.11
 Nodes (18): compilerOptions, isolatedModules, jsx, lib, module, moduleDetection, moduleResolution, noEmit (+10 more)
 
-### Community 5 - "devDependencies"
-Cohesion: 0.11
-Nodes (19): devDependencies, tailwindcss, @tailwindcss/vite, @types/d3-hierarchy, @types/react, @types/react-dom, typescript, vite (+11 more)
+### Community 5 - "diff.ts"
+Cohesion: 0.23
+Nodes (11): addedTagFields(), addedTodoFields(), describeAppDataChange(), FieldChange, IndexedTodo, indexTodos(), pointerValue(), reorderedIds() (+3 more)
 
 ### Community 6 - "package.json"
 Cohesion: 0.18
@@ -126,9 +125,9 @@ Nodes (3): @tailwindcss/vite, vite, @vitejs/plugin-react
 Cohesion: 0.20
 Nodes (9): Global Constraints, Review Focus, Task 1: 稳固 JSON 数据边界, Task 2: 完成图表与列表的核心操作, Task 3: 补全面板、标签编辑与移动端操作, Task 4: 构建、Graphify 同步与最终覆盖检查, TodoTree 完整功能实现计划, 初始功能审计 (+1 more)
 
-### Community 14 - "AgentDrawer.tsx"
-Cohesion: 0.08
-Nodes (39): CodeAgentDependencies, createCodeAgent(), createGraphApi(), GraphApi, GraphResult, GraphStatusResponse, responseJson(), SourceExcerpt (+31 more)
+### Community 14 - "proposal.ts"
+Cohesion: 0.07
+Nodes (50): CodeAgentDependencies, createCodeAgent(), createGraphApi(), GraphApi, GraphResult, GraphStatusResponse, responseJson(), SourceExcerpt (+42 more)
 
 ### Community 15 - "桌面任务拆分与执行流程整改实施计划"
 Cohesion: 0.33
@@ -138,9 +137,9 @@ Nodes (5): 全局约束, 执行步骤, 文件职责, 桌面任务拆分与执行
 Cohesion: 0.08
 Nodes (25): dependencies, @earendil-works/pi-ai, fastify, @fastify/static, devDependencies, tsx, @types/node, typescript (+17 more)
 
-### Community 18 - "app.ts"
-Cohesion: 0.07
-Nodes (37): createApi(), isRecord(), models, ModelStreamer, proxyEvent(), config, context, model (+29 more)
+### Community 18 - "graphRoutes.ts"
+Cohesion: 0.09
+Nodes (28): clientKey(), Counter, isRecord(), registerGraphRoutes(), execFileAsync, makeApp(), argumentsFor(), ensureGraph() (+20 more)
 
 ### Community 19 - "TodoTree 内置 Pi Agent 管理 JSON：设计规格"
 Cohesion: 0.07
@@ -158,37 +157,33 @@ Nodes (10): File Structure, Global Constraints, Review Focus, Task 1: Fastify �
 Cohesion: 0.25
 Nodes (7): File Structure, Global Constraints, Review Focus, Task 1: 后端受限 Graphify 查询, Task 2: 已索引源码的受限摘录, Task 3: 独立 Pi 代码会话和抽屉切换, TodoTree Pi Agent Graphify Code Q&A Implementation Plan
 
-### Community 23 - "proposal.ts"
-Cohesion: 0.16
-Nodes (17): data(), proposal(), checkIdentityAndExtraFields(), checkPatch(), collectNodes(), createProposal(), PathKind, pointerTokens() (+9 more)
-
 ### Community 24 - "profileStore.ts"
-Cohesion: 0.08
-Nodes (21): loadAgentConfig(), loadLegacyAgentProfile(), models, providerKeyNames, ServerModelConfig, app, port, projectRoot (+13 more)
+Cohesion: 0.06
+Nodes (51): createApi(), isRecord(), proxyEvent(), directories, makeStore(), usage, loadAgentConfig(), loadLegacyAgentProfile() (+43 more)
 
 ### Community 25 - "Review Focus"
 Cohesion: 0.18
 Nodes (10): Global Constraints, Review Focus, Self-review Coverage, Task 1: 安全的 profile 文件存储与兼容加载, Task 2: profile 管理、Pi 流式代理与连接测试 API, Task 3: 将任务工具和 Graphify 工具组装成一个 Pi Agent, Task 4: 设置页模型 profile 管理和连接测试, Task 5: Agent 抽屉合并会话并保留模型切换 (+2 more)
 
 ## Knowledge Gaps
-- **223 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+218 more)
+- **225 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+220 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Todo` connect `GraphView.tsx` to `App.tsx`, `AgentDrawer.tsx`, `proposal.ts`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
-- **Why does `Tag` connect `GraphView.tsx` to `App.tsx`, `AgentDrawer.tsx`, `proposal.ts`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
-- **Why does `AppData` connect `AgentDrawer.tsx` to `App.tsx`, `GraphView.tsx`, `proposal.ts`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
+- **Why does `Todo` connect `GraphView.tsx` to `App.tsx`, `diff.ts`, `proposal.ts`?**
+  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+- **Why does `Tag` connect `GraphView.tsx` to `App.tsx`, `diff.ts`, `proposal.ts`?**
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+- **Why does `AppData` connect `proposal.ts` to `App.tsx`, `GraphView.tsx`, `diff.ts`?**
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+- **Are the 6 inferred relationships involving `registerProfileRoutes()` (e.g. with `.test()` and `.activate()`) actually correct?**
+  _`registerProfileRoutes()` has 6 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `name`, `private`, `version` to the rest of the system?**
-  _223 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _225 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.08166969147005444 - nodes in this community are weakly interconnected._
-- **Should `dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
-- **Should `TodoTree 产品体验与整改建议` be split into smaller, more focused modules?**
-  _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08974358974358974 - nodes in this community are weakly interconnected._
+- **Should `devDependencies` be split into smaller, more focused modules?**
+  _Cohesion score 0.043478260869565216 - nodes in this community are weakly interconnected._

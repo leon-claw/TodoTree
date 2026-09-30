@@ -3,21 +3,14 @@ import { Readable } from 'node:stream';
 import { extname, resolve } from 'node:path';
 import fastifyStatic from '@fastify/static';
 import Fastify from 'fastify';
-import { builtinModels } from '@earendil-works/pi-ai/providers/all';
-import type { Api, AssistantMessageEvent, Model, SimpleStreamOptions, TranscriptContext } from '@earendil-works/pi-ai';
+import type { AssistantMessageEvent, SimpleStreamOptions, TranscriptContext } from '@earendil-works/pi-ai';
 import type { FastifyInstance } from 'fastify';
-import type { ServerModelConfig } from './config.js';
+import { buildProfileModel, defaultProfileRuntime, resolveStreamProfile, safeProviderError } from './profileModel.js';
+import type { AgentProfileRuntime } from './profileModel.js';
+import { profileIdFromStreamRequest, registerProfileRoutes, requestedProfileModel } from './profileRoutes.js';
+import type { AgentProfileStore } from './profileStore.js';
 import { registerGraphRoutes } from './graphRoutes.js';
 import type { GraphifyOptions } from './graphRunner.js';
-
-type ModelStreamer = (
-  model: Model<Api>,
-  context: TranscriptContext,
-  options: SimpleStreamOptions,
-) => AsyncIterable<AssistantMessageEvent>;
-
-const models = builtinModels();
-const defaultStreamModel: ModelStreamer = (model, context, options) => models.streamSimple(model, context, options);
 
 function proxyEvent(event: AssistantMessageEvent): Record<string, unknown> {
   switch (event.type) {
@@ -46,7 +39,7 @@ function proxyEvent(event: AssistantMessageEvent): Record<string, unknown> {
     case 'done': return { type: 'done', reason: event.reason === 'deferred' ? 'stop' : event.reason,
       usage: event.message.usage, ...(event.message.providerThinkingLevel ? { providerThinkingLevel: event.message.providerThinkingLevel } : {}) };
     case 'error': return { type: 'error', reason: event.reason, usage: event.error.usage,
-      errorMessage: event.error.errorMessage ?? '模型请求失败' };
+      errorMessage: safeProviderError(event.error) };
   }
 }
 
@@ -55,14 +48,15 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 
 export function createApi(
-  config: ServerModelConfig | null,
-  streamModel: ModelStreamer = defaultStreamModel,
+  store: AgentProfileStore,
+  runtime: AgentProfileRuntime = defaultProfileRuntime,
   webDist?: string,
   graphProjectRoot = resolve(process.cwd(), '../..'),
   graphOptions: Omit<GraphifyOptions, 'projectRoot'> = {},
 ): FastifyInstance {
   const app = Fastify({ bodyLimit: 4 * 1024 * 1024 });
   registerGraphRoutes(app, graphProjectRoot, graphOptions);
+  registerProfileRoutes(app, store, runtime);
   if (webDist) {
     app.register(fastifyStatic, { root: webDist, prefix: '/' });
     app.setNotFoundHandler((request, reply) => {
@@ -73,40 +67,49 @@ export function createApi(
     });
   }
 
-  app.get('/api/agent-config', async () => config
-    ? { available: true, model: config.model }
-    : { available: false });
-
   app.post('/api/stream', async (request, reply) => {
-    if (!config) return reply.code(503).send({ error: 'Agent 未配置' });
     if (request.headers.authorization !== 'Bearer local') return reply.code(401).send({ error: '缺少代理令牌' });
     const body = request.body;
-    if (!isRecord(body) || !isRecord(body.model) || !isRecord(body.context)
-      || !Array.isArray(body.context.messages) || !isDeepStrictEqual(body.model, config.model)) {
+    if (!isRecord(body) || !isRecord(body.context) || !Array.isArray(body.context.messages)) {
       return reply.code(400).send({ error: '模型或上下文无效' });
     }
     if (body.options !== undefined && !isRecord(body.options)) {
       return reply.code(400).send({ error: '模型选项无效' });
     }
     const requestedOptions = (body.options ?? {}) as Record<string, unknown>;
-    const options: SimpleStreamOptions = { apiKey: config.apiKey };
+    const requestedModel = requestedProfileModel(body.model);
+    const profileId = profileIdFromStreamRequest(requestedOptions);
+    const candidate = profileId ? store.get(profileId) : undefined;
+    if (!profileId && !store.snapshot().activeProfileId) return reply.code(503).send({ error: 'Agent 尚未配置模型。' });
+    if (!requestedModel || !profileId || !candidate || !isDeepStrictEqual(buildProfileModel(candidate), requestedModel)) {
+      return reply.code(400).send({ error: '模型或配置 ID 无效' });
+    }
+    const profile = resolveStreamProfile(store, profileId, requestedModel);
+    if (!profile) return reply.code(503).send({ error: '当前配置没有可用的 API Key' });
+
+    const options: SimpleStreamOptions = { apiKey: profile.apiKey };
     if (typeof requestedOptions.temperature === 'number' && Number.isFinite(requestedOptions.temperature)) {
       options.temperature = requestedOptions.temperature;
     }
     if (typeof requestedOptions.maxTokens === 'number' && Number.isInteger(requestedOptions.maxTokens)) {
-      options.maxTokens = Math.min(Math.max(requestedOptions.maxTokens, 1), config.model.maxTokens || 8192);
+      options.maxTokens = Math.min(Math.max(requestedOptions.maxTokens, 1), requestedModel.maxTokens || 8192);
     }
     if (typeof requestedOptions.reasoning === 'string') options.reasoning = requestedOptions.reasoning as SimpleStreamOptions['reasoning'];
+    const metadata = isRecord(requestedOptions.metadata) ? { ...requestedOptions.metadata } : undefined;
+    if (metadata) {
+      delete metadata.todoTreeProfileId;
+      if (Object.keys(metadata).length > 0) options.metadata = metadata;
+    }
     const abort = new AbortController();
     options.signal = abort.signal;
     reply.raw.on('close', () => abort.abort());
     const source = async function* (): AsyncGenerator<string> {
       try {
-        for await (const event of streamModel(config.model, body.context as unknown as TranscriptContext, options)) {
+        for await (const event of runtime.stream(profile, body.context as unknown as TranscriptContext, options)) {
           yield `data: ${JSON.stringify(proxyEvent(event))}\n\n`;
         }
       } catch (error) {
-        const message = error instanceof Error ? error.message : '模型请求失败';
+        const message = safeProviderError(error);
         yield `data: ${JSON.stringify({ type: 'error', reason: 'error', errorMessage: message, usage: {
           input: 0, output: 0, cacheRead: 0, cacheWrite: 0, totalTokens: 0,
           cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0, total: 0 },
