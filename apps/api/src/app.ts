@@ -1,12 +1,14 @@
 import { isDeepStrictEqual } from 'node:util';
 import { Readable } from 'node:stream';
-import { extname } from 'node:path';
+import { extname, resolve } from 'node:path';
 import fastifyStatic from '@fastify/static';
 import Fastify from 'fastify';
 import { builtinModels } from '@earendil-works/pi-ai/providers/all';
 import type { Api, AssistantMessageEvent, Model, SimpleStreamOptions, TranscriptContext } from '@earendil-works/pi-ai';
 import type { FastifyInstance } from 'fastify';
 import type { ServerModelConfig } from './config.js';
+import { registerGraphRoutes } from './graphRoutes.js';
+import type { GraphifyOptions } from './graphRunner.js';
 
 type ModelStreamer = (
   model: Model<Api>,
@@ -56,8 +58,11 @@ export function createApi(
   config: ServerModelConfig | null,
   streamModel: ModelStreamer = defaultStreamModel,
   webDist?: string,
+  graphProjectRoot = resolve(process.cwd(), '../..'),
+  graphOptions: Omit<GraphifyOptions, 'projectRoot'> = {},
 ): FastifyInstance {
   const app = Fastify({ bodyLimit: 4 * 1024 * 1024 });
+  registerGraphRoutes(app, graphProjectRoot, graphOptions);
   if (webDist) {
     app.register(fastifyStatic, { root: webDist, prefix: '/' });
     app.setNotFoundHandler((request, reply) => {
