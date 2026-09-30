@@ -11,7 +11,7 @@ import type { AppDataChangeSummary } from './diff';
 
 export interface TaskAgentDependencies {
   model: Model<Api>;
-  proxyUrl: string;
+  proxyBaseUrl: string;
   getData: () => AppData;
   onProposal: (proposal: AgentProposal, summary: AppDataChangeSummary) => void;
   now?: () => Date;
@@ -21,7 +21,7 @@ function localToday(date: Date): string {
   return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, '0'), String(date.getDate()).padStart(2, '0')].join('-');
 }
 
-export function createTaskAgent({ model, proxyUrl, getData, onProposal, now = () => new Date() }: TaskAgentDependencies): Agent {
+export function createTaskAgent({ model, proxyBaseUrl, getData, onProposal, now = () => new Date() }: TaskAgentDependencies): Agent {
   let lastRead: ReturnType<typeof readSnapshot> | null = null;
   const readTool: AgentTool = {
     name: 'read_app_data',
@@ -73,7 +73,7 @@ export function createTaskAgent({ model, proxyUrl, getData, onProposal, now = ()
     streamFn: (selectedModel, context, options) => streamProxy(selectedModel, context, {
       ...options,
       authToken: 'local',
-      proxyUrl,
+      proxyUrl: proxyBaseUrl,
     }),
   });
 }

@@ -15,7 +15,7 @@ export interface GraphApi {
 }
 export interface CodeAgentDependencies {
   model: Model<Api>;
-  proxyUrl: string;
+  proxyBaseUrl: string;
   graphApi: GraphApi;
 }
 
@@ -46,7 +46,7 @@ function textResult(result: GraphResult) {
   return { content: [{ type: 'text' as const, text: result.result }], details: result };
 }
 
-export function createCodeAgent({ model, proxyUrl, graphApi }: CodeAgentDependencies): Agent {
+export function createCodeAgent({ model, proxyBaseUrl, graphApi }: CodeAgentDependencies): Agent {
   const queryParameters = Type.Object({ question: Type.String() });
   const queryTool: AgentTool<typeof queryParameters> = {
     name: 'query_project_graph',
@@ -95,7 +95,7 @@ export function createCodeAgent({ model, proxyUrl, graphApi }: CodeAgentDependen
     streamFn: (selectedModel, context, options) => streamProxy(selectedModel, context, {
       ...options,
       authToken: 'local',
-      proxyUrl,
+      proxyUrl: proxyBaseUrl,
     }),
   });
 }

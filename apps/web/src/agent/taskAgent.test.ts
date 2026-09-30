@@ -19,7 +19,7 @@ function setup(onProposal: TaskAgentDependencies['onProposal'] = () => {}) {
   let data = initial();
   const agent = createTaskAgent({
     model: { provider: 'openai', id: 'gpt-4o' } as never,
-    proxyUrl: 'http://127.0.0.1:3001',
+    proxyBaseUrl: 'http://127.0.0.1:3001',
     getData: () => data,
     onProposal,
     now: () => new Date(2026, 8, 29, 12),

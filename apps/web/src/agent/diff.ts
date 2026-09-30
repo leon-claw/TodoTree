@@ -42,6 +42,35 @@ function indexTodos(data: AppData): Map<string, IndexedTodo> {
   return index;
 }
 
+function reorderedIds(beforeOrder: string[], afterOrder: string[]): Set<string> {
+  const afterIds = new Set(afterOrder);
+  const beforeCommon = beforeOrder.filter((id) => afterIds.has(id));
+  const beforeIds = new Set(beforeCommon);
+  const afterCommon = afterOrder.filter((id) => beforeIds.has(id));
+  const newPositions = new Map(afterCommon.map((id, index) => [id, index]));
+  return new Set(beforeCommon.filter((id, index) => newPositions.get(id) !== index));
+}
+
+function reorderedTodoIds(before: Map<string, IndexedTodo>, after: Map<string, IndexedTodo>): Set<string> {
+  const parents = new Set([...before.values(), ...after.values()].map(({ parentId }) => parentId));
+  const reordered = new Set<string>();
+  for (const parentId of parents) {
+    const beforeOrder = [...before].filter(([id, item]) => item.parentId === parentId && after.get(id)?.parentId === parentId).map(([id]) => id);
+    const afterOrder = [...after].filter(([id, item]) => item.parentId === parentId && before.get(id)?.parentId === parentId).map(([id]) => id);
+    for (const id of reorderedIds(beforeOrder, afterOrder)) reordered.add(id);
+  }
+  return reordered;
+}
+
+function addedTodoFields(todo: Todo): FieldChange[] {
+  const names: (keyof Todo)[] = ['note', 'dueDate', 'importance', 'urgency', 'tagIds', 'completed'];
+  return names.map((field) => ({ field, before: undefined, after: todo[field] }));
+}
+
+function addedTagFields(tag: Tag): FieldChange[] {
+  return [{ field: 'color', before: undefined, after: tag.color }];
+}
+
 function pointerValue(data: AppData, pointer: string): unknown {
   if (!pointer.startsWith('/')) throw new Error('Patch 路径无效');
   return pointer.slice(1).split('/').map((part) => part.replace(/~1/g, '/').replace(/~0/g, '~'))
@@ -87,16 +116,18 @@ export function describeAppDataChange(before: AppData, after: AppData, patch: Op
   const newTags = new Map(after.tags.map((tag) => [tag.id, tag]));
   const todos: AppDataChangeSummary['todos'] = { added: [], updated: [], moved: [], deleted: [] };
   const tags: AppDataChangeSummary['tags'] = { added: [], updated: [], moved: [], deleted: [] };
+  const reorderedTodos = reorderedTodoIds(oldTodos, newTodos);
+  const reorderedTags = reorderedIds(before.tags.map((tag) => tag.id), after.tags.map((tag) => tag.id));
 
   for (const [id, next] of newTodos) {
     const old = oldTodos.get(id);
     if (!old) {
-      todos.added.push({ id, title: next.todo.title, afterPath: next.path });
+      todos.added.push({ id, title: next.todo.title, afterPath: next.path, fields: addedTodoFields(next.todo) });
       continue;
     }
     const fields = todoFields(old.todo, next.todo);
     if (fields.length) todos.updated.push({ id, title: next.todo.title, beforePath: old.path, afterPath: next.path, fields });
-    if (old.parentId !== next.parentId || movedTodos.has(id)) {
+    if (old.parentId !== next.parentId || movedTodos.has(id) || reorderedTodos.has(id)) {
       todos.moved.push({ id, title: next.todo.title, beforePath: old.path, afterPath: next.path });
     }
   }
@@ -107,12 +138,12 @@ export function describeAppDataChange(before: AppData, after: AppData, patch: Op
   for (const [id, next] of newTags) {
     const old = oldTags.get(id);
     if (!old) {
-      tags.added.push({ id, title: next.title, afterPath: [next.title] });
+      tags.added.push({ id, title: next.title, afterPath: [next.title], fields: addedTagFields(next) });
       continue;
     }
     const fields = tagFields(old, next);
     if (fields.length) tags.updated.push({ id, title: next.title, beforePath: [old.title], afterPath: [next.title], fields });
-    if (movedTags.has(id)) tags.moved.push({ id, title: next.title, beforePath: [old.title], afterPath: [next.title] });
+    if (movedTags.has(id) || reorderedTags.has(id)) tags.moved.push({ id, title: next.title, beforePath: [old.title], afterPath: [next.title] });
   }
   for (const [id, old] of oldTags) {
     if (!newTags.has(id)) tags.deleted.push({ id, title: old.title, beforePath: [old.title],

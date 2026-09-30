@@ -21,13 +21,13 @@ function graphApi(overrides: Partial<CodeAgentDependencies['graphApi']> = {}): C
 }
 
 function setup(api = graphApi()) {
-  return createCodeAgent({ model, proxyUrl: 'http://localhost:3001/api/stream', graphApi: api });
+  return createCodeAgent({ model, proxyBaseUrl: 'http://localhost:3001', graphApi: api });
 }
 
 describe('Pi code Q&A agent', () => {
   it('exposes only the four read-only Graphify tools', () => {
     const code = setup();
-    const task = createTaskAgent({ model, proxyUrl: 'http://localhost:3001/api/stream', getData: () => data, onProposal: () => {} });
+    const task = createTaskAgent({ model, proxyBaseUrl: 'http://localhost:3001', getData: () => data, onProposal: () => {} });
     expect(code.state.tools.map((tool) => tool.name)).toEqual([
       'query_project_graph', 'trace_project_graph', 'explain_project_node', 'read_indexed_source',
     ]);
@@ -38,10 +38,24 @@ describe('Pi code Q&A agent', () => {
 
   it('keeps the code and task transcript states separate', () => {
     const code = setup();
-    const task = createTaskAgent({ model, proxyUrl: 'http://localhost:3001/api/stream', getData: () => data, onProposal: () => {} });
+    const task = createTaskAgent({ model, proxyBaseUrl: 'http://localhost:3001', getData: () => data, onProposal: () => {} });
     task.state.messages = [...task.state.messages, { role: 'user', content: 'private task request', timestamp: 1 } as never];
     expect(task.state.messages.some((message) => 'content' in message && message.content === 'private task request')).toBe(true);
     expect(code.state.messages.some((message) => 'content' in message && message.content === 'private task request')).toBe(false);
+  });
+
+  it('routes both Pi agents to the Fastify stream endpoint exactly once', async () => {
+    const fetchMock = vi.fn<typeof fetch>(async () => new Response(JSON.stringify({ error: 'test stop' }), {
+      status: 404, headers: { 'content-type': 'application/json' },
+    }));
+    vi.stubGlobal('fetch', fetchMock);
+    const code = setup();
+    const task = createTaskAgent({ model, proxyBaseUrl: 'http://localhost:3001', getData: () => data, onProposal: () => {} });
+    await Promise.allSettled([code.prompt('Explain the app'), task.prompt('Read my tasks')]);
+    expect(fetchMock.mock.calls.map(([input]) => String(input))).toEqual([
+      'http://localhost:3001/api/stream',
+      'http://localhost:3001/api/stream',
+    ]);
   });
 
   it('calls only the supplied read-only Graphify API and retains graph evidence', async () => {

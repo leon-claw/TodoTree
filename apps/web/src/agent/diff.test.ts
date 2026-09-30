@@ -63,6 +63,39 @@ describe('Agent semantic data changes', () => {
     expect(result.totals.cascadeDeleted).toBe(1);
   });
 
+  it('reports a same-parent reorder encoded as remove plus add', () => {
+    const before = data([todo('a', 'A'), todo('b', 'B')]);
+    const after = data([todo('b', 'B'), todo('a', 'A')]);
+    const result = describeAppDataChange(before, after, [
+      { op: 'remove', path: '/todos/0' },
+      { op: 'add', path: '/todos/-', value: todo('a', 'A') },
+    ]);
+    expect(result.todos.moved.map((item) => item.id)).toEqual(['b', 'a']);
+    expect(result.totals.moved).toBe(2);
+  });
+
+  it('shows all known values for newly added tasks and tags', () => {
+    const before: AppData = { formatVersion: 1, todos: [], tags: [] };
+    const addedTodo = { ...todo('new', 'New task', '2026-10-04'), note: 'Bring notes', importance: 3, urgency: 2, tagIds: ['work'], completed: true };
+    const addedTag = { id: 'work', title: 'Work', color: '#123456' };
+    const after: AppData = { formatVersion: 1, todos: [addedTodo], tags: [addedTag] };
+    const result = describeAppDataChange(before, after, [
+      { op: 'add', path: '/todos/-', value: addedTodo },
+      { op: 'add', path: '/tags/-', value: addedTag },
+    ]);
+    expect(result.todos.added[0].fields).toEqual([
+      { field: 'note', before: undefined, after: 'Bring notes' },
+      { field: 'dueDate', before: undefined, after: '2026-10-04' },
+      { field: 'importance', before: undefined, after: 3 },
+      { field: 'urgency', before: undefined, after: 2 },
+      { field: 'tagIds', before: undefined, after: ['work'] },
+      { field: 'completed', before: undefined, after: true },
+    ]);
+    expect(result.tags.added[0].fields).toEqual([
+      { field: 'color', before: undefined, after: '#123456' },
+    ]);
+  });
+
   it('refuses to describe a claimed result that does not match the Patch', () => {
     const before = data([todo('one', 'Old')]);
     const after = data([todo('one', 'Different')]);

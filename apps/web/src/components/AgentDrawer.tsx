@@ -49,7 +49,7 @@ function ChangeList({ label, changes, proposal }: { label: string; changes: Enti
         {change.beforePath && <div className="break-all text-slate-600">原路径：{change.beforePath.join(' / ')}</div>}
         {change.afterPath && <div className="break-all text-slate-600">新路径：{change.afterPath.join(' / ')}</div>}
         {change.deletion && <div className="text-red-700">{change.deletion === 'direct' ? '直接删除' : '随父任务连带删除'}{old?.dueDate ? ` · 截止 ${old.dueDate}` : ''}</div>}
-        {change.fields?.map((field) => <div key={field.field} className="break-all text-slate-600">{field.field}：{formatValue(field.before)} → {formatValue(field.after)}</div>)}
+        {change.fields?.map((field) => <div key={field.field} className="break-all text-slate-600">{field.field}：{change.beforePath ? `${formatValue(field.before)} → ${formatValue(field.after)}` : formatValue(field.after)}</div>)}
       </div>;
     })}
   </div>;
@@ -94,7 +94,7 @@ export function AgentDrawer({ open, onClose, getData, dataAvailable, onApply, ca
     if (!config?.available || !config.model || taskAgentRef.current) return;
     const agent = createTaskAgent({
       model: config.model,
-      proxyUrl: `${window.location.origin}/api/stream`,
+      proxyBaseUrl: window.location.origin,
       getData: () => getDataRef.current(),
       onProposal: (proposal, summary) => {
         if (pendingRef.current) throw new Error('请先应用或拒绝待审阅提案');
@@ -116,7 +116,7 @@ export function AgentDrawer({ open, onClose, getData, dataAvailable, onApply, ca
     if (!config?.available || !config.model || graphStatus?.available !== true || codeAgentRef.current) return;
     const agent = createCodeAgent({
       model: config.model,
-      proxyUrl: `${window.location.origin}/api/stream`,
+      proxyBaseUrl: window.location.origin,
       graphApi: graphApiRef.current,
     });
     codeAgentRef.current = agent;
