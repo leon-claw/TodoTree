@@ -20,6 +20,32 @@
   },
   "nodes": [
     {
+      "label": "AgentCommitReceipt",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.ts",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_agentcommitreceipt",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "agentcommitreceipt"
+    },
+    {
+      "label": "CommitResult",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.ts",
+      "source_location": "L9",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_commitresult",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "commitresult"
+    },
+    {
       "label": "AppHistoryState",
       "file_type": "code",
       "source_file": "apps/web/src/App.tsx",
@@ -72,6 +98,19 @@
       "norm_label": "settingspageprops"
     },
     {
+      "label": "TagManagementPageProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TagManagementPage.tsx",
+      "source_location": "L7",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_tagmanagementpage_tagmanagementpageprops",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "tagmanagementpageprops"
+    },
+    {
       "label": "LeafPathItem",
       "file_type": "code",
       "source_file": "apps/web/src/storage.ts",
@@ -120,7 +159,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_codeagentdependencies",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "codeagentdependencies"
     },
     {
@@ -133,7 +172,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_graphapi",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "graphapi"
     },
     {
@@ -146,7 +185,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_graphresult",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "graphresult"
     },
     {
@@ -159,8 +198,21 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_graphstatusresponse",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "graphstatusresponse"
+    },
+    {
+      "label": "GraphToolDependencies",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/codeAgent.ts",
+      "source_location": "L22",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_codeagent_graphtooldependencies",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "graphtooldependencies"
     },
     {
       "label": "SourceExcerpt",
@@ -172,34 +224,8 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_sourceexcerpt",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "sourceexcerpt"
-    },
-    {
-      "label": "AgentCommitReceipt",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.ts",
-      "source_location": "L5",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_agentcommitreceipt",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "agentcommitreceipt"
-    },
-    {
-      "label": "CommitResult",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.ts",
-      "source_location": "L9",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_commitresult",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "commitresult"
     },
     {
       "label": "AppDataChangeSummary",
@@ -211,7 +237,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_diff_appdatachangesummary",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "appdatachangesummary"
     },
     {
@@ -224,8 +250,34 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_diff_entitychange",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "entitychange"
+    },
+    {
+      "label": "FieldChange",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_fieldchange",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "fieldchange"
+    },
+    {
+      "label": "IndexedTodo",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L26",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_indexedtodo",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "indexedtodo"
     },
     {
       "label": "AgentProposal",
@@ -237,34 +289,21 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_proposal_agentproposal",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "agentproposal"
     },
     {
-      "label": "PathKind",
+      "label": "AppDataToolDependencies",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L17",
+      "source_file": "apps/web/src/agent/taskAgent.ts",
+      "source_location": "L20",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_pathkind",
+      "id": "apps_web_src_agent_taskagent_appdatatooldependencies",
       "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "pathkind"
-    },
-    {
-      "label": "ProposalResult",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L13",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_proposalresult",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "proposalresult"
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "appdatatooldependencies"
     },
     {
       "label": "TaskAgentDependencies",
@@ -276,8 +315,21 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_taskagent_taskagentdependencies",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "taskagentdependencies"
+    },
+    {
+      "label": "TodoAgentDependencies",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L8",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_todoagent_todoagentdependencies",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "todoagentdependencies"
     },
     {
       "label": "AgentConfig",
@@ -289,7 +341,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_agentconfig",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "agentconfig"
     },
     {
@@ -302,7 +354,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_agentdrawerprops",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "agentdrawerprops"
     },
     {
@@ -315,7 +367,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_pendingproposal",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "pendingproposal"
     },
     {
@@ -328,7 +380,7 @@
       "_origin": "ast",
       "id": "apps_web_src_types_appdata",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "appdata"
     },
     {
@@ -549,7 +601,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_flownavigator_flownavigatorprops",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "flownavigatorprops"
     },
     {
@@ -562,7 +614,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_graphview_graphviewprops",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "graphviewprops"
     },
     {
@@ -575,7 +627,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_listview_listviewprops",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "listviewprops"
     },
     {
@@ -588,7 +640,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepickerprops",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "scorecoordinatepickerprops"
     },
     {
@@ -601,21 +653,8 @@
       "_origin": "ast",
       "id": "apps_web_src_components_settingspanel_settingspanelprops",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "settingspanelprops"
-    },
-    {
-      "label": "TagManagementPageProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TagManagementPage.tsx",
-      "source_location": "L7",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_tagmanagementpage_tagmanagementpageprops",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "tagmanagementpageprops"
     },
     {
       "label": "TaskComposerProps",
@@ -627,7 +666,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_taskcomposer_taskcomposerprops",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "taskcomposerprops"
     },
     {
@@ -640,7 +679,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_todonode_todonodeprops",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "todonodeprops"
     },
     {
@@ -653,7 +692,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_flowentry",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "flowentry"
     },
     {
@@ -666,7 +705,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_flowlocationrequest",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "flowlocationrequest"
     },
     {
@@ -679,7 +718,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_flowpathitem",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "flowpathitem"
     },
     {
@@ -692,7 +731,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_initialflowviewport",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "initialflowviewport"
     },
     {
@@ -705,7 +744,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_semanticzoomlevel",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "semanticzoomlevel"
     },
     {
@@ -718,7 +757,7 @@
       "_origin": "ast",
       "id": "apps_web_src_storage_leafitem",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "leafitem"
     },
     {
@@ -731,7 +770,7 @@
       "_origin": "ast",
       "id": "apps_web_src_tagborder_tagborderstyle",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "tagborderstyle"
     },
     {
@@ -744,7 +783,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_hierarchydatum",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "hierarchydatum"
     },
     {
@@ -757,7 +796,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_todonodedata",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "todonodedata"
     },
     {
@@ -770,7 +809,7 @@
       "_origin": "ast",
       "id": "apps_web_src_types_composeranchor",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "composeranchor"
     },
     {
@@ -783,7 +822,7 @@
       "_origin": "ast",
       "id": "apps_web_src_types_tag",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "tag"
     },
     {
@@ -796,34 +835,70 @@
       "_origin": "ast",
       "id": "apps_web_src_types_todo",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "todo"
     },
     {
-      "label": "FieldChange",
+      "label": "PathKind",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L5",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L17",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_fieldchange",
+      "id": "apps_web_src_agent_proposal_pathkind",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "fieldchange"
+      "community_name": "proposal.ts",
+      "norm_label": "pathkind"
     },
     {
-      "label": "IndexedTodo",
+      "label": "ProposalResult",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L26",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L13",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_indexedtodo",
+      "id": "apps_web_src_agent_proposal_proposalresult",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "indexedtodo"
+      "community_name": "proposal.ts",
+      "norm_label": "proposalresult"
+    },
+    {
+      "label": "commitAgentProposal()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.ts",
+      "source_location": "L13",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_commitagentproposal",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "commitagentproposal()"
+    },
+    {
+      "label": "data()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_location": "L6",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_test_data",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "data()"
+    },
+    {
+      "label": "proposal()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_test_proposal",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "proposal()"
     },
     {
       "label": "undoAgentCommit()",
@@ -836,6 +911,18 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "undoagentcommit()"
+    },
+    {
+      "label": "revalidateProposal()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L159",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_revalidateproposal",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "revalidateproposal()"
     },
     {
       "label": "App()",
@@ -1237,36 +1324,48 @@
       "label": "createCodeAgent()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L49",
+      "source_location": "L98",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_createcodeagent",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "createcodeagent()"
     },
     {
       "label": "createGraphApi()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L32",
+      "source_location": "L36",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_creategraphapi",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "creategraphapi()"
+    },
+    {
+      "label": "createGraphTools()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/codeAgent.ts",
+      "source_location": "L53",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_codeagent_creategraphtools",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "creategraphtools()"
     },
     {
       "label": "responseJson()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L22",
+      "source_location": "L26",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_responsejson",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "responsejson()"
     },
     {
@@ -1278,7 +1377,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_test_graphapi",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "graphapi()"
     },
     {
@@ -1290,116 +1389,152 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_test_setup",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "setup()"
     },
     {
       "label": "textResult()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L45",
+      "source_location": "L49",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_textresult",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "textresult()"
     },
     {
-      "label": "commitAgentProposal()",
+      "label": "addedTagFields()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.ts",
-      "source_location": "L13",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L70",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_commit_commitagentproposal",
+      "id": "apps_web_src_agent_diff_addedtagfields",
       "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "commitagentproposal()"
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "addedtagfields()"
+    },
+    {
+      "label": "addedTodoFields()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L65",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_addedtodofields",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "addedtodofields()"
+    },
+    {
+      "label": "describeAppDataChange()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L94",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_describeappdatachange",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "describeappdatachange()"
+    },
+    {
+      "label": "indexTodos()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L32",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_indextodos",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "indextodos()"
+    },
+    {
+      "label": "pointerValue()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L74",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_pointervalue",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "pointervalue()"
+    },
+    {
+      "label": "reorderedIds()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L45",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_reorderedids",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "reorderedids()"
+    },
+    {
+      "label": "reorderedTodoIds()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L54",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_reorderedtodoids",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "reorderedtodoids()"
+    },
+    {
+      "label": "tagFields()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L88",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_tagfields",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "tagfields()"
     },
     {
       "label": "data()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
-      "source_location": "L6",
+      "source_file": "apps/web/src/agent/diff.test.ts",
+      "source_location": "L8",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test_data",
+      "id": "apps_web_src_agent_diff_test_data",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "data()"
     },
     {
-      "label": "proposal()",
+      "label": "todo()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
-      "source_location": "L7",
+      "source_file": "apps/web/src/agent/diff.test.ts",
+      "source_location": "L5",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test_proposal",
+      "id": "apps_web_src_agent_diff_test_todo",
       "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "proposal()"
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "todo()"
     },
     {
-      "label": "checkIdentityAndExtraFields()",
+      "label": "todoFields()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L109",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L82",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_checkidentityandextrafields",
+      "id": "apps_web_src_agent_diff_todofields",
       "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "checkidentityandextrafields()"
-    },
-    {
-      "label": "checkPatch()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L66",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_checkpatch",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "checkpatch()"
-    },
-    {
-      "label": "collectNodes()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L93",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_collectnodes",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "collectnodes()"
-    },
-    {
-      "label": "createProposal()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L133",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_createproposal",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "createproposal()"
-    },
-    {
-      "label": "pointerTokens()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L23",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_pointertokens",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "pointertokens()"
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "todofields()"
     },
     {
       "label": "readSnapshot()",
@@ -1410,91 +1545,43 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_proposal_readsnapshot",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "readsnapshot()"
     },
     {
-      "label": "revalidateProposal()",
+      "label": "createAppDataTools()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L159",
+      "source_file": "apps/web/src/agent/taskAgent.ts",
+      "source_location": "L30",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_revalidateproposal",
+      "id": "apps_web_src_agent_taskagent_createappdatatools",
       "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "revalidateproposal()"
-    },
-    {
-      "label": "baseData()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.test.ts",
-      "source_location": "L9",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_test_basedata",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "basedata()"
-    },
-    {
-      "label": "propose()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.test.ts",
-      "source_location": "L14",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_test_propose",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "propose()"
-    },
-    {
-      "label": "todo()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.test.ts",
-      "source_location": "L5",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_test_todo",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "todo()"
-    },
-    {
-      "label": "unknownFields()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L105",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_unknownfields",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "unknownfields()"
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "createappdatatools()"
     },
     {
       "label": "createTaskAgent()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L24",
+      "source_location": "L78",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_taskagent_createtaskagent",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "createtaskagent()"
     },
     {
       "label": "localToday()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L20",
+      "source_location": "L26",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_taskagent_localtoday",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "localtoday()"
     },
     {
@@ -1506,7 +1593,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_taskagent_test_initial",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "initial()"
     },
     {
@@ -1518,7 +1605,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_taskagent_test_setup",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "setup()"
     },
     {
@@ -1530,7 +1617,67 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_taskagent_test_textof",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "textof()"
+    },
+    {
+      "label": "createTodoAgent()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_todoagent_createtodoagent",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "createtodoagent()"
+    },
+    {
+      "label": "graphApi()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L17",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_todoagent_test_graphapi",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "graphapi()"
+    },
+    {
+      "label": "initial()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L12",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_todoagent_test_initial",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "initial()"
+    },
+    {
+      "label": "setup()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L28",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_todoagent_test_setup",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "setup()"
+    },
+    {
+      "label": "textOf()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L54",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_todoagent_test_textof",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "textof()"
     },
     {
@@ -1542,7 +1689,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_agentdrawer",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "agentdrawer()"
     },
     {
@@ -1554,7 +1701,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_changelist",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "changelist()"
     },
     {
@@ -1566,7 +1713,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_findtodo",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "findtodo()"
     },
     {
@@ -1578,7 +1725,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_formatvalue",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "formatvalue()"
     },
     {
@@ -1590,7 +1737,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_messagetext",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "messagetext()"
     },
     {
@@ -1640,18 +1787,6 @@
       "community": 18,
       "community_name": "graphRoutes.ts",
       "norm_label": "makeapp()"
-    },
-    {
-      "label": "[Symbol.asyncIterator]()",
-      "file_type": "code",
-      "source_file": "apps/api/src/graphRoutes.test.ts",
-      "source_location": "L58",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_api_src_graphroutes_test_symbol_asynciterator",
-      "community": 18,
-      "community_name": "graphRoutes.ts",
-      "norm_label": "[symbol.asynciterator]()"
     },
     {
       "label": "argumentsFor()",
@@ -1928,6 +2063,18 @@
       "community": 24,
       "community_name": "profileStore.ts",
       "norm_label": "loadlegacyagentprofile()"
+    },
+    {
+      "label": "[Symbol.asyncIterator]()",
+      "file_type": "code",
+      "source_file": "apps/api/src/graphRoutes.test.ts",
+      "source_location": "L58",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_graphroutes_test_symbol_asynciterator",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "[symbol.asynciterator]()"
     },
     {
       "label": ".stream()",
@@ -2334,7 +2481,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_flownavigator_flownavigator",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "flownavigator()"
     },
     {
@@ -2346,7 +2493,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_graphview_flowcanvas",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "flowcanvas()"
     },
     {
@@ -2358,7 +2505,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_listview_listview",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "listview()"
     },
     {
@@ -2370,7 +2517,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_scorecoordinatepicker_clampscore",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "clampscore()"
     },
     {
@@ -2382,7 +2529,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepicker",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "scorecoordinatepicker()"
     },
     {
@@ -2394,7 +2541,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_todonode_getcomposeranchor",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "getcomposeranchor()"
     },
     {
@@ -2406,7 +2553,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_todonode_todonode",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "todonode()"
     },
     {
@@ -2418,7 +2565,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_expandflowpath",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "expandflowpath()"
     },
     {
@@ -2430,7 +2577,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_getancestorids",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "getancestorids()"
     },
     {
@@ -2442,7 +2589,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_indexflowtodos",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "indexflowtodos()"
     },
     {
@@ -2454,7 +2601,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_searchflowtodos",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "searchflowtodos()"
     },
     {
@@ -2466,7 +2613,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_getinitialflowviewport",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "getinitialflowviewport()"
     },
     {
@@ -2478,7 +2625,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_getsemanticzoomlevel",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "getsemanticzoomlevel()"
     },
     {
@@ -2490,7 +2637,7 @@
       "_origin": "ast",
       "id": "apps_web_src_tagborder_gettagborderstyle",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "gettagborderstyle()"
     },
     {
@@ -2502,140 +2649,138 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_buildtreeflowelements",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "buildtreeflowelements()"
     },
     {
-      "label": "addedTagFields()",
+      "label": "checkIdentityAndExtraFields()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L70",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L109",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_addedtagfields",
+      "id": "apps_web_src_agent_proposal_checkidentityandextrafields",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "addedtagfields()"
+      "community_name": "proposal.ts",
+      "norm_label": "checkidentityandextrafields()"
     },
     {
-      "label": "addedTodoFields()",
+      "label": "checkPatch()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L65",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L66",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_addedtodofields",
+      "id": "apps_web_src_agent_proposal_checkpatch",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "addedtodofields()"
+      "community_name": "proposal.ts",
+      "norm_label": "checkpatch()"
     },
     {
-      "label": "describeAppDataChange()",
+      "label": "collectNodes()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L94",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L93",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_describeappdatachange",
+      "id": "apps_web_src_agent_proposal_collectnodes",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "describeappdatachange()"
+      "community_name": "proposal.ts",
+      "norm_label": "collectnodes()"
     },
     {
-      "label": "indexTodos()",
+      "label": "createProposal()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L32",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L133",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_indextodos",
+      "id": "apps_web_src_agent_proposal_createproposal",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "indextodos()"
+      "community_name": "proposal.ts",
+      "norm_label": "createproposal()"
     },
     {
-      "label": "pointerValue()",
+      "label": "pointerTokens()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L74",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L23",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_pointervalue",
+      "id": "apps_web_src_agent_proposal_pointertokens",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "pointervalue()"
+      "community_name": "proposal.ts",
+      "norm_label": "pointertokens()"
     },
     {
-      "label": "reorderedIds()",
+      "label": "baseData()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L45",
+      "source_file": "apps/web/src/agent/proposal.test.ts",
+      "source_location": "L9",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_reorderedids",
+      "id": "apps_web_src_agent_proposal_test_basedata",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "reorderedids()"
+      "community_name": "proposal.ts",
+      "norm_label": "basedata()"
     },
     {
-      "label": "reorderedTodoIds()",
+      "label": "propose()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L54",
+      "source_file": "apps/web/src/agent/proposal.test.ts",
+      "source_location": "L14",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_reorderedtodoids",
+      "id": "apps_web_src_agent_proposal_test_propose",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "reorderedtodoids()"
-    },
-    {
-      "label": "tagFields()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L88",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_tagfields",
-      "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "tagfields()"
-    },
-    {
-      "label": "data()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.test.ts",
-      "source_location": "L8",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_test_data",
-      "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "data()"
+      "community_name": "proposal.ts",
+      "norm_label": "propose()"
     },
     {
       "label": "todo()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.test.ts",
+      "source_file": "apps/web/src/agent/proposal.test.ts",
       "source_location": "L5",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_test_todo",
+      "id": "apps_web_src_agent_proposal_test_todo",
       "community": 5,
-      "community_name": "diff.ts",
+      "community_name": "proposal.ts",
       "norm_label": "todo()"
     },
     {
-      "label": "todoFields()",
+      "label": "unknownFields()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L82",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L105",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_todofields",
+      "id": "apps_web_src_agent_proposal_unknownfields",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "todofields()"
+      "community_name": "proposal.ts",
+      "norm_label": "unknownfields()"
+    },
+    {
+      "label": "commit.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "commit.ts"
+    },
+    {
+      "label": "commit.test.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_test",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "commit.test.ts"
     },
     {
       "label": "App.tsx",
@@ -2680,6 +2825,28 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "settingspage.tsx"
+    },
+    {
+      "label": "TagManagementPage.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TagManagementPage.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_tagmanagementpage",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "tagmanagementpage.tsx"
+    },
+    {
+      "label": "PRESET_COLORS",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TagManagementPage.tsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "apps_web_src_components_tagmanagementpage_preset_colors",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "preset_colors"
     },
     {
       "label": "main.tsx",
@@ -3371,7 +3538,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "codeagent.ts"
     },
     {
@@ -3382,7 +3549,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_test",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "codeagent.test.ts"
     },
     {
@@ -3393,7 +3560,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_test_data",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "data"
     },
     {
@@ -3404,85 +3571,30 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_test_model",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "model"
     },
     {
-      "label": "commit.ts",
+      "label": "diff.ts",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.ts",
+      "source_file": "apps/web/src/agent/diff.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_web_src_agent_commit",
+      "id": "apps_web_src_agent_diff",
       "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "commit.ts"
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "diff.ts"
     },
     {
-      "label": "commit.test.ts",
+      "label": "diff.test.ts",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_file": "apps/web/src/agent/diff.test.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test",
+      "id": "apps_web_src_agent_diff_test",
       "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "commit.test.ts"
-    },
-    {
-      "label": "proposal.ts",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "proposal.ts"
-    },
-    {
-      "label": "tagFields",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_tagfields",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "tagfields"
-    },
-    {
-      "label": "proposal.test.ts",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_test",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "proposal.test.ts"
-    },
-    {
-      "label": "todoFields",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_todofields",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "todofields"
-    },
-    {
-      "label": "unsafeTokens",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L20",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_unsafetokens",
-      "community": 14,
-      "community_name": "proposal.ts",
-      "norm_label": "unsafetokens"
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "diff.test.ts"
     },
     {
       "label": "taskAgent.ts",
@@ -3492,7 +3604,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_taskagent",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "taskagent.ts"
     },
     {
@@ -3503,8 +3615,52 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_taskagent_test",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "taskagent.test.ts"
+    },
+    {
+      "label": "todoAgent.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_todoagent",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "todoagent.ts"
+    },
+    {
+      "label": "todoAgent.test.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_todoagent_test",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "todoagent.test.ts"
+    },
+    {
+      "label": "model",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_todoagent_test_model",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "model"
+    },
+    {
+      "label": "TODO_AGENT_SYSTEM_PROMPT",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_todoagent_todo_agent_system_prompt",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "todo_agent_system_prompt"
     },
     {
       "label": "AgentDrawer.tsx",
@@ -3514,7 +3670,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer",
       "community": 14,
-      "community_name": "proposal.ts",
+      "community_name": "AgentDrawer.tsx",
       "norm_label": "agentdrawer.tsx"
     },
     {
@@ -3912,28 +4068,6 @@
       "community": 18,
       "community_name": "graphRoutes.ts",
       "norm_label": "graphroutes.ts"
-    },
-    {
-      "label": "graphRoutes.test.ts",
-      "file_type": "code",
-      "source_file": "apps/api/src/graphRoutes.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_api_src_graphroutes_test",
-      "community": 18,
-      "community_name": "graphRoutes.ts",
-      "norm_label": "graphroutes.test.ts"
-    },
-    {
-      "label": "execFileAsync",
-      "file_type": "code",
-      "source_file": "apps/api/src/graphRoutes.test.ts",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "apps_api_src_graphroutes_test_execfileasync",
-      "community": 18,
-      "community_name": "graphRoutes.ts",
-      "norm_label": "execfileasync"
     },
     {
       "label": "graphRunner.ts",
@@ -5179,6 +5313,28 @@
       "norm_label": "config.test.ts"
     },
     {
+      "label": "graphRoutes.test.ts",
+      "file_type": "code",
+      "source_file": "apps/api/src/graphRoutes.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_api_src_graphroutes_test",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "graphroutes.test.ts"
+    },
+    {
+      "label": "execFileAsync",
+      "file_type": "code",
+      "source_file": "apps/api/src/graphRoutes.test.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "apps_api_src_graphroutes_test_execfileasync",
+      "community": 24,
+      "community_name": "profileStore.ts",
+      "norm_label": "execfileasync"
+    },
+    {
       "label": "index.ts",
       "file_type": "code",
       "source_file": "apps/api/src/index.ts",
@@ -5505,7 +5661,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_flownavigator",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "flownavigator.tsx"
     },
     {
@@ -5516,7 +5672,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_graphview",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "graphview.tsx"
     },
     {
@@ -5527,7 +5683,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_listview",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "listview.tsx"
     },
     {
@@ -5538,7 +5694,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_scorecoordinatepicker",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "scorecoordinatepicker.tsx"
     },
     {
@@ -5549,30 +5705,8 @@
       "_origin": "ast",
       "id": "apps_web_src_components_settingspanel",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "settingspanel.tsx"
-    },
-    {
-      "label": "TagManagementPage.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TagManagementPage.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_tagmanagementpage",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "tagmanagementpage.tsx"
-    },
-    {
-      "label": "PRESET_COLORS",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TagManagementPage.tsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "apps_web_src_components_tagmanagementpage_preset_colors",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "preset_colors"
     },
     {
       "label": "TaskComposer.tsx",
@@ -5582,7 +5716,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_taskcomposer",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "taskcomposer.tsx"
     },
     {
@@ -5593,7 +5727,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_todonode",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "todonode.tsx"
     },
     {
@@ -5604,7 +5738,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "flownavigation.ts"
     },
     {
@@ -5615,7 +5749,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_test",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "flownavigation.test.ts"
     },
     {
@@ -5626,7 +5760,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_test_tags",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "tags"
     },
     {
@@ -5637,7 +5771,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_test_todos",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "todos"
     },
     {
@@ -5648,7 +5782,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "flowzoom.ts"
     },
     {
@@ -5659,7 +5793,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_compact_zoom_threshold",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "compact_zoom_threshold"
     },
     {
@@ -5670,7 +5804,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_detail_zoom_threshold",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "detail_zoom_threshold"
     },
     {
@@ -5681,7 +5815,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_reading_zoom",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "reading_zoom"
     },
     {
@@ -5692,7 +5826,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_test",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "flowzoom.test.ts"
     },
     {
@@ -5703,7 +5837,7 @@
       "_origin": "ast",
       "id": "apps_web_src_tagborder",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "tagborder.ts"
     },
     {
@@ -5714,7 +5848,7 @@
       "_origin": "ast",
       "id": "apps_web_src_tagborder_test",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "tagborder.test.ts"
     },
     {
@@ -5725,7 +5859,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "treelayout.ts"
     },
     {
@@ -5736,7 +5870,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_gap_x",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "gap_x"
     },
     {
@@ -5747,7 +5881,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_gap_y",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "gap_y"
     },
     {
@@ -5758,7 +5892,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_node_height",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "node_height"
     },
     {
@@ -5769,7 +5903,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_node_width",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "node_width"
     },
     {
@@ -5780,7 +5914,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_test",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "treelayout.test.ts"
     },
     {
@@ -5791,7 +5925,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_test_onrequestadd",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "onrequestadd"
     },
     {
@@ -5802,7 +5936,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_test_onrequestdelete",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "onrequestdelete"
     },
     {
@@ -5813,7 +5947,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_test_onselect",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "onselect"
     },
     {
@@ -5824,7 +5958,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_test_todos",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "todos"
     },
     {
@@ -5835,7 +5969,7 @@
       "_origin": "ast",
       "id": "apps_web_src_types",
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "types.ts"
     },
     {
@@ -6048,26 +6182,59 @@
       "norm_label": "vite/client"
     },
     {
-      "label": "diff.ts",
+      "label": "proposal.ts",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
+      "source_file": "apps/web/src/agent/proposal.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff",
+      "id": "apps_web_src_agent_proposal",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "diff.ts"
+      "community_name": "proposal.ts",
+      "norm_label": "proposal.ts"
     },
     {
-      "label": "diff.test.ts",
+      "label": "tagFields",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.test.ts",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_tagfields",
+      "community": 5,
+      "community_name": "proposal.ts",
+      "norm_label": "tagfields"
+    },
+    {
+      "label": "proposal.test.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.test.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_test",
+      "id": "apps_web_src_agent_proposal_test",
       "community": 5,
-      "community_name": "diff.ts",
-      "norm_label": "diff.test.ts"
+      "community_name": "proposal.ts",
+      "norm_label": "proposal.test.ts"
+    },
+    {
+      "label": "todoFields",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_todofields",
+      "community": 5,
+      "community_name": "proposal.ts",
+      "norm_label": "todofields"
+    },
+    {
+      "label": "unsafeTokens",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_unsafetokens",
+      "community": 5,
+      "community_name": "proposal.ts",
+      "norm_label": "unsafetokens"
     },
     {
       "label": "package.json",
@@ -6380,7 +6547,7 @@
       "author": null,
       "contributor": null,
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "d3-hierarchy",
       "_origin": "semantic",
       "id": "ref_d3_hierarchy"
@@ -6395,7 +6562,7 @@
       "author": null,
       "contributor": null,
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "lucide-react",
       "_origin": "semantic",
       "id": "ref_lucide_react"
@@ -6410,7 +6577,7 @@
       "author": null,
       "contributor": null,
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "react",
       "_origin": "semantic",
       "id": "ref_react"
@@ -6425,7 +6592,7 @@
       "author": null,
       "contributor": null,
       "community": 3,
-      "community_name": "GraphView.tsx",
+      "community_name": "types.ts",
       "norm_label": "@xyflow/react",
       "_origin": "semantic",
       "id": "ref_xyflow_react"
@@ -7310,11 +7477,11 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L56",
+      "source_location": "L103",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent_createcodeagent",
-      "target": "apps_web_src_agent_codeagent_textresult",
+      "target": "apps_web_src_agent_codeagent_creategraphtools",
       "confidence_score": 1.0
     },
     {
@@ -7322,11 +7489,23 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L33",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent_creategraphapi",
       "target": "apps_web_src_agent_codeagent_responsejson",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/codeAgent.ts",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_codeagent_creategraphtools",
+      "target": "apps_web_src_agent_codeagent_textresult",
       "confidence_score": 1.0
     },
     {
@@ -7599,10 +7778,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L32",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "apps_web_src_agent_taskagent_createtaskagent",
+      "source": "apps_web_src_agent_taskagent_createappdatatools",
       "target": "apps_web_src_agent_proposal_readsnapshot"
     },
     {
@@ -7610,10 +7789,10 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L34",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "apps_web_src_agent_taskagent_createtaskagent",
+      "source": "apps_web_src_agent_taskagent_createappdatatools",
       "target": "apps_web_src_agent_taskagent_localtoday",
       "confidence_score": 1.0
     },
@@ -7623,10 +7802,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L56",
+      "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "apps_web_src_agent_taskagent_createtaskagent",
+      "source": "apps_web_src_agent_taskagent_createappdatatools",
       "target": "apps_web_src_agent_proposal_createproposal"
     },
     {
@@ -7635,11 +7814,23 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L58",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_taskagent_createappdatatools",
+      "target": "apps_web_src_agent_diff_describeappdatachange"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/taskAgent.ts",
+      "source_location": "L83",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_createtaskagent",
-      "target": "apps_web_src_agent_diff_describeappdatachange"
+      "target": "apps_web_src_agent_taskagent_createappdatatools",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -7663,6 +7854,66 @@
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_test_setup",
       "target": "apps_web_src_agent_taskagent_createtaskagent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_createtodoagent",
+      "target": "apps_web_src_agent_taskagent_createappdatatools"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_createtodoagent",
+      "target": "apps_web_src_agent_codeagent_creategraphtools"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test_setup",
+      "target": "apps_web_src_agent_todoagent_test_initial",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test_setup",
+      "target": "apps_web_src_agent_todoagent_createtodoagent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test_setup",
+      "target": "apps_web_src_agent_todoagent_test_graphapi",
       "confidence_score": 1.0
     },
     {
@@ -8414,6 +8665,42 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_taskagent_appdatatooldependencies",
+      "target": "apps_web_src_types_appdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/taskAgent.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_taskagent_appdatatooldependencies",
+      "target": "apps_web_src_agent_diff_appdatachangesummary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/taskAgent.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_taskagent_appdatatooldependencies",
+      "target": "apps_web_src_agent_proposal_agentproposal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/taskAgent.ts",
       "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
@@ -8443,6 +8730,18 @@
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_taskagentdependencies",
       "target": "apps_web_src_agent_proposal_agentproposal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_todoagentdependencies",
+      "target": "apps_web_src_agent_codeagent_graphapi",
       "confidence_score": 1.0
     },
     {
@@ -10207,6 +10506,102 @@
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_test",
       "target": "apps_web_src_agent_taskagent_createtaskagent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent",
+      "target": "apps_web_src_agent_taskagent_createappdatatools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent",
+      "target": "apps_web_src_agent_taskagent_appdatatooldependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent",
+      "target": "apps_web_src_agent_codeagent_creategraphtools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent",
+      "target": "apps_web_src_agent_codeagent_graphapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_types_appdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_agent_codeagent_graphapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_agent_todoagent_createtodoagent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_agent_todoagent_todoagentdependencies",
       "confidence_score": 1.0
     },
     {
@@ -12121,6 +12516,66 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent",
+      "target": "apps_web_src_agent_taskagent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent",
+      "target": "apps_web_src_agent_codeagent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_agent_codeagent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_agent_todoagent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/src/App.tsx",
       "source_location": "L1",
       "weight": 1.0,
@@ -13231,6 +13686,18 @@
       "_origin": "ast",
       "source": "apps_api_src_profilemodel_agentprofileruntime_test",
       "target": "apps_api_src_profilestore_agentprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "context": "type",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_todoagentdependencies",
+      "target": "apps_web_src_agent_taskagent_appdatatooldependencies",
       "confidence_score": 1.0
     },
     {
@@ -14836,6 +15303,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
+      "target": "apps_web_src_agent_codeagent_graphtooldependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/codeAgent.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_codeagent",
       "target": "apps_web_src_agent_codeagent_responsejson",
       "confidence_score": 1.0
     },
@@ -14843,7 +15321,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L32",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
@@ -14854,7 +15332,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L45",
+      "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
@@ -14865,11 +15343,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L49",
+      "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
-      "target": "apps_web_src_agent_codeagent_createcodeagent",
+      "target": "apps_web_src_agent_codeagent_creategraphtools",
       "confidence_score": 1.0
     },
     {
@@ -14914,6 +15392,17 @@
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
       "target": "apps_web_src_agent_codeagent_graphapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/codeAgent.ts",
+      "source_location": "L98",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_codeagent",
+      "target": "apps_web_src_agent_codeagent_createcodeagent",
       "confidence_score": 1.0
     },
     {
@@ -15397,6 +15886,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
+      "target": "apps_web_src_agent_taskagent_appdatatooldependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/taskAgent.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_taskagent",
       "target": "apps_web_src_agent_taskagent_localtoday",
       "confidence_score": 1.0
     },
@@ -15404,7 +15904,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L24",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_taskagent",
+      "target": "apps_web_src_agent_taskagent_createappdatatools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/taskAgent.ts",
+      "source_location": "L78",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
@@ -15442,6 +15953,94 @@
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_test",
       "target": "apps_web_src_agent_taskagent_test_initial",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent",
+      "target": "apps_web_src_agent_todoagent_todo_agent_system_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent",
+      "target": "apps_web_src_agent_todoagent_createtodoagent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent",
+      "target": "apps_web_src_agent_todoagent_todoagentdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_agent_todoagent_test_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_agent_todoagent_test_initial",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_agent_todoagent_test_graphapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_agent_todoagent_test_setup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/todoAgent.test.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_todoagent_test",
+      "target": "apps_web_src_agent_todoagent_test_textof",
       "confidence_score": 1.0
     },
     {
@@ -18538,5 +19137,5 @@
       "source_file": "docs/superpowers/specs/2026-09-27-recursive-todo-design.md"
     }
   ],
-  "built_at_commit": "bb8ffcee8f9dd8227e1464ccfe349eb72e4a2d7b"
+  "built_at_commit": "36d35e37a7c1ca91809d2baeb4dac59619c2d68f"
 }

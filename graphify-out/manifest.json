@@ -285,8 +285,8 @@
     "semantic_hash": ""
   },
   "apps/web/src/agent/taskAgent.ts": {
-    "mtime": 1790777467.153095,
-    "ast_hash": "eb5c7de425320de27f80a5803a6fe008",
+    "mtime": 1790786500.4066064,
+    "ast_hash": "37aa4a19a3be93083fd1e340f26dd983",
     "semantic_hash": ""
   },
   "apps/web/src/agent/commit.test.ts": {
@@ -340,8 +340,8 @@
     "semantic_hash": ""
   },
   "apps/web/src/agent/codeAgent.ts": {
-    "mtime": 1790777467.1533327,
-    "ast_hash": "6ad04cbe75d44abf86f67d1fc03ee147",
+    "mtime": 1790786584.830577,
+    "ast_hash": "251d7b1681ba9c2d362c616c74d2905b",
     "semantic_hash": ""
   },
   "apps/api/src/profileStore.test.ts": {
@@ -382,6 +382,16 @@
   "apps/api/src/profileRoutes.ts": {
     "mtime": 1790786265.1276803,
     "ast_hash": "1fc16f6b4a78663e227f88b0f14d1028",
+    "semantic_hash": ""
+  },
+  "apps/web/src/agent/todoAgent.test.ts": {
+    "mtime": 1790786446.8147485,
+    "ast_hash": "8927fb67eb1ac65263022f9f7e3e1df7",
+    "semantic_hash": ""
+  },
+  "apps/web/src/agent/todoAgent.ts": {
+    "mtime": 1790786728.8620253,
+    "ast_hash": "dd165facbe2a792b02628ff083347084",
     "semantic_hash": ""
   }
 }

@@ -80,12 +80,12 @@
 - Produces: `createTodoAgent({ model, proxyBaseUrl, getProfileId, getData, onProposal, graphApi, now }): Agent`，其中 `getProfileId(): string` 为流式请求填充 `options.metadata.todoTreeProfileId`。`agent.state.tools` 必须包含 `read_app_data`, `propose_app_data_patch`, `query_project_graph`, `trace_project_graph`, `explain_project_node`, `read_indexed_source`。
 - 任务与 Graphify 工具创建逻辑可导出为工具工厂；删除分别构造 `createTaskAgent` / `createCodeAgent` 的入口，避免保留第二个会话构造方式。
 
-- [ ] **Step 1: 写 combined Agent 失败测试。** 验证同一工具列表中恰好存在上述六个工具；JSON 读取与提案行为保持原有校验；Graphify 工具使用受限 HTTP API 且没有 JSON 数据访问；只读代码工具不能产生 proposal。
-- [ ] **Step 2: 运行测试确认失败。** `pnpm --filter @todotree/web test -- src/agent/todoAgent.test.ts`；预期 combined Agent 工厂不存在。
-- [ ] **Step 3: 提取原有工具工厂。** 从 `taskAgent.ts` 提取 AppData 工具；从 `codeAgent.ts` 提取 Graphify 工具。保留各自测试覆盖的实际边界行为。
-- [ ] **Step 4: 实现 `createTodoAgent`.** 创建单个 Pi Agent，装载两组工具和一个系统提示；提示按问题选择工具，保留过期任务日期定义、删除范围复核、代码证据路径/行号、`INFERRED` 与 `AMBIGUOUS` 标注及工具结果不可信规则。单 Agent 继续使用 `streamProxy`。
-- [ ] **Step 5: 运行 Web 测试及构建。** `pnpm --filter @todotree/web test && pnpm --filter @todotree/web build`；预期通过。
-- [ ] **Step 6: 更新图谱并提交。** `graphify update .` 后提交工具重构、统一 Agent 和测试。
+- [x] **Step 1: 写 combined Agent 失败测试。** 验证同一工具列表中恰好存在上述六个工具；JSON 读取与提案行为保持原有校验；Graphify 工具使用受限 HTTP API 且没有 JSON 数据访问；只读代码工具不能产生 proposal。
+- [x] **Step 2: 运行测试确认失败。** `pnpm --filter @todotree/web test -- src/agent/todoAgent.test.ts`；预期 combined Agent 工厂不存在。
+- [x] **Step 3: 提取原有工具工厂。** 从 `taskAgent.ts` 提取 AppData 工具；从 `codeAgent.ts` 提取 Graphify 工具。保留各自测试覆盖的实际边界行为。
+- [x] **Step 4: 实现 `createTodoAgent`.** 创建单个 Pi Agent，装载两组工具和一个系统提示；提示按问题选择工具，保留过期任务日期定义、删除范围复核、代码证据路径/行号、`INFERRED` 与 `AMBIGUOUS` 标注及工具结果不可信规则。单 Agent 继续使用 `streamProxy`。
+- [x] **Step 5: 运行 Web 测试及构建。** `pnpm --filter @todotree/web test && pnpm --filter @todotree/web build`；预期通过。
+- [x] **Step 6: 更新图谱并提交。** `graphify update .` 后提交工具重构、统一 Agent 和测试。
 
 ### Task 4: 设置页模型 profile 管理和连接测试
 
