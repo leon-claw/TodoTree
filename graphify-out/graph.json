@@ -72,6 +72,19 @@
       "norm_label": "confirmmodalprops"
     },
     {
+      "label": "ListViewProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ListView.tsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_listview_listviewprops",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "listviewprops"
+    },
+    {
       "label": "NavbarProps",
       "file_type": "code",
       "source_file": "apps/web/src/components/Navbar.tsx",
@@ -85,6 +98,19 @@
       "norm_label": "navbarprops"
     },
     {
+      "label": "ScoreCoordinatePickerProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepickerprops",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "scorecoordinatepickerprops"
+    },
+    {
       "label": "SettingsPageProps",
       "file_type": "code",
       "source_file": "apps/web/src/components/SettingsPage.tsx",
@@ -96,6 +122,45 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "settingspageprops"
+    },
+    {
+      "label": "TagManagementPageProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TagManagementPage.tsx",
+      "source_location": "L7",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_tagmanagementpage_tagmanagementpageprops",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "tagmanagementpageprops"
+    },
+    {
+      "label": "TaskComposerProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TaskComposer.tsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_taskcomposer_taskcomposerprops",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "taskcomposerprops"
+    },
+    {
+      "label": "LeafItem",
+      "file_type": "code",
+      "source_file": "apps/web/src/storage.ts",
+      "source_location": "L266",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_storage_leafitem",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "leafitem"
     },
     {
       "label": "LeafPathItem",
@@ -135,6 +200,19 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "approute"
+    },
+    {
+      "label": "ComposerAnchor",
+      "file_type": "code",
+      "source_file": "apps/web/src/types.ts",
+      "source_location": "L30",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_types_composeranchor",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "composeranchor"
     },
     {
       "label": "CodeAgentDependencies",
@@ -239,19 +317,6 @@
       "community": 14,
       "community_name": "AgentDrawer.tsx",
       "norm_label": "fieldchange"
-    },
-    {
-      "label": "IndexedTodo",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L26",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_indexedtodo",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "indexedtodo"
     },
     {
       "label": "AgentProposal",
@@ -410,19 +475,6 @@
       "norm_label": "graphifyoptions"
     },
     {
-      "label": "SourceExcerptError",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L15",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_sourceexcerpterror",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "sourceexcerpterror"
-    },
-    {
       "label": "PathKind",
       "file_type": "code",
       "source_file": "apps/web/src/agent/proposal.ts",
@@ -447,6 +499,32 @@
       "community": 23,
       "community_name": "proposal.ts",
       "norm_label": "proposalresult"
+    },
+    {
+      "label": "SourceExcerptError",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L15",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_sourceexcerpterror",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "sourceexcerpterror"
+    },
+    {
+      "label": "IndexedTodo",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L26",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_indexedtodo",
+      "community": 3,
+      "community_name": "GraphView.tsx",
+      "norm_label": "indexedtodo"
     },
     {
       "label": "FlowNavigatorProps",
@@ -475,32 +553,6 @@
       "norm_label": "graphviewprops"
     },
     {
-      "label": "ListViewProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ListView.tsx",
-      "source_location": "L5",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_listview_listviewprops",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "listviewprops"
-    },
-    {
-      "label": "ScoreCoordinatePickerProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
-      "source_location": "L5",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepickerprops",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "scorecoordinatepickerprops"
-    },
-    {
       "label": "SettingsPanelProps",
       "file_type": "code",
       "source_file": "apps/web/src/components/SettingsPanel.tsx",
@@ -512,32 +564,6 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "settingspanelprops"
-    },
-    {
-      "label": "TagManagementPageProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TagManagementPage.tsx",
-      "source_location": "L7",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_tagmanagementpage_tagmanagementpageprops",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "tagmanagementpageprops"
-    },
-    {
-      "label": "TaskComposerProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TaskComposer.tsx",
-      "source_location": "L5",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_taskcomposer_taskcomposerprops",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "taskcomposerprops"
     },
     {
       "label": "TodoNodeProps",
@@ -618,19 +644,6 @@
       "norm_label": "semanticzoomlevel"
     },
     {
-      "label": "LeafItem",
-      "file_type": "code",
-      "source_file": "apps/web/src/storage.ts",
-      "source_location": "L266",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_storage_leafitem",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "leafitem"
-    },
-    {
       "label": "TagBorderStyle",
       "file_type": "code",
       "source_file": "apps/web/src/tagBorder.ts",
@@ -668,19 +681,6 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "todonodedata"
-    },
-    {
-      "label": "ComposerAnchor",
-      "file_type": "code",
-      "source_file": "apps/web/src/types.ts",
-      "source_location": "L30",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_types_composeranchor",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "composeranchor"
     },
     {
       "label": "Tag",
@@ -721,6 +721,30 @@
       "norm_label": "commitagentproposal()"
     },
     {
+      "label": "data()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_location": "L6",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_test_data",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "data()"
+    },
+    {
+      "label": "proposal()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_test_proposal",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "proposal()"
+    },
+    {
       "label": "undoAgentCommit()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/commit.ts",
@@ -731,18 +755,6 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "undoagentcommit()"
-    },
-    {
-      "label": "revalidateProposal()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L159",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_revalidateproposal",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "revalidateproposal()"
     },
     {
       "label": "App()",
@@ -769,6 +781,18 @@
       "norm_label": "confirmmodal()"
     },
     {
+      "label": "ListView()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ListView.tsx",
+      "source_location": "L15",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_listview_listview",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "listview()"
+    },
+    {
       "label": "Navbar()",
       "file_type": "code",
       "source_file": "apps/web/src/components/Navbar.tsx",
@@ -779,6 +803,30 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "navbar()"
+    },
+    {
+      "label": "clampScore()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L17",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker_clampscore",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "clampscore()"
+    },
+    {
+      "label": "ScoreCoordinatePicker()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L19",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepicker",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "scorecoordinatepicker()"
     },
     {
       "label": "countTodos()",
@@ -827,6 +875,18 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "tagmanagementpage()"
+    },
+    {
+      "label": "TaskComposer()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TaskComposer.tsx",
+      "source_location": "L13",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_taskcomposer_taskcomposer",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "taskcomposer()"
     },
     {
       "label": "baseRouteFor()",
@@ -1189,10 +1249,34 @@
       "norm_label": "textresult()"
     },
     {
-      "label": "describeAppDataChange()",
+      "label": "addedTagFields()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L70",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_addedtagfields",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "addedtagfields()"
+    },
+    {
+      "label": "addedTodoFields()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/diff.ts",
       "source_location": "L65",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_addedtodofields",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "addedtodofields()"
+    },
+    {
+      "label": "describeAppDataChange()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L94",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_diff_describeappdatachange",
@@ -1216,7 +1300,7 @@
       "label": "pointerValue()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L45",
+      "source_location": "L74",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_diff_pointervalue",
@@ -1225,10 +1309,34 @@
       "norm_label": "pointervalue()"
     },
     {
+      "label": "reorderedIds()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L45",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_reorderedids",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "reorderedids()"
+    },
+    {
+      "label": "reorderedTodoIds()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L54",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_reorderedtodoids",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "reorderedtodoids()"
+    },
+    {
       "label": "tagFields()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L59",
+      "source_location": "L88",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_diff_tagfields",
@@ -1264,7 +1372,7 @@
       "label": "todoFields()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L53",
+      "source_location": "L82",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_diff_todofields",
@@ -1633,102 +1741,6 @@
       "norm_label": "validatetext()"
     },
     {
-      "label": "indexedSources()",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L46",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_indexedsources",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "indexedsources()"
-    },
-    {
-      "label": "isWithin()",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L22",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_iswithin",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "iswithin()"
-    },
-    {
-      "label": "normalizeSourcePath()",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L27",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_normalizesourcepath",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "normalizesourcepath()"
-    },
-    {
-      "label": "readIndexedSource()",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L84",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_readindexedsource",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "readindexedsource()"
-    },
-    {
-      "label": "requireTrackedFile()",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L73",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_requiretrackedfile",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "requiretrackedfile()"
-    },
-    {
-      "label": ".constructor()",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L16",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_sourceexcerpterror_constructor",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": ".constructor()"
-    },
-    {
-      "label": "data()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
-      "source_location": "L6",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test_data",
-      "community": 23,
-      "community_name": "proposal.ts",
-      "norm_label": "data()"
-    },
-    {
-      "label": "proposal()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
-      "source_location": "L7",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test_proposal",
-      "community": 23,
-      "community_name": "proposal.ts",
-      "norm_label": "proposal()"
-    },
-    {
       "label": "checkIdentityAndExtraFields()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/proposal.ts",
@@ -1801,6 +1813,18 @@
       "norm_label": "readsnapshot()"
     },
     {
+      "label": "revalidateProposal()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L159",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_revalidateproposal",
+      "community": 23,
+      "community_name": "proposal.ts",
+      "norm_label": "revalidateproposal()"
+    },
+    {
       "label": "baseData()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/proposal.test.ts",
@@ -1849,6 +1873,78 @@
       "norm_label": "unknownfields()"
     },
     {
+      "label": "indexedSources()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L46",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_indexedsources",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "indexedsources()"
+    },
+    {
+      "label": "isWithin()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L22",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_iswithin",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "iswithin()"
+    },
+    {
+      "label": "normalizeSourcePath()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L27",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_normalizesourcepath",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "normalizesourcepath()"
+    },
+    {
+      "label": "readIndexedSource()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L84",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_readindexedsource",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "readindexedsource()"
+    },
+    {
+      "label": "requireTrackedFile()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L73",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_requiretrackedfile",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "requiretrackedfile()"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L16",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_sourceexcerpterror_constructor",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": ".constructor()"
+    },
+    {
       "label": "FlowNavigator()",
       "file_type": "code",
       "source_file": "apps/web/src/components/FlowNavigator.tsx",
@@ -1883,54 +1979,6 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "graphview()"
-    },
-    {
-      "label": "ListView()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ListView.tsx",
-      "source_location": "L15",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_listview_listview",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "listview()"
-    },
-    {
-      "label": "clampScore()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
-      "source_location": "L17",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_scorecoordinatepicker_clampscore",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "clampscore()"
-    },
-    {
-      "label": "ScoreCoordinatePicker()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
-      "source_location": "L19",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepicker",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "scorecoordinatepicker()"
-    },
-    {
-      "label": "TaskComposer()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TaskComposer.tsx",
-      "source_location": "L13",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_taskcomposer_taskcomposer",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "taskcomposer()"
     },
     {
       "label": "getComposerAnchor()",
@@ -2064,6 +2112,17 @@
       "norm_label": "commit.ts"
     },
     {
+      "label": "commit.test.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_test",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "commit.test.ts"
+    },
+    {
       "label": "App.tsx",
       "file_type": "code",
       "source_file": "apps/web/src/App.tsx",
@@ -2086,6 +2145,17 @@
       "norm_label": "confirmmodal.tsx"
     },
     {
+      "label": "ListView.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ListView.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_listview",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "listview.tsx"
+    },
+    {
       "label": "Navbar.tsx",
       "file_type": "code",
       "source_file": "apps/web/src/components/Navbar.tsx",
@@ -2097,6 +2167,17 @@
       "norm_label": "navbar.tsx"
     },
     {
+      "label": "ScoreCoordinatePicker.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_scorecoordinatepicker",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "scorecoordinatepicker.tsx"
+    },
+    {
       "label": "SettingsPage.tsx",
       "file_type": "code",
       "source_file": "apps/web/src/components/SettingsPage.tsx",
@@ -2106,6 +2187,17 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "settingspage.tsx"
+    },
+    {
+      "label": "SettingsPanel.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/SettingsPanel.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_settingspanel",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "settingspanel.tsx"
     },
     {
       "label": "TagManagementPage.tsx",
@@ -2128,6 +2220,17 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "preset_colors"
+    },
+    {
+      "label": "TaskComposer.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TaskComposer.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_taskcomposer",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "taskcomposer.tsx"
     },
     {
       "label": "main.tsx",
@@ -2183,6 +2286,17 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "initial_data"
+    },
+    {
+      "label": "types.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/types.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_types",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "types.ts"
     },
     {
       "label": "web/package.json",
@@ -3318,94 +3432,6 @@
       "norm_label": "webdist"
     },
     {
-      "label": "sourceExcerpt.ts",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "sourceexcerpt.ts"
-    },
-    {
-      "label": "execFileAsync",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_execfileasync",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "execfileasync"
-    },
-    {
-      "label": "FORBIDDEN_DIRECTORY",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_forbidden_directory",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "forbidden_directory"
-    },
-    {
-      "label": "ROOT_DOCUMENTS",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.ts",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_root_documents",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "root_documents"
-    },
-    {
-      "label": "sourceExcerpt.test.ts",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_test",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "sourceexcerpt.test.ts"
-    },
-    {
-      "label": "execFileAsync",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.test.ts",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_test_execfileasync",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "execfileasync"
-    },
-    {
-      "label": "indexed",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.test.ts",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_test_indexed",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "indexed"
-    },
-    {
-      "label": "sourceLines",
-      "file_type": "code",
-      "source_file": "apps/api/src/sourceExcerpt.test.ts",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "apps_api_src_sourceexcerpt_test_sourcelines",
-      "community": 18,
-      "community_name": "app.ts",
-      "norm_label": "sourcelines"
-    },
-    {
       "label": "2026-09-29-pi-agent-graphify-code-qa-design.md",
       "file_type": "document",
       "source_file": "docs/superpowers/specs/2026-09-29-pi-agent-graphify-code-qa-design.md",
@@ -4341,17 +4367,6 @@
       "norm_label": "todotree pi agent graphify code q&a implementation plan"
     },
     {
-      "label": "commit.test.ts",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test",
-      "community": 23,
-      "community_name": "proposal.ts",
-      "norm_label": "commit.test.ts"
-    },
-    {
       "label": "proposal.ts",
       "file_type": "code",
       "source_file": "apps/web/src/agent/proposal.ts",
@@ -4407,6 +4422,94 @@
       "norm_label": "unsafetokens"
     },
     {
+      "label": "sourceExcerpt.ts",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "sourceexcerpt.ts"
+    },
+    {
+      "label": "execFileAsync",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_execfileasync",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "execfileasync"
+    },
+    {
+      "label": "FORBIDDEN_DIRECTORY",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_forbidden_directory",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "forbidden_directory"
+    },
+    {
+      "label": "ROOT_DOCUMENTS",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_root_documents",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "root_documents"
+    },
+    {
+      "label": "sourceExcerpt.test.ts",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_test",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "sourceexcerpt.test.ts"
+    },
+    {
+      "label": "execFileAsync",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.test.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_test_execfileasync",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "execfileasync"
+    },
+    {
+      "label": "indexed",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.test.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_test_indexed",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "indexed"
+    },
+    {
+      "label": "sourceLines",
+      "file_type": "code",
+      "source_file": "apps/api/src/sourceExcerpt.test.ts",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "apps_api_src_sourceexcerpt_test_sourcelines",
+      "community": 24,
+      "community_name": "sourceExcerpt.ts",
+      "norm_label": "sourcelines"
+    },
+    {
       "label": "FlowNavigator.tsx",
       "file_type": "code",
       "source_file": "apps/web/src/components/FlowNavigator.tsx",
@@ -4427,50 +4530,6 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "graphview.tsx"
-    },
-    {
-      "label": "ListView.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ListView.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_listview",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "listview.tsx"
-    },
-    {
-      "label": "ScoreCoordinatePicker.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ScoreCoordinatePicker.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_scorecoordinatepicker",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "scorecoordinatepicker.tsx"
-    },
-    {
-      "label": "SettingsPanel.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/SettingsPanel.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_settingspanel",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "settingspanel.tsx"
-    },
-    {
-      "label": "TaskComposer.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TaskComposer.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_taskcomposer",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "taskcomposer.tsx"
     },
     {
       "label": "TodoNode.tsx",
@@ -4713,17 +4772,6 @@
       "community": 3,
       "community_name": "GraphView.tsx",
       "norm_label": "todos"
-    },
-    {
-      "label": "types.ts",
-      "file_type": "code",
-      "source_file": "apps/web/src/types.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_types",
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "types.ts"
     },
     {
       "label": "web/tsconfig.json",
@@ -5280,6 +5328,36 @@
       "id": "apps_web_src_index"
     },
     {
+      "label": "lucide-react",
+      "file_type": "code",
+      "source_file": "apps/web/package.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "lucide-react",
+      "_origin": "semantic",
+      "id": "ref_lucide_react"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "apps/web/package.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "react",
+      "_origin": "semantic",
+      "id": "ref_react"
+    },
+    {
       "label": "react-dom/client",
       "file_type": "code",
       "source_file": "apps/web/package.json",
@@ -5458,36 +5536,6 @@
       "norm_label": "d3-hierarchy",
       "_origin": "semantic",
       "id": "ref_d3_hierarchy"
-    },
-    {
-      "label": "lucide-react",
-      "file_type": "code",
-      "source_file": "apps/web/package.json",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "lucide-react",
-      "_origin": "semantic",
-      "id": "ref_lucide_react"
-    },
-    {
-      "label": "react",
-      "file_type": "code",
-      "source_file": "apps/web/package.json",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 3,
-      "community_name": "GraphView.tsx",
-      "norm_label": "react",
-      "_origin": "semantic",
-      "id": "ref_react"
     },
     {
       "label": "@xyflow/react",
@@ -6108,19 +6156,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L113",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_diff_describeappdatachange",
-      "target": "apps_web_src_agent_diff_tagfields",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L73",
+      "source_location": "L102",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_diff_describeappdatachange",
@@ -6132,7 +6168,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L84",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_diff_describeappdatachange",
@@ -6144,11 +6180,83 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L97",
+      "source_location": "L119",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_diff_describeappdatachange",
+      "target": "apps_web_src_agent_diff_reorderedtodoids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_diff_describeappdatachange",
+      "target": "apps_web_src_agent_diff_reorderedids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_diff_describeappdatachange",
+      "target": "apps_web_src_agent_diff_addedtodofields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L128",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_diff_describeappdatachange",
       "target": "apps_web_src_agent_diff_todofields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L141",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_diff_describeappdatachange",
+      "target": "apps_web_src_agent_diff_addedtagfields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L144",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_diff_describeappdatachange",
+      "target": "apps_web_src_agent_diff_tagfields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_diff_reorderedtodoids",
+      "target": "apps_web_src_agent_diff_reorderedids",
       "confidence_score": 1.0
     },
     {
@@ -12714,7 +12822,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_diff",
-      "target": "apps_web_src_agent_diff_pointervalue",
+      "target": "apps_web_src_agent_diff_reorderedids",
       "confidence_score": 1.0
     },
     {
@@ -12732,7 +12840,51 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L53",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_diff",
+      "target": "apps_web_src_agent_diff_reorderedtodoids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_diff",
+      "target": "apps_web_src_agent_diff_addedtodofields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_diff",
+      "target": "apps_web_src_agent_diff_addedtagfields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_diff",
+      "target": "apps_web_src_agent_diff_pointervalue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_diff",
@@ -12743,7 +12895,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L59",
+      "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_diff",
@@ -12754,7 +12906,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L65",
+      "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_diff",
@@ -15607,5 +15759,5 @@
       "source_file": "docs/superpowers/specs/2026-09-27-recursive-todo-design.md"
     }
   ],
-  "built_at_commit": "038463fbc3965488304547f2d9f074cd7365c0aa"
+  "built_at_commit": "6ece25a3178a7140666d9526891633bd27f0cea5"
 }

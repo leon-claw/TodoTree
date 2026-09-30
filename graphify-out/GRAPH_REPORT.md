@@ -1,16 +1,16 @@
 # Graph Report - TodoTree  (2026-09-30)
 
 ## Corpus Check
-- 66 files · ~29,004 words
+- 66 files · ~29,471 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 492 nodes · 849 edges · 24 communities (22 shown, 2 thin omitted)
+- 496 nodes · 858 edges · 25 communities (23 shown, 2 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.77)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `038463fb`
+- Built from commit: `6ece25a3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -39,18 +39,19 @@
 - Review Focus
 - Review Focus
 - proposal.ts
+- sourceExcerpt.ts
 
 ## God Nodes (most connected - your core abstractions)
 1. `App()` - 22 edges
 2. `Todo` - 21 edges
 3. `Tag` - 19 edges
 4. `AppData` - 19 edges
-5. `compilerOptions` - 12 edges
-6. `lucide-react` - 12 edges
-7. `react` - 12 edges
-8. `createProposal()` - 11 edges
-9. `TodoTree 产品体验与整改建议` - 11 edges
-10. `registerGraphRoutes()` - 10 edges
+5. `describeAppDataChange()` - 12 edges
+6. `compilerOptions` - 12 edges
+7. `lucide-react` - 12 edges
+8. `react` - 12 edges
+9. `createProposal()` - 11 edges
+10. `TodoTree 产品体验与整改建议` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Local Tree Todo Product` --semantically_similar_to--> `Tree Todo Application`  [INFERRED] [semantically similar]
@@ -70,11 +71,11 @@
 ## Hyperedges (group relationships)
 - **Recursive Tree Data Model and Its Views** — docs_superpowers_specs_2026_09_27_recursive_todo_design_recursive_json_tree, docs_superpowers_specs_2026_09_27_recursive_todo_design_list_view, docs_superpowers_specs_2026_09_27_recursive_todo_design_graph_view [EXTRACTED 1.00]
 
-## Communities (24 total, 2 thin omitted)
+## Communities (25 total, 2 thin omitted)
 
 ### Community 0 - "App.tsx"
-Cohesion: 0.08
-Nodes (47): AgentCommitReceipt, commitAgentProposal(), CommitResult, undoAgentCommit(), revalidateProposal(), App(), AppHistoryState, ConfirmModal() (+39 more)
+Cohesion: 0.07
+Nodes (60): AgentCommitReceipt, commitAgentProposal(), CommitResult, data(), proposal(), undoAgentCommit(), App(), AppHistoryState (+52 more)
 
 ### Community 1 - "dependencies"
 Cohesion: 0.07
@@ -85,8 +86,8 @@ Cohesion: 0.06
 Nodes (30): 10. 实现定位与约束, 1. 产品要帮助用户完成什么, 2.1 环境与方法, 2.2 可复现观察, 2.3 尚未完成的验证, 2. 实际体验范围与证据, 3. 需要优先整改的事项, 4.1 节点上能看见、能直接使用的操作 (+22 more)
 
 ### Community 3 - "GraphView.tsx"
-Cohesion: 0.07
-Nodes (54): FlowNavigator(), FlowNavigatorProps, FlowCanvas(), GraphView(), GraphViewProps, ListView(), ListViewProps, clampScore() (+46 more)
+Cohesion: 0.08
+Nodes (43): IndexedTodo, FlowNavigator(), FlowNavigatorProps, FlowCanvas(), GraphView(), GraphViewProps, SettingsPanelProps, getComposerAnchor() (+35 more)
 
 ### Community 4 - "compilerOptions"
 Cohesion: 0.11
@@ -125,8 +126,8 @@ Cohesion: 0.20
 Nodes (9): Global Constraints, Review Focus, Task 1: 稳固 JSON 数据边界, Task 2: 完成图表与列表的核心操作, Task 3: 补全面板、标签编辑与移动端操作, Task 4: 构建、Graphify 同步与最终覆盖检查, TodoTree 完整功能实现计划, 初始功能审计 (+1 more)
 
 ### Community 14 - "AgentDrawer.tsx"
-Cohesion: 0.09
-Nodes (36): CodeAgentDependencies, createCodeAgent(), createGraphApi(), GraphApi, GraphResult, GraphStatusResponse, responseJson(), SourceExcerpt (+28 more)
+Cohesion: 0.08
+Nodes (39): CodeAgentDependencies, createCodeAgent(), createGraphApi(), GraphApi, GraphResult, GraphStatusResponse, responseJson(), SourceExcerpt (+31 more)
 
 ### Community 15 - "桌面任务拆分与执行流程整改实施计划"
 Cohesion: 0.33
@@ -137,8 +138,8 @@ Cohesion: 0.08
 Nodes (25): dependencies, @earendil-works/pi-ai, fastify, @fastify/static, devDependencies, tsx, @types/node, typescript (+17 more)
 
 ### Community 18 - "app.ts"
-Cohesion: 0.05
-Nodes (45): createApi(), isRecord(), models, ModelStreamer, proxyEvent(), config, context, model (+37 more)
+Cohesion: 0.07
+Nodes (33): createApi(), isRecord(), models, ModelStreamer, proxyEvent(), config, context, model (+25 more)
 
 ### Community 19 - "TodoTree 内置 Pi Agent 管理 JSON：设计规格"
 Cohesion: 0.11
@@ -157,8 +158,12 @@ Cohesion: 0.25
 Nodes (7): File Structure, Global Constraints, Review Focus, Task 1: 后端受限 Graphify 查询, Task 2: 已索引源码的受限摘录, Task 3: 独立 Pi 代码会话和抽屉切换, TodoTree Pi Agent Graphify Code Q&A Implementation Plan
 
 ### Community 23 - "proposal.ts"
-Cohesion: 0.16
-Nodes (17): data(), proposal(), checkIdentityAndExtraFields(), checkPatch(), collectNodes(), createProposal(), PathKind, pointerTokens() (+9 more)
+Cohesion: 0.18
+Nodes (16): checkIdentityAndExtraFields(), checkPatch(), collectNodes(), createProposal(), PathKind, pointerTokens(), ProposalResult, readSnapshot() (+8 more)
+
+### Community 24 - "sourceExcerpt.ts"
+Cohesion: 0.19
+Nodes (12): execFileAsync, FORBIDDEN_DIRECTORY, indexedSources(), isWithin(), normalizeSourcePath(), readIndexedSource(), requireTrackedFile(), ROOT_DOCUMENTS (+4 more)
 
 ## Knowledge Gaps
 - **199 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+194 more)
@@ -169,15 +174,15 @@ Nodes (17): data(), proposal(), checkIdentityAndExtraFields(), checkPatch(), col
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Todo` connect `GraphView.tsx` to `App.tsx`, `AgentDrawer.tsx`, `proposal.ts`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Why does `AppData` connect `AgentDrawer.tsx` to `App.tsx`, `GraphView.tsx`, `proposal.ts`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **Why does `Tag` connect `GraphView.tsx` to `App.tsx`, `AgentDrawer.tsx`, `proposal.ts`?**
+  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Why does `AppData` connect `AgentDrawer.tsx` to `App.tsx`, `proposal.ts`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
   _199 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.08395989974937343 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06807017543859649 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
 - **Should `TodoTree 产品体验与整改建议` be split into smaller, more focused modules?**
