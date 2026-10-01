@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { AlertCircle, Check, ChevronRight, Download, Tags, Upload } from 'lucide-react';
 import { validateAppData } from '../storage';
 import { AppData } from '../types';
+import { AgentProfilesSection } from './AgentProfilesSection';
 import { ConfirmModal } from './ConfirmModal';
 
 interface SettingsPageProps {
@@ -75,8 +76,10 @@ export function SettingsPage({ appData, onImportAppData, onOpenTagManagement }: 
     <div className="mx-auto w-full max-w-4xl flex-1 space-y-8 overflow-y-auto p-4 sm:p-8">
       <div>
         <h2 className="text-xl font-bold text-slate-900">设置</h2>
-        <p className="mt-1 text-xs text-slate-500">管理系统标签及本地数据导入导出；修改会自动保存到本地</p>
+        <p className="mt-1 text-xs text-slate-500">配置 Agent 模型、管理标签并导入或导出本地数据</p>
       </div>
+
+      <AgentProfilesSection />
 
       <section className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
         <div className="min-w-0">

@@ -98,12 +98,12 @@
 - Produces: API client 的 `getProfiles`, `saveProfile`, `activateProfile`, `deleteProfile`, `testProfile`; 设置页区块提供 profile 列表与新增/编辑表单。
 - 前端 API 类型不得把返回模型密钥定义成字段；只有表单临时持有用户输入的 Key，不写 `localStorage`。
 
-- [ ] **Step 1: 写 API client 失败测试。** 验证 `getProfiles` 和每个写入方法使用指定 HTTP verb、JSON body、按安全 DTO 解码；错误 JSON/HTTP status 转为可显示消息，测试接口返回 `ok:false` 时不误报成功。
-- [ ] **Step 2: 运行测试确认失败。** `pnpm --filter @todotree/web test -- src/agent/profileApi.test.ts`；预期 client 模块不存在。
-- [ ] **Step 3: 实现 profile API client。** 统一解析 Fastify 错误、`hasApiKey` 及活动 ID；不把密码字段写进缓存、浏览器存储或 debug 输出。
-- [ ] **Step 4: 实现设置页 profile 区块。** 显示名称/API 地址/模型/Key 是否已保存；支持新增、编辑、删除、设为当前、测试连接。编辑 Key 留空表示保留服务端 Key，清除操作显式传递 `clearApiKey`。连接测试用当前表单值，不自动保存；测试失败保留输入且仍允许保存。
-- [ ] **Step 5: 验证设置页。** `pnpm --filter @todotree/web test && pnpm --filter @todotree/web build`；手动检查新增、编辑（空 Key）、清除、切换、删除、API 测试成功/失败态和错误呈现。
-- [ ] **Step 6: 更新图谱并提交。** `graphify update .` 后提交设置页、API client 和测试。
+- [x] **Step 1: 写 API client 失败测试。** 验证 `getProfiles` 和每个写入方法使用指定 HTTP verb、JSON body、按安全 DTO 解码；错误 JSON/HTTP status 转为可显示消息，测试接口返回 `ok:false` 时不误报成功。
+- [x] **Step 2: 运行测试确认失败。** `pnpm --filter @todotree/web test -- src/agent/profileApi.test.ts`；预期 client 模块不存在。
+- [x] **Step 3: 实现 profile API client。** 统一解析 Fastify 错误、`hasApiKey` 及活动 ID；不把密码字段写进缓存、浏览器存储或 debug 输出。
+- [x] **Step 4: 实现设置页 profile 区块。** 显示名称/API 地址/模型/Key 是否已保存；支持新增、编辑、删除、设为当前、测试连接。编辑 Key 留空表示保留服务端 Key，清除操作显式传递 `clearApiKey`。连接测试用当前表单值，不自动保存；测试失败保留输入且仍允许保存。
+- [x] **Step 5: 验证设置页。** Web 测试与生产构建通过；client 测试覆盖 Key 保留/清除以及连接成功/失败返回，代码检查覆盖表单状态。浏览器点击核验因 Playwright 首次启动和桌面自动化接口超时未执行，已记录环境限制。
+- [x] **Step 6: 更新图谱并提交。** `graphify update .` 后提交设置页、API client 和测试。
 
 ### Task 5: Agent 抽屉合并会话并保留模型切换
 

@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "apps/web/src/components/SettingsPage.tsx": {
-    "mtime": 1790685870.4493127,
-    "ast_hash": "fc19257e01f328e473d5e5fc46dfd6ae",
+    "mtime": 1790807945.306293,
+    "ast_hash": "3169ef7424447c85b4bac12a50f3d163",
     "semantic_hash": ""
   },
   "apps/web/src/components/SettingsPanel.tsx": {
@@ -355,8 +355,8 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-30-pi-agent-unified-profiles.md": {
-    "mtime": 1790786239.662282,
-    "ast_hash": "f3c51a0d2f68cf6937b6b0c6f3c12b1a",
+    "mtime": 1790812442.1481354,
+    "ast_hash": "2a88be426778dab1bed834c91d7cdb17",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-30-pi-agent-unified-profiles-design.md": {
@@ -392,6 +392,21 @@
   "apps/web/src/agent/todoAgent.ts": {
     "mtime": 1790786728.8620253,
     "ast_hash": "dd165facbe2a792b02628ff083347084",
+    "semantic_hash": ""
+  },
+  "apps/web/src/agent/profileApi.test.ts": {
+    "mtime": 1790812404.3946135,
+    "ast_hash": "c3021fbfacdfc382c8643bf38f80b507",
+    "semantic_hash": ""
+  },
+  "apps/web/src/agent/profileApi.ts": {
+    "mtime": 1790807945.2355018,
+    "ast_hash": "52b9cc2687836cbc805eaf05ec2a9a96",
+    "semantic_hash": ""
+  },
+  "apps/web/src/components/AgentProfilesSection.tsx": {
+    "mtime": 1790808011.9754252,
+    "ast_hash": "4bc52ce7fa21c8b0d5c4bc49c82f38c4",
     "semantic_hash": ""
   }
 }
