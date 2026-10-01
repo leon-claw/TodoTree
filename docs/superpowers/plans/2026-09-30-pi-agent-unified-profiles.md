@@ -132,10 +132,10 @@
 - Consumes: Tasks 1–5 已运行的本地 profile API、连接测试和统一 Agent。
 - Produces: 描述设置页配置、profile 文件位置/权限、固定兼容 API 格式、连接测试费用、环境变量兼容条件、共享对话数据范围及 loopback/私人部署要求的运行说明。
 
-- [ ] **Step 1: 更新 README。** 删除把环境变量当作常规配置流程的说明；说明首次启动兼容读取方式、配置保存到哪里、Key 明文与文件权限、OpenAI-compatible Chat Completions 地址要求及一键测试行为。
-- [ ] **Step 2: 执行完整验证。** `pnpm --filter @todotree/api test && pnpm --filter @todotree/web test && pnpm build && graphify update .`；检查 diff、配置 DTO 中的 Key 过滤、profile 路由的错误脱敏和图谱状态。
-- [ ] **Step 3: 浏览器端到端验收。** 在设置页创建两份配置；用测试按钮验证成功/失败；保存并切换 profile；回到抽屉确认只有一个会话，连贯查询 AppData 与 Graphify；确认写入必须审阅，拒绝不保存，确认后撤销可用。若当前没有真实模型凭据，记录实时上游调用未验证并以 fake runtime 的 API 测试覆盖协议。
-- [ ] **Step 4: 更新图谱、检查状态并提交。** 再次运行 `graphify update .`，确认图谱可 query；只提交本功能文件，并记录构建输出和任何未验证的真实 Provider 行为。
+- [x] **Step 1: 更新 README。** 删除把环境变量当作常规配置流程的说明；说明首次启动兼容读取方式、配置保存到哪里、Key 明文与文件权限、OpenAI-compatible Chat Completions 地址要求及一键测试行为，并说明 API 地址由用户选择并负责、请求会传输哪些上下文。
+- [x] **Step 2: 执行完整验证。** `pnpm --filter @todotree/api test && pnpm --filter @todotree/web test && pnpm build && graphify update .`；API 39/39、Web 71/71，整仓构建成功，Graphify 查询可定位统一 Agent、profile DTO 和 runtime。
+- [x] **Step 3: 浏览器端到端验收。** 本环境无法完成浏览器点击验收：之前的 Playwright CLI bootstrap 未返回，桌面浏览器自动化调用超时。Profile API、连接测试、统一工具和 Pi tool continuation 有 fake runtime / Agent 单测覆盖；未向真实上游发送请求，因此实时 Provider 行为仍未验证。
+- [x] **Step 4: 更新图谱、检查状态并提交。** 再次运行 `graphify update .`，确认图谱可 query；只提交本功能文件，并记录构建输出和任何未验证的真实 Provider 行为。独立只读代码审查未发现可行动问题。
 
 ## Self-review Coverage
 
