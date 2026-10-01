@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { AppData } from '../types';
 import type { AgentToolResult } from '@earendil-works/pi-agent-core';
-import type { TaskAgentDependencies } from './taskAgent';
-import { createTaskAgent } from './taskAgent';
+import type { AppDataToolDependencies } from './taskAgent';
+import { createAppDataTools } from './taskAgent';
 
 const initial = (): AppData => ({ formatVersion: 1, tags: [], todos: [{
   id: 'old', title: 'Old', note: '', dueDate: '2026-09-28', importance: 0, urgency: 0,
@@ -15,20 +15,18 @@ function textOf(result: AgentToolResult): string {
   return block.text;
 }
 
-function setup(onProposal: TaskAgentDependencies['onProposal'] = () => {}) {
+function setup(onProposal: AppDataToolDependencies['onProposal'] = () => {}) {
   let data = initial();
-  const agent = createTaskAgent({
-    model: { provider: 'openai', id: 'gpt-4o' } as never,
-    proxyBaseUrl: 'http://127.0.0.1:3001',
+  const tools = createAppDataTools({
     getData: () => data,
     onProposal,
     now: () => new Date(2026, 8, 29, 12),
   });
-  const read = agent.state.tools.find((tool) => tool.name === 'read_app_data');
-  const propose = agent.state.tools.find((tool) => tool.name === 'propose_app_data_patch');
+  const read = tools.find((tool) => tool.name === 'read_app_data');
+  const propose = tools.find((tool) => tool.name === 'propose_app_data_patch');
   if (!read || !propose) throw new Error('Task tools missing');
   const call = async (tool: typeof read, params: unknown) => tool.execute('call-id', params as never, new AbortController().signal);
-  return { agent, read: () => call(read, {}), propose: (params: unknown) => call(propose, params), setData: (next: AppData) => { data = next; } };
+  return { tools, read: () => call(read, {}), propose: (params: unknown) => call(propose, params), setData: (next: AppData) => { data = next; } };
 }
 
 describe('Pi task tools', () => {
@@ -39,7 +37,7 @@ describe('Pi task tools', () => {
     expect(payload.data).toEqual(initial());
     expect(payload.baseVersion).toBeTruthy();
     expect(payload.localToday).toBe('2026-09-29');
-    expect(tools.agent.state.tools.map((tool) => tool.name)).toEqual(['read_app_data', 'propose_app_data_patch']);
+    expect(tools.tools.map((tool) => tool.name)).toEqual(['read_app_data', 'propose_app_data_patch']);
   });
 
   it('only produces a reviewable proposal and does not save or mutate AppData', async () => {

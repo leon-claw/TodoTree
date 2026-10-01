@@ -438,6 +438,10 @@ export default function App() {
         <AgentDrawer
           open={agentOpen}
           onClose={() => setAgentOpen(false)}
+          onOpenSettings={() => {
+            setAgentOpen(false);
+            handleTabChange('settings');
+          }}
           getData={() => latestAppData.current}
           dataAvailable={!loadError}
           onApply={handleApplyAgent}

@@ -1,15 +1,10 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import type { Api, Model } from '@earendil-works/pi-ai';
-import type { AppData } from '../types';
-import { createTaskAgent } from './taskAgent';
-import { createCodeAgent, createGraphApi } from './codeAgent';
-import type { CodeAgentDependencies } from './codeAgent';
+import { createGraphTools, createGraphApi } from './codeAgent';
+import type { GraphApi } from './codeAgent';
 
 afterEach(() => vi.unstubAllGlobals());
 
-const model = { provider: 'openai', id: 'gpt-4o' } as Model<Api>;
-const data: AppData = { formatVersion: 1, tags: [], todos: [] };
-function graphApi(overrides: Partial<CodeAgentDependencies['graphApi']> = {}): CodeAgentDependencies['graphApi'] {
+function graphApi(overrides: Partial<GraphApi> = {}): GraphApi {
   return {
     status: async () => ({ available: true, builtAtCommit: 'abc123' }),
     query: async (question) => ({ result: `query:${question}` }),
@@ -21,41 +16,17 @@ function graphApi(overrides: Partial<CodeAgentDependencies['graphApi']> = {}): C
 }
 
 function setup(api = graphApi()) {
-  return createCodeAgent({ model, proxyBaseUrl: 'http://localhost:3001', graphApi: api });
+  return createGraphTools({ graphApi: api });
 }
 
-describe('Pi code Q&A agent', () => {
+describe('read-only Graphify tools', () => {
   it('exposes only the four read-only Graphify tools', () => {
-    const code = setup();
-    const task = createTaskAgent({ model, proxyBaseUrl: 'http://localhost:3001', getData: () => data, onProposal: () => {} });
-    expect(code.state.tools.map((tool) => tool.name)).toEqual([
+    const tools = setup();
+    expect(tools.map((tool) => tool.name)).toEqual([
       'query_project_graph', 'trace_project_graph', 'explain_project_node', 'read_indexed_source',
     ]);
-    expect(code.state.tools.map((tool) => tool.name)).not.toContain('read_app_data');
-    expect(code.state.tools.map((tool) => tool.name)).not.toContain('propose_app_data_patch');
-    expect(task.state.tools.map((tool) => tool.name)).toEqual(['read_app_data', 'propose_app_data_patch']);
-  });
-
-  it('keeps the code and task transcript states separate', () => {
-    const code = setup();
-    const task = createTaskAgent({ model, proxyBaseUrl: 'http://localhost:3001', getData: () => data, onProposal: () => {} });
-    task.state.messages = [...task.state.messages, { role: 'user', content: 'private task request', timestamp: 1 } as never];
-    expect(task.state.messages.some((message) => 'content' in message && message.content === 'private task request')).toBe(true);
-    expect(code.state.messages.some((message) => 'content' in message && message.content === 'private task request')).toBe(false);
-  });
-
-  it('routes both Pi agents to the Fastify stream endpoint exactly once', async () => {
-    const fetchMock = vi.fn<typeof fetch>(async () => new Response(JSON.stringify({ error: 'test stop' }), {
-      status: 404, headers: { 'content-type': 'application/json' },
-    }));
-    vi.stubGlobal('fetch', fetchMock);
-    const code = setup();
-    const task = createTaskAgent({ model, proxyBaseUrl: 'http://localhost:3001', getData: () => data, onProposal: () => {} });
-    await Promise.allSettled([code.prompt('Explain the app'), task.prompt('Read my tasks')]);
-    expect(fetchMock.mock.calls.map(([input]) => String(input))).toEqual([
-      'http://localhost:3001/api/stream',
-      'http://localhost:3001/api/stream',
-    ]);
+    expect(tools.map((tool) => tool.name)).not.toContain('read_app_data');
+    expect(tools.map((tool) => tool.name)).not.toContain('propose_app_data_patch');
   });
 
   it('calls only the supplied read-only Graphify API and retains graph evidence', async () => {
@@ -65,9 +36,9 @@ describe('Pi code Q&A agent', () => {
       explain: vi.fn(async (node) => ({ result: `node ${node} AMBIGUOUS` })),
       source: vi.fn(async (sourceFile, startLine) => ({ path: sourceFile, startLine, lines: ['line 50'] })),
     });
-    const agent = setup(api);
+    const tools = setup(api);
     const run = async (name: string, params: unknown, signal = new AbortController().signal) => {
-      const tool = agent.state.tools.find((item) => item.name === name);
+      const tool = tools.find((item) => item.name === name);
       if (!tool) throw new Error(`Missing ${name}`);
       return tool.execute('call', params as never, signal);
     };
@@ -77,9 +48,6 @@ describe('Pi code Q&A agent', () => {
     expect((await run('trace_project_graph', { from: 'App', to: 'storage.ts' })).content[0]).toMatchObject({ text: expect.stringContaining('App -> storage.ts') });
     expect((await run('explain_project_node', { node: 'AppData' })).content[0]).toMatchObject({ text: expect.stringContaining('AMBIGUOUS') });
     expect((await run('read_indexed_source', { sourceFile: 'apps/web/src/storage.ts', startLine: 50 })).content[0]).toMatchObject({ text: expect.stringContaining('line 50') });
-    expect(agent.state.systemPrompt).toContain('INFERRED');
-    expect(agent.state.systemPrompt).toContain('AMBIGUOUS');
-    expect(agent.state.systemPrompt).toMatch(/文件.{0,12}行号|行号/);
   });
 
   it('maps read-only Graphify calls to same-origin API routes and forwards cancellation', async () => {
@@ -110,8 +78,8 @@ describe('Pi code Q&A agent', () => {
   });
 
   it('surfaces graph failures as tool errors', async () => {
-    const agent = setup(graphApi({ query: async () => { throw new Error('Graphify 不可用'); } }));
-    const tool = agent.state.tools.find((item) => item.name === 'query_project_graph');
+    const tools = setup(graphApi({ query: async () => { throw new Error('Graphify 不可用'); } }));
+    const tool = tools.find((item) => item.name === 'query_project_graph');
     if (!tool) throw new Error('Query tool missing');
     await expect(tool.execute('call', { question: 'AppData' } as never, new AbortController().signal)).rejects.toThrow('Graphify 不可用');
   });

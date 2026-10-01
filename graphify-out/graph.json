@@ -20,32 +20,6 @@
   },
   "nodes": [
     {
-      "label": "AgentCommitReceipt",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.ts",
-      "source_location": "L5",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_agentcommitreceipt",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "agentcommitreceipt"
-    },
-    {
-      "label": "CommitResult",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.ts",
-      "source_location": "L9",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_commitresult",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "commitresult"
-    },
-    {
       "label": "AppHistoryState",
       "file_type": "code",
       "source_file": "apps/web/src/App.tsx",
@@ -59,6 +33,19 @@
       "norm_label": "apphistorystate"
     },
     {
+      "label": "ConfirmModalProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ConfirmModal.tsx",
+      "source_location": "L4",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_confirmmodal_confirmmodalprops",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "confirmmodalprops"
+    },
+    {
       "label": "NavbarProps",
       "file_type": "code",
       "source_file": "apps/web/src/components/Navbar.tsx",
@@ -70,6 +57,19 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "navbarprops"
+    },
+    {
+      "label": "SettingsPageProps",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/SettingsPage.tsx",
+      "source_location": "L8",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_settingspage_settingspageprops",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "settingspageprops"
     },
     {
       "label": "TagManagementPageProps",
@@ -124,23 +124,10 @@
       "norm_label": "approute"
     },
     {
-      "label": "CodeAgentDependencies",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L16",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_codeagent_codeagentdependencies",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "codeagentdependencies"
-    },
-    {
       "label": "GraphApi",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L9",
+      "source_location": "L7",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
@@ -153,7 +140,7 @@
       "label": "GraphResult",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L7",
+      "source_location": "L5",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
@@ -166,7 +153,7 @@
       "label": "GraphStatusResponse",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L6",
+      "source_location": "L4",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
@@ -179,7 +166,7 @@
       "label": "GraphToolDependencies",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L22",
+      "source_location": "L14",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
@@ -192,7 +179,7 @@
       "label": "SourceExcerpt",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L8",
+      "source_location": "L6",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
@@ -200,6 +187,32 @@
       "community": 14,
       "community_name": "AgentDrawer.tsx",
       "norm_label": "sourceexcerpt"
+    },
+    {
+      "label": "AgentCommitReceipt",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.ts",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_agentcommitreceipt",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "agentcommitreceipt"
+    },
+    {
+      "label": "CommitResult",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/commit.ts",
+      "source_location": "L9",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_commit_commitresult",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "commitresult"
     },
     {
       "label": "AppDataChangeSummary",
@@ -228,30 +241,17 @@
       "norm_label": "entitychange"
     },
     {
-      "label": "FieldChange",
+      "label": "PendingAgentModel",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L5",
+      "source_file": "apps/web/src/agent/profileSwitch.ts",
+      "source_location": "L4",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_fieldchange",
+      "id": "apps_web_src_agent_profileswitch_pendingagentmodel",
       "community": 14,
       "community_name": "AgentDrawer.tsx",
-      "norm_label": "fieldchange"
-    },
-    {
-      "label": "IndexedTodo",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L26",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_indexedtodo",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "indexedtodo"
+      "norm_label": "pendingagentmodel"
     },
     {
       "label": "AgentProposal",
@@ -267,10 +267,36 @@
       "norm_label": "agentproposal"
     },
     {
+      "label": "PathKind",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L17",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_pathkind",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "pathkind"
+    },
+    {
+      "label": "ProposalResult",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L13",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_proposalresult",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "proposalresult"
+    },
+    {
       "label": "AppDataToolDependencies",
       "file_type": "code",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L20",
+      "source_location": "L10",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
@@ -278,19 +304,6 @@
       "community": 14,
       "community_name": "AgentDrawer.tsx",
       "norm_label": "appdatatooldependencies"
-    },
-    {
-      "label": "TaskAgentDependencies",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L12",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_taskagent_taskagentdependencies",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "taskagentdependencies"
     },
     {
       "label": "TodoAgentDependencies",
@@ -306,23 +319,10 @@
       "norm_label": "todoagentdependencies"
     },
     {
-      "label": "AgentConfig",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L22",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_agentdrawer_agentconfig",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "agentconfig"
-    },
-    {
       "label": "AgentDrawerProps",
       "file_type": "code",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L12",
+      "source_location": "L15",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
@@ -335,7 +335,7 @@
       "label": "PendingProposal",
       "file_type": "code",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L21",
+      "source_location": "L25",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
@@ -432,7 +432,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_agentprofilefields",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "agentprofilefields"
     },
     {
@@ -445,7 +445,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_agentprofilessnapshot",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "agentprofilessnapshot"
     },
     {
@@ -458,7 +458,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_agentprofilesummary",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "agentprofilesummary"
     },
     {
@@ -471,7 +471,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_connectiontestresult",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "connectiontestresult"
     },
     {
@@ -484,7 +484,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_jsonrecord",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "jsonrecord"
     },
     {
@@ -497,7 +497,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_saveagentprofileinput",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "saveagentprofileinput"
     },
     {
@@ -510,7 +510,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_testagentprofileinput",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "testagentprofileinput"
     },
     {
@@ -523,34 +523,8 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentprofilessection_profiledraft",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "profiledraft"
-    },
-    {
-      "label": "ConfirmModalProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ConfirmModal.tsx",
-      "source_location": "L4",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_confirmmodal_confirmmodalprops",
-      "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
-      "norm_label": "confirmmodalprops"
-    },
-    {
-      "label": "SettingsPageProps",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/SettingsPage.tsx",
-      "source_location": "L8",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_settingspage_settingspageprops",
-      "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
-      "norm_label": "settingspageprops"
     },
     {
       "label": "ServerModelConfig",
@@ -705,7 +679,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_flownavigator_flownavigatorprops",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "flownavigatorprops"
     },
     {
@@ -718,7 +692,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_graphview_graphviewprops",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "graphviewprops"
     },
     {
@@ -731,7 +705,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_listview_listviewprops",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "listviewprops"
     },
     {
@@ -744,7 +718,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepickerprops",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "scorecoordinatepickerprops"
     },
     {
@@ -757,7 +731,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_settingspanel_settingspanelprops",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "settingspanelprops"
     },
     {
@@ -770,7 +744,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_taskcomposer_taskcomposerprops",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "taskcomposerprops"
     },
     {
@@ -783,7 +757,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_todonode_todonodeprops",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "todonodeprops"
     },
     {
@@ -796,7 +770,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_flowentry",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "flowentry"
     },
     {
@@ -809,7 +783,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_flowlocationrequest",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "flowlocationrequest"
     },
     {
@@ -822,7 +796,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_flowpathitem",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "flowpathitem"
     },
     {
@@ -835,7 +809,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_initialflowviewport",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "initialflowviewport"
     },
     {
@@ -848,7 +822,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_semanticzoomlevel",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "semanticzoomlevel"
     },
     {
@@ -861,7 +835,7 @@
       "_origin": "ast",
       "id": "apps_web_src_storage_leafitem",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "leafitem"
     },
     {
@@ -874,7 +848,7 @@
       "_origin": "ast",
       "id": "apps_web_src_tagborder_tagborderstyle",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "tagborderstyle"
     },
     {
@@ -887,7 +861,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_hierarchydatum",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "hierarchydatum"
     },
     {
@@ -900,7 +874,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_todonodedata",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "todonodedata"
     },
     {
@@ -913,7 +887,7 @@
       "_origin": "ast",
       "id": "apps_web_src_types_composeranchor",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "composeranchor"
     },
     {
@@ -926,7 +900,7 @@
       "_origin": "ast",
       "id": "apps_web_src_types_tag",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "tag"
     },
     {
@@ -939,34 +913,34 @@
       "_origin": "ast",
       "id": "apps_web_src_types_todo",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "todo"
     },
     {
-      "label": "PathKind",
+      "label": "FieldChange",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L17",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L5",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_pathkind",
+      "id": "apps_web_src_agent_diff_fieldchange",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "pathkind"
+      "community_name": "diff.ts",
+      "norm_label": "fieldchange"
     },
     {
-      "label": "ProposalResult",
+      "label": "IndexedTodo",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L13",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L26",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_proposalresult",
+      "id": "apps_web_src_agent_diff_indexedtodo",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "proposalresult"
+      "community_name": "diff.ts",
+      "norm_label": "indexedtodo"
     },
     {
       "label": "commitAgentProposal()",
@@ -981,30 +955,6 @@
       "norm_label": "commitagentproposal()"
     },
     {
-      "label": "data()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
-      "source_location": "L6",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test_data",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "data()"
-    },
-    {
-      "label": "proposal()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
-      "source_location": "L7",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test_proposal",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "proposal()"
-    },
-    {
       "label": "undoAgentCommit()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/commit.ts",
@@ -1017,18 +967,6 @@
       "norm_label": "undoagentcommit()"
     },
     {
-      "label": "revalidateProposal()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L159",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_revalidateproposal",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "revalidateproposal()"
-    },
-    {
       "label": "App()",
       "file_type": "code",
       "source_file": "apps/web/src/App.tsx",
@@ -1039,6 +977,18 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "app()"
+    },
+    {
+      "label": "ConfirmModal()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ConfirmModal.tsx",
+      "source_location": "L15",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_confirmmodal_confirmmodal",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "confirmmodal()"
     },
     {
       "label": "GraphView()",
@@ -1065,6 +1015,42 @@
       "norm_label": "navbar()"
     },
     {
+      "label": "countTodos()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/SettingsPage.tsx",
+      "source_location": "L14",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_settingspage_counttodos",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "counttodos()"
+    },
+    {
+      "label": "SettingsPage()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/SettingsPage.tsx",
+      "source_location": "L18",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_settingspage_settingspage",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "settingspage()"
+    },
+    {
+      "label": "SettingsPanel()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/SettingsPanel.tsx",
+      "source_location": "L20",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_settingspanel_settingspanel",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "settingspanel()"
+    },
+    {
       "label": "TagManagementPage()",
       "file_type": "code",
       "source_file": "apps/web/src/components/TagManagementPage.tsx",
@@ -1075,6 +1061,18 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "tagmanagementpage()"
+    },
+    {
+      "label": "TaskComposer()",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/TaskComposer.tsx",
+      "source_location": "L13",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_components_taskcomposer_taskcomposer",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "taskcomposer()"
     },
     {
       "label": "baseRouteFor()",
@@ -1281,6 +1279,18 @@
       "norm_label": "isleaf()"
     },
     {
+      "label": "isValidDateString()",
+      "file_type": "code",
+      "source_file": "apps/web/src/storage.ts",
+      "source_location": "L38",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_storage_isvaliddatestring",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "isvaliddatestring()"
+    },
+    {
       "label": "loadAppData()",
       "file_type": "code",
       "source_file": "apps/web/src/storage.ts",
@@ -1341,22 +1351,22 @@
       "norm_label": "updatetodointree()"
     },
     {
-      "label": "createCodeAgent()",
+      "label": "validateAppData()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L98",
+      "source_file": "apps/web/src/storage.ts",
+      "source_location": "L71",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_codeagent_createcodeagent",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "createcodeagent()"
+      "id": "apps_web_src_storage_validateappdata",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "validateappdata()"
     },
     {
       "label": "createGraphApi()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L36",
+      "source_location": "L28",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_creategraphapi",
@@ -1368,7 +1378,7 @@
       "label": "createGraphTools()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L53",
+      "source_location": "L45",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_creategraphtools",
@@ -1380,7 +1390,7 @@
       "label": "responseJson()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L26",
+      "source_location": "L18",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_responsejson",
@@ -1392,7 +1402,7 @@
       "label": "graphApi()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L12",
+      "source_location": "L7",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_test_graphapi",
@@ -1404,7 +1414,7 @@
       "label": "setup()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L23",
+      "source_location": "L18",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_test_setup",
@@ -1416,7 +1426,7 @@
       "label": "textResult()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L49",
+      "source_location": "L41",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_codeagent_textresult",
@@ -1425,136 +1435,136 @@
       "norm_label": "textresult()"
     },
     {
-      "label": "addedTagFields()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L70",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_addedtagfields",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "addedtagfields()"
-    },
-    {
-      "label": "addedTodoFields()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L65",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_addedtodofields",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "addedtodofields()"
-    },
-    {
-      "label": "describeAppDataChange()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L94",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_describeappdatachange",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "describeappdatachange()"
-    },
-    {
-      "label": "indexTodos()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L32",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_indextodos",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "indextodos()"
-    },
-    {
-      "label": "pointerValue()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L74",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_pointervalue",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "pointervalue()"
-    },
-    {
-      "label": "reorderedIds()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L45",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_reorderedids",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "reorderedids()"
-    },
-    {
-      "label": "reorderedTodoIds()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L54",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_reorderedtodoids",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "reorderedtodoids()"
-    },
-    {
-      "label": "tagFields()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L88",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_diff_tagfields",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "tagfields()"
-    },
-    {
       "label": "data()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.test.ts",
-      "source_location": "L8",
+      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_location": "L6",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_test_data",
+      "id": "apps_web_src_agent_commit_test_data",
       "community": 14,
       "community_name": "AgentDrawer.tsx",
       "norm_label": "data()"
     },
     {
-      "label": "todo()",
+      "label": "proposal()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.test.ts",
-      "source_location": "L5",
+      "source_file": "apps/web/src/agent/commit.test.ts",
+      "source_location": "L7",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_test_todo",
+      "id": "apps_web_src_agent_commit_test_proposal",
       "community": 14,
       "community_name": "AgentDrawer.tsx",
-      "norm_label": "todo()"
+      "norm_label": "proposal()"
     },
     {
-      "label": "todoFields()",
+      "label": "applyPendingAgentModel()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
-      "source_location": "L82",
+      "source_file": "apps/web/src/agent/profileSwitch.ts",
+      "source_location": "L18",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_todofields",
+      "id": "apps_web_src_agent_profileswitch_applypendingagentmodel",
       "community": 14,
       "community_name": "AgentDrawer.tsx",
-      "norm_label": "todofields()"
+      "norm_label": "applypendingagentmodel()"
+    },
+    {
+      "label": "selectAgentModel()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/profileSwitch.ts",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_profileswitch_selectagentmodel",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "selectagentmodel()"
+    },
+    {
+      "label": "assistantMessage()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/profileSwitch.test.ts",
+      "source_location": "L22",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_profileswitch_test_assistantmessage",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "assistantmessage()"
+    },
+    {
+      "label": "model()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/profileSwitch.test.ts",
+      "source_location": "L9",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_profileswitch_test_model",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "model()"
+    },
+    {
+      "label": "checkIdentityAndExtraFields()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L109",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_checkidentityandextrafields",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "checkidentityandextrafields()"
+    },
+    {
+      "label": "checkPatch()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L66",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_checkpatch",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "checkpatch()"
+    },
+    {
+      "label": "collectNodes()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L93",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_collectnodes",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "collectnodes()"
+    },
+    {
+      "label": "createProposal()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L133",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_createproposal",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "createproposal()"
+    },
+    {
+      "label": "pointerTokens()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_pointertokens",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "pointertokens()"
     },
     {
       "label": "readSnapshot()",
@@ -1569,10 +1579,70 @@
       "norm_label": "readsnapshot()"
     },
     {
+      "label": "revalidateProposal()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L159",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_revalidateproposal",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "revalidateproposal()"
+    },
+    {
+      "label": "baseData()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.test.ts",
+      "source_location": "L9",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_test_basedata",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "basedata()"
+    },
+    {
+      "label": "propose()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.test.ts",
+      "source_location": "L14",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_test_propose",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "propose()"
+    },
+    {
+      "label": "todo()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.test.ts",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_test_todo",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "todo()"
+    },
+    {
+      "label": "unknownFields()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L105",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_unknownfields",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "unknownfields()"
+    },
+    {
       "label": "createAppDataTools()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L30",
+      "source_location": "L20",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_taskagent_createappdatatools",
@@ -1581,22 +1651,10 @@
       "norm_label": "createappdatatools()"
     },
     {
-      "label": "createTaskAgent()",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L78",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_agent_taskagent_createtaskagent",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "createtaskagent()"
-    },
-    {
       "label": "localToday()",
       "file_type": "code",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L26",
+      "source_location": "L16",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_agent_taskagent_localtoday",
@@ -1704,7 +1762,7 @@
       "label": "AgentDrawer()",
       "file_type": "code",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L58",
+      "source_location": "L61",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_agentdrawer",
@@ -1716,7 +1774,7 @@
       "label": "ChangeList()",
       "file_type": "code",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L41",
+      "source_location": "L44",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_changelist",
@@ -1728,7 +1786,7 @@
       "label": "findTodo()",
       "file_type": "code",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L31",
+      "source_location": "L34",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_findtodo",
@@ -1740,7 +1798,7 @@
       "label": "formatValue()",
       "file_type": "code",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L38",
+      "source_location": "L41",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_formatvalue",
@@ -1752,7 +1810,7 @@
       "label": "messageText()",
       "file_type": "code",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L24",
+      "source_location": "L27",
       "_callable": true,
       "_origin": "ast",
       "id": "apps_web_src_components_agentdrawer_messagetext",
@@ -1985,7 +2043,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_createprofileapi",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "createprofileapi()"
     },
     {
@@ -1997,7 +2055,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_decodesnapshot",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "decodesnapshot()"
     },
     {
@@ -2009,7 +2067,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_httperror",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "httperror()"
     },
     {
@@ -2021,7 +2079,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_isrecord",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "isrecord()"
     },
     {
@@ -2033,7 +2091,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_parsejson",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "parsejson()"
     },
     {
@@ -2045,7 +2103,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_performfetch",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "performfetch()"
     },
     {
@@ -2057,7 +2115,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_test_jsonresponse",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "jsonresponse()"
     },
     {
@@ -2069,7 +2127,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_test_setfetch",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "setfetch()"
     },
     {
@@ -2081,7 +2139,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentprofilessection_agentprofilessection",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "agentprofilessection()"
     },
     {
@@ -2093,7 +2151,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentprofilessection_emptydraft",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "emptydraft()"
     },
     {
@@ -2105,68 +2163,8 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentprofilessection_errormessage",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "errormessage()"
-    },
-    {
-      "label": "ConfirmModal()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ConfirmModal.tsx",
-      "source_location": "L15",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_confirmmodal_confirmmodal",
-      "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
-      "norm_label": "confirmmodal()"
-    },
-    {
-      "label": "countTodos()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/SettingsPage.tsx",
-      "source_location": "L14",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_settingspage_counttodos",
-      "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
-      "norm_label": "counttodos()"
-    },
-    {
-      "label": "SettingsPage()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/SettingsPage.tsx",
-      "source_location": "L18",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_settingspage_settingspage",
-      "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
-      "norm_label": "settingspage()"
-    },
-    {
-      "label": "isValidDateString()",
-      "file_type": "code",
-      "source_file": "apps/web/src/storage.ts",
-      "source_location": "L38",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_storage_isvaliddatestring",
-      "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
-      "norm_label": "isvaliddatestring()"
-    },
-    {
-      "label": "validateAppData()",
-      "file_type": "code",
-      "source_file": "apps/web/src/storage.ts",
-      "source_location": "L71",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_storage_validateappdata",
-      "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
-      "norm_label": "validateappdata()"
     },
     {
       "label": "createApi()",
@@ -2693,7 +2691,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_flownavigator_flownavigator",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "flownavigator()"
     },
     {
@@ -2705,7 +2703,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_graphview_flowcanvas",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "flowcanvas()"
     },
     {
@@ -2717,7 +2715,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_listview_listview",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "listview()"
     },
     {
@@ -2729,7 +2727,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_scorecoordinatepicker_clampscore",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "clampscore()"
     },
     {
@@ -2741,32 +2739,8 @@
       "_origin": "ast",
       "id": "apps_web_src_components_scorecoordinatepicker_scorecoordinatepicker",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "scorecoordinatepicker()"
-    },
-    {
-      "label": "SettingsPanel()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/SettingsPanel.tsx",
-      "source_location": "L20",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_settingspanel_settingspanel",
-      "community": 3,
-      "community_name": "types.ts",
-      "norm_label": "settingspanel()"
-    },
-    {
-      "label": "TaskComposer()",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/TaskComposer.tsx",
-      "source_location": "L13",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "apps_web_src_components_taskcomposer_taskcomposer",
-      "community": 3,
-      "community_name": "types.ts",
-      "norm_label": "taskcomposer()"
     },
     {
       "label": "getComposerAnchor()",
@@ -2777,7 +2751,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_todonode_getcomposeranchor",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "getcomposeranchor()"
     },
     {
@@ -2789,7 +2763,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_todonode_todonode",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "todonode()"
     },
     {
@@ -2801,7 +2775,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_expandflowpath",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "expandflowpath()"
     },
     {
@@ -2813,7 +2787,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_getancestorids",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "getancestorids()"
     },
     {
@@ -2825,7 +2799,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_indexflowtodos",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "indexflowtodos()"
     },
     {
@@ -2837,7 +2811,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_searchflowtodos",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "searchflowtodos()"
     },
     {
@@ -2849,7 +2823,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_getinitialflowviewport",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "getinitialflowviewport()"
     },
     {
@@ -2861,7 +2835,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_getsemanticzoomlevel",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "getsemanticzoomlevel()"
     },
     {
@@ -2873,7 +2847,7 @@
       "_origin": "ast",
       "id": "apps_web_src_tagborder_gettagborderstyle",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "gettagborderstyle()"
     },
     {
@@ -2885,138 +2859,140 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_buildtreeflowelements",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "buildtreeflowelements()"
     },
     {
-      "label": "checkIdentityAndExtraFields()",
+      "label": "addedTagFields()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L109",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L70",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_checkidentityandextrafields",
+      "id": "apps_web_src_agent_diff_addedtagfields",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "checkidentityandextrafields()"
+      "community_name": "diff.ts",
+      "norm_label": "addedtagfields()"
     },
     {
-      "label": "checkPatch()",
+      "label": "addedTodoFields()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L66",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L65",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_checkpatch",
+      "id": "apps_web_src_agent_diff_addedtodofields",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "checkpatch()"
+      "community_name": "diff.ts",
+      "norm_label": "addedtodofields()"
     },
     {
-      "label": "collectNodes()",
+      "label": "describeAppDataChange()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L93",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L94",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_collectnodes",
+      "id": "apps_web_src_agent_diff_describeappdatachange",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "collectnodes()"
+      "community_name": "diff.ts",
+      "norm_label": "describeappdatachange()"
     },
     {
-      "label": "createProposal()",
+      "label": "indexTodos()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L133",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L32",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_createproposal",
+      "id": "apps_web_src_agent_diff_indextodos",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "createproposal()"
+      "community_name": "diff.ts",
+      "norm_label": "indextodos()"
     },
     {
-      "label": "pointerTokens()",
+      "label": "pointerValue()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L23",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L74",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_pointertokens",
+      "id": "apps_web_src_agent_diff_pointervalue",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "pointertokens()"
+      "community_name": "diff.ts",
+      "norm_label": "pointervalue()"
     },
     {
-      "label": "baseData()",
+      "label": "reorderedIds()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.test.ts",
-      "source_location": "L9",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L45",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_test_basedata",
+      "id": "apps_web_src_agent_diff_reorderedids",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "basedata()"
+      "community_name": "diff.ts",
+      "norm_label": "reorderedids()"
     },
     {
-      "label": "propose()",
+      "label": "reorderedTodoIds()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.test.ts",
-      "source_location": "L14",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L54",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_test_propose",
+      "id": "apps_web_src_agent_diff_reorderedtodoids",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "propose()"
+      "community_name": "diff.ts",
+      "norm_label": "reorderedtodoids()"
+    },
+    {
+      "label": "tagFields()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L88",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_tagfields",
+      "community": 5,
+      "community_name": "diff.ts",
+      "norm_label": "tagfields()"
+    },
+    {
+      "label": "data()",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/diff.test.ts",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "apps_web_src_agent_diff_test_data",
+      "community": 5,
+      "community_name": "diff.ts",
+      "norm_label": "data()"
     },
     {
       "label": "todo()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.test.ts",
+      "source_file": "apps/web/src/agent/diff.test.ts",
       "source_location": "L5",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_test_todo",
+      "id": "apps_web_src_agent_diff_test_todo",
       "community": 5,
-      "community_name": "proposal.ts",
+      "community_name": "diff.ts",
       "norm_label": "todo()"
     },
     {
-      "label": "unknownFields()",
+      "label": "todoFields()",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L105",
+      "source_file": "apps/web/src/agent/diff.ts",
+      "source_location": "L82",
       "_callable": true,
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_unknownfields",
+      "id": "apps_web_src_agent_diff_todofields",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "unknownfields()"
-    },
-    {
-      "label": "commit.ts",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "commit.ts"
-    },
-    {
-      "label": "commit.test.ts",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/commit.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_commit_test",
-      "community": 0,
-      "community_name": "App.tsx",
-      "norm_label": "commit.test.ts"
+      "community_name": "diff.ts",
+      "norm_label": "todofields()"
     },
     {
       "label": "App.tsx",
@@ -3030,6 +3006,17 @@
       "norm_label": "app.tsx"
     },
     {
+      "label": "ConfirmModal.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/ConfirmModal.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_confirmmodal",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "confirmmodal.tsx"
+    },
+    {
       "label": "Navbar.tsx",
       "file_type": "code",
       "source_file": "apps/web/src/components/Navbar.tsx",
@@ -3039,6 +3026,17 @@
       "community": 0,
       "community_name": "App.tsx",
       "norm_label": "navbar.tsx"
+    },
+    {
+      "label": "SettingsPage.tsx",
+      "file_type": "code",
+      "source_file": "apps/web/src/components/SettingsPage.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_components_settingspage",
+      "community": 0,
+      "community_name": "App.tsx",
+      "norm_label": "settingspage.tsx"
     },
     {
       "label": "TagManagementPage.tsx",
@@ -3767,48 +3765,114 @@
       "norm_label": "codeagent.test.ts"
     },
     {
-      "label": "data",
+      "label": "commit.ts",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_codeagent_test_data",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "data"
-    },
-    {
-      "label": "model",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_codeagent_test_model",
-      "community": 14,
-      "community_name": "AgentDrawer.tsx",
-      "norm_label": "model"
-    },
-    {
-      "label": "diff.ts",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.ts",
+      "source_file": "apps/web/src/agent/commit.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff",
+      "id": "apps_web_src_agent_commit",
       "community": 14,
       "community_name": "AgentDrawer.tsx",
-      "norm_label": "diff.ts"
+      "norm_label": "commit.ts"
     },
     {
-      "label": "diff.test.ts",
+      "label": "commit.test.ts",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/diff.test.ts",
+      "source_file": "apps/web/src/agent/commit.test.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_web_src_agent_diff_test",
+      "id": "apps_web_src_agent_commit_test",
       "community": 14,
       "community_name": "AgentDrawer.tsx",
-      "norm_label": "diff.test.ts"
+      "norm_label": "commit.test.ts"
+    },
+    {
+      "label": "profileSwitch.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/profileSwitch.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_profileswitch",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "profileswitch.ts"
+    },
+    {
+      "label": "profileSwitch.test.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/profileSwitch.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_profileswitch_test",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "profileswitch.test.ts"
+    },
+    {
+      "label": "usage",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/profileSwitch.test.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_profileswitch_test_usage",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "usage"
+    },
+    {
+      "label": "proposal.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "proposal.ts"
+    },
+    {
+      "label": "tagFields",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_tagfields",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "tagfields"
+    },
+    {
+      "label": "proposal.test.ts",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_test",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "proposal.test.ts"
+    },
+    {
+      "label": "todoFields",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_todofields",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "todofields"
+    },
+    {
+      "label": "unsafeTokens",
+      "file_type": "code",
+      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "apps_web_src_agent_proposal_unsafetokens",
+      "community": 14,
+      "community_name": "AgentDrawer.tsx",
+      "norm_label": "unsafetokens"
     },
     {
       "label": "taskAgent.ts",
@@ -5446,7 +5510,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "profileapi.ts"
     },
     {
@@ -5457,7 +5521,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_test",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "profileapi.test.ts"
     },
     {
@@ -5468,7 +5532,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_test_model",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "model"
     },
     {
@@ -5479,7 +5543,7 @@
       "_origin": "ast",
       "id": "apps_web_src_agent_profileapi_test_safesnapshot",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "safesnapshot"
     },
     {
@@ -5490,7 +5554,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentprofilessection",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "agentprofilessection.tsx"
     },
     {
@@ -5501,30 +5565,8 @@
       "_origin": "ast",
       "id": "apps_web_src_components_agentprofilessection_profileapi",
       "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
+      "community_name": "profileApi.ts",
       "norm_label": "profileapi"
-    },
-    {
-      "label": "ConfirmModal.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/ConfirmModal.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_confirmmodal",
-      "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
-      "norm_label": "confirmmodal.tsx"
-    },
-    {
-      "label": "SettingsPage.tsx",
-      "file_type": "code",
-      "source_file": "apps/web/src/components/SettingsPage.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "apps_web_src_components_settingspage",
-      "community": 23,
-      "community_name": "AgentProfilesSection.tsx",
-      "norm_label": "settingspage.tsx"
     },
     {
       "label": "app.ts",
@@ -5963,7 +6005,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_flownavigator",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "flownavigator.tsx"
     },
     {
@@ -5974,7 +6016,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_graphview",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "graphview.tsx"
     },
     {
@@ -5985,7 +6027,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_listview",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "listview.tsx"
     },
     {
@@ -5996,7 +6038,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_scorecoordinatepicker",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "scorecoordinatepicker.tsx"
     },
     {
@@ -6007,7 +6049,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_settingspanel",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "settingspanel.tsx"
     },
     {
@@ -6018,7 +6060,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_taskcomposer",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "taskcomposer.tsx"
     },
     {
@@ -6029,7 +6071,7 @@
       "_origin": "ast",
       "id": "apps_web_src_components_todonode",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "todonode.tsx"
     },
     {
@@ -6040,7 +6082,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "flownavigation.ts"
     },
     {
@@ -6051,7 +6093,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_test",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "flownavigation.test.ts"
     },
     {
@@ -6062,7 +6104,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_test_tags",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "tags"
     },
     {
@@ -6073,7 +6115,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flownavigation_test_todos",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "todos"
     },
     {
@@ -6084,7 +6126,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "flowzoom.ts"
     },
     {
@@ -6095,7 +6137,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_compact_zoom_threshold",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "compact_zoom_threshold"
     },
     {
@@ -6106,7 +6148,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_detail_zoom_threshold",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "detail_zoom_threshold"
     },
     {
@@ -6117,7 +6159,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_reading_zoom",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "reading_zoom"
     },
     {
@@ -6128,7 +6170,7 @@
       "_origin": "ast",
       "id": "apps_web_src_flowzoom_test",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "flowzoom.test.ts"
     },
     {
@@ -6139,7 +6181,7 @@
       "_origin": "ast",
       "id": "apps_web_src_tagborder",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "tagborder.ts"
     },
     {
@@ -6150,7 +6192,7 @@
       "_origin": "ast",
       "id": "apps_web_src_tagborder_test",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "tagborder.test.ts"
     },
     {
@@ -6161,7 +6203,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "treelayout.ts"
     },
     {
@@ -6172,7 +6214,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_gap_x",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "gap_x"
     },
     {
@@ -6183,7 +6225,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_gap_y",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "gap_y"
     },
     {
@@ -6194,7 +6236,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_node_height",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "node_height"
     },
     {
@@ -6205,7 +6247,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_node_width",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "node_width"
     },
     {
@@ -6216,7 +6258,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_test",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "treelayout.test.ts"
     },
     {
@@ -6227,7 +6269,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_test_onrequestadd",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "onrequestadd"
     },
     {
@@ -6238,7 +6280,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_test_onrequestdelete",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "onrequestdelete"
     },
     {
@@ -6249,7 +6291,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_test_onselect",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "onselect"
     },
     {
@@ -6260,7 +6302,7 @@
       "_origin": "ast",
       "id": "apps_web_src_treelayout_test_todos",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "todos"
     },
     {
@@ -6271,7 +6313,7 @@
       "_origin": "ast",
       "id": "apps_web_src_types",
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "types.ts"
     },
     {
@@ -6484,59 +6526,26 @@
       "norm_label": "vite/client"
     },
     {
-      "label": "proposal.ts",
+      "label": "diff.ts",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
+      "source_file": "apps/web/src/agent/diff.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal",
+      "id": "apps_web_src_agent_diff",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "proposal.ts"
+      "community_name": "diff.ts",
+      "norm_label": "diff.ts"
     },
     {
-      "label": "tagFields",
+      "label": "diff.test.ts",
       "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_tagfields",
-      "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "tagfields"
-    },
-    {
-      "label": "proposal.test.ts",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.test.ts",
+      "source_file": "apps/web/src/agent/diff.test.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_test",
+      "id": "apps_web_src_agent_diff_test",
       "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "proposal.test.ts"
-    },
-    {
-      "label": "todoFields",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_todofields",
-      "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "todofields"
-    },
-    {
-      "label": "unsafeTokens",
-      "file_type": "code",
-      "source_file": "apps/web/src/agent/proposal.ts",
-      "source_location": "L20",
-      "_origin": "ast",
-      "id": "apps_web_src_agent_proposal_unsafetokens",
-      "community": 5,
-      "community_name": "proposal.ts",
-      "norm_label": "unsafetokens"
+      "community_name": "diff.ts",
+      "norm_label": "diff.test.ts"
     },
     {
       "label": "package.json",
@@ -6849,7 +6858,7 @@
       "author": null,
       "contributor": null,
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "d3-hierarchy",
       "_origin": "semantic",
       "id": "ref_d3_hierarchy"
@@ -6864,7 +6873,7 @@
       "author": null,
       "contributor": null,
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "lucide-react",
       "_origin": "semantic",
       "id": "ref_lucide_react"
@@ -6879,7 +6888,7 @@
       "author": null,
       "contributor": null,
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "react",
       "_origin": "semantic",
       "id": "ref_react"
@@ -6894,7 +6903,7 @@
       "author": null,
       "contributor": null,
       "community": 3,
-      "community_name": "types.ts",
+      "community_name": "GraphView.tsx",
       "norm_label": "@xyflow/react",
       "_origin": "semantic",
       "id": "ref_xyflow_react"
@@ -7779,19 +7788,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L103",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent_createcodeagent",
-      "target": "apps_web_src_agent_codeagent_creategraphtools",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L37",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent_creategraphapi",
@@ -7803,7 +7800,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L60",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent_creategraphtools",
@@ -7815,11 +7812,11 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L24",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent_test_setup",
-      "target": "apps_web_src_agent_codeagent_createcodeagent",
+      "target": "apps_web_src_agent_codeagent_creategraphtools",
       "confidence_score": 1.0
     },
     {
@@ -8176,7 +8173,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L38",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_createappdatatools",
@@ -8187,7 +8184,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L40",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_createappdatatools",
@@ -8200,7 +8197,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L62",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_createappdatatools",
@@ -8212,23 +8209,11 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L64",
+      "source_location": "L54",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_createappdatatools",
       "target": "apps_web_src_agent_diff_describeappdatachange"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L83",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_taskagent_createtaskagent",
-      "target": "apps_web_src_agent_taskagent_createappdatatools",
-      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -8251,7 +8236,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_test_setup",
-      "target": "apps_web_src_agent_taskagent_createtaskagent",
+      "target": "apps_web_src_agent_taskagent_createappdatatools",
       "confidence_score": 1.0
     },
     {
@@ -8488,7 +8473,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/App.tsx",
-      "source_location": "L463",
+      "source_location": "L467",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_app_app",
@@ -8548,18 +8533,30 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L117",
+      "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer_agentdrawer",
-      "target": "apps_web_src_agent_codeagent_createcodeagent"
+      "target": "apps_web_src_agent_profileswitch_applypendingagentmodel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/components/AgentDrawer.tsx",
+      "source_location": "L121",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_agentdrawer_agentdrawer",
+      "target": "apps_web_src_agent_profileswitch_selectagentmodel"
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L196",
+      "source_location": "L324",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer_agentdrawer",
@@ -8576,6 +8573,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer_agentdrawer",
+      "target": "apps_web_src_agent_profileapi_createprofileapi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "apps/web/src/components/AgentDrawer.tsx",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_agentdrawer_agentdrawer",
       "target": "apps_web_src_agent_codeagent_creategraphapi"
     },
     {
@@ -8584,18 +8593,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L95",
+      "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer_agentdrawer",
-      "target": "apps_web_src_agent_taskagent_createtaskagent"
+      "target": "apps_web_src_agent_todoagent_createtodoagent"
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L46",
+      "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer_changelist",
@@ -8607,7 +8616,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L52",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer_changelist",
@@ -9087,7 +9096,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L21",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_appdatatooldependencies",
@@ -9099,7 +9108,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L22",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_appdatatooldependencies",
@@ -9111,46 +9120,10 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L22",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_appdatatooldependencies",
-      "target": "apps_web_src_agent_proposal_agentproposal",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_taskagent_taskagentdependencies",
-      "target": "apps_web_src_types_appdata",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_taskagent_taskagentdependencies",
-      "target": "apps_web_src_agent_diff_appdatachangesummary",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_taskagent_taskagentdependencies",
       "target": "apps_web_src_agent_proposal_agentproposal",
       "confidence_score": 1.0
     },
@@ -9183,7 +9156,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L15",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer_agentdrawerprops",
@@ -9195,7 +9168,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L17",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer_agentdrawerprops",
@@ -9207,7 +9180,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L21",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer_pendingproposal",
@@ -9219,7 +9192,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L21",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer_pendingproposal",
@@ -10503,43 +10476,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent_test",
-      "target": "apps_web_src_types_appdata",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent_test",
-      "target": "apps_web_src_agent_taskagent_createtaskagent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent_test",
-      "target": "apps_web_src_agent_codeagent_createcodeagent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L5",
+      "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent_test",
@@ -10551,11 +10488,23 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L6",
+      "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent_test",
-      "target": "apps_web_src_agent_codeagent_codeagentdependencies",
+      "target": "apps_web_src_agent_codeagent_creategraphtools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/codeAgent.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_codeagent_test",
+      "target": "apps_web_src_agent_codeagent_graphapi",
       "confidence_score": 1.0
     },
     {
@@ -10730,6 +10679,30 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/profileSwitch.test.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_profileswitch_test",
+      "target": "apps_web_src_agent_profileswitch_applypendingagentmodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/profileSwitch.test.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_profileswitch_test",
+      "target": "apps_web_src_agent_profileswitch_selectagentmodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/proposal.ts",
       "source_location": "L3",
       "weight": 1.0,
@@ -10839,19 +10812,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_taskagent",
-      "target": "apps_web_src_agent_diff_appdatachangesummary",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L6",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
@@ -10863,7 +10824,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L7",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
@@ -10875,7 +10836,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L7",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
@@ -10887,7 +10848,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L8",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
@@ -10899,11 +10860,23 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L9",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
       "target": "apps_web_src_agent_diff_describeappdatachange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/taskAgent.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_taskagent",
+      "target": "apps_web_src_agent_diff_appdatachangesummary",
       "confidence_score": 1.0
     },
     {
@@ -10927,7 +10900,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_test",
-      "target": "apps_web_src_agent_taskagent_taskagentdependencies",
+      "target": "apps_web_src_agent_taskagent_appdatatooldependencies",
       "confidence_score": 1.0
     },
     {
@@ -10939,7 +10912,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent_test",
-      "target": "apps_web_src_agent_taskagent_createtaskagent",
+      "target": "apps_web_src_agent_taskagent_createappdatatools",
       "confidence_score": 1.0
     },
     {
@@ -11503,7 +11476,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
-      "target": "apps_web_src_agent_codeagent_graphstatusresponse",
+      "target": "apps_web_src_agent_profileapi_createprofileapi",
       "confidence_score": 1.0
     },
     {
@@ -11511,7 +11484,67 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L5",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_agentdrawer",
+      "target": "apps_web_src_agent_profileapi_agentprofilessnapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/AgentDrawer.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_agentdrawer",
+      "target": "apps_web_src_agent_profileapi_agentprofilesummary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/AgentDrawer.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_agentdrawer",
+      "target": "apps_web_src_agent_profileswitch_applypendingagentmodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/AgentDrawer.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_agentdrawer",
+      "target": "apps_web_src_agent_profileswitch_selectagentmodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/AgentDrawer.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_agentdrawer",
+      "target": "apps_web_src_agent_profileswitch_pendingagentmodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/AgentDrawer.tsx",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -11523,7 +11556,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L5",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -11535,7 +11568,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L6",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -11547,7 +11580,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -11559,7 +11592,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -11571,35 +11604,35 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_agentdrawer",
+      "target": "apps_web_src_agent_todoagent_createtodoagent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/AgentDrawer.tsx",
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
-      "target": "apps_web_src_agent_taskagent_createtaskagent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_components_agentdrawer",
-      "target": "apps_web_src_agent_codeagent_createcodeagent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_components_agentdrawer",
       "target": "apps_web_src_agent_codeagent_creategraphapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/AgentDrawer.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_agentdrawer",
+      "target": "apps_web_src_agent_codeagent_graphstatusresponse",
       "confidence_score": 1.0
     },
     {
@@ -12799,30 +12832,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent_test",
-      "target": "apps_web_src_types",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent_test",
-      "target": "apps_web_src_agent_taskagent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent_test",
       "target": "apps_web_src_agent_codeagent",
       "confidence_score": 1.0
     },
@@ -12938,6 +12947,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/profileSwitch.test.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_profileswitch_test",
+      "target": "apps_web_src_agent_profileswitch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/proposal.ts",
       "source_location": "L3",
       "weight": 1.0,
@@ -12987,19 +13008,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_taskagent",
-      "target": "apps_web_src_agent_diff",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L6",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
@@ -13011,11 +13020,23 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L8",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
       "target": "apps_web_src_agent_proposal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/taskAgent.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_taskagent",
+      "target": "apps_web_src_agent_diff",
       "confidence_score": 1.0
     },
     {
@@ -13311,11 +13332,23 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
-      "target": "apps_web_src_agent_codeagent",
+      "target": "apps_web_src_agent_profileapi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/AgentDrawer.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_agentdrawer",
+      "target": "apps_web_src_agent_profileswitch",
       "confidence_score": 1.0
     },
     {
@@ -13335,7 +13368,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L5",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -13347,7 +13380,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L6",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -13359,7 +13392,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -13371,11 +13404,23 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L8",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
-      "target": "apps_web_src_agent_taskagent",
+      "target": "apps_web_src_agent_todoagent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/components/AgentDrawer.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_components_agentdrawer",
+      "target": "apps_web_src_agent_codeagent",
       "confidence_score": 1.0
     },
     {
@@ -15902,18 +15947,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent",
-      "target": "apps_web_src_agent_codeagent_codeagentdependencies",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L22",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
@@ -15924,7 +15958,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L26",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
@@ -15935,7 +15969,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L36",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
@@ -15946,29 +15980,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L49",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent",
-      "target": "apps_web_src_agent_codeagent_textresult",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L53",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent",
-      "target": "apps_web_src_agent_codeagent_creategraphtools",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L6",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
@@ -15979,7 +15991,29 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L7",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_codeagent",
+      "target": "apps_web_src_agent_codeagent_textresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/codeAgent.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_codeagent",
+      "target": "apps_web_src_agent_codeagent_creategraphtools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/codeAgent.ts",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
@@ -15990,7 +16024,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L8",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
@@ -16001,7 +16035,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L9",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent",
@@ -16011,56 +16045,23 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.ts",
-      "source_location": "L98",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent",
-      "target": "apps_web_src_agent_codeagent_createcodeagent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent_test",
-      "target": "apps_web_src_agent_codeagent_test_model",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent_test",
-      "target": "apps_web_src_agent_codeagent_test_data",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_codeagent_test",
-      "target": "apps_web_src_agent_codeagent_test_graphapi",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/codeAgent.test.ts",
-      "source_location": "L23",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_codeagent_test",
       "target": "apps_web_src_agent_codeagent_test_setup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/codeAgent.test.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_codeagent_test",
+      "target": "apps_web_src_agent_codeagent_test_graphapi",
       "confidence_score": 1.0
     },
     {
@@ -16484,6 +16485,72 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/profileSwitch.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_profileswitch",
+      "target": "apps_web_src_agent_profileswitch_applypendingagentmodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/profileSwitch.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_profileswitch",
+      "target": "apps_web_src_agent_profileswitch_pendingagentmodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/profileSwitch.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_profileswitch",
+      "target": "apps_web_src_agent_profileswitch_selectagentmodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/profileSwitch.test.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_profileswitch_test",
+      "target": "apps_web_src_agent_profileswitch_test_usage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/profileSwitch.test.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_profileswitch_test",
+      "target": "apps_web_src_agent_profileswitch_test_assistantmessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "apps/web/src/agent/profileSwitch.test.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "apps_web_src_agent_profileswitch_test",
+      "target": "apps_web_src_agent_profileswitch_test_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/proposal.ts",
       "source_location": "L105",
       "weight": 1.0,
@@ -16672,18 +16739,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_taskagent",
-      "target": "apps_web_src_agent_taskagent_taskagentdependencies",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L20",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
@@ -16694,7 +16750,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L26",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
@@ -16705,22 +16761,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L30",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_agent_taskagent",
       "target": "apps_web_src_agent_taskagent_createappdatatools",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/agent/taskAgent.ts",
-      "source_location": "L78",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_agent_taskagent",
-      "target": "apps_web_src_agent_taskagent_createtaskagent",
       "confidence_score": 1.0
     },
     {
@@ -16870,7 +16915,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L12",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -16881,7 +16926,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L21",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -16892,18 +16937,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "apps_web_src_components_agentdrawer",
-      "target": "apps_web_src_components_agentdrawer_agentconfig",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L24",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -16914,7 +16948,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L31",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -16925,7 +16959,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L38",
+      "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -16936,7 +16970,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L41",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -16947,7 +16981,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "apps/web/src/components/AgentDrawer.tsx",
-      "source_location": "L58",
+      "source_location": "L61",
       "weight": 1.0,
       "_origin": "ast",
       "source": "apps_web_src_components_agentdrawer",
@@ -19993,5 +20027,5 @@
       "source_file": "docs/superpowers/specs/2026-09-27-recursive-todo-design.md"
     }
   ],
-  "built_at_commit": "8c1b366a56de26de18530419d4ce00049f849a50"
+  "built_at_commit": "e71ba7cce04d00c2d82ed8a23537ab7f374ca531"
 }

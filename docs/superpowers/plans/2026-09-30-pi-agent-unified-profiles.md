@@ -116,11 +116,11 @@
 - Produces: 一个常驻 `Agent` ref；统一共享消息、草稿、错误、busy 与数据传输提示；`selectAgentModel(agent, model, pending): void` 与 `applyPendingAgentModel(agent, pending): void`，其中 `pending` 是 `{ current: Model<Api> | null }`，前者运行中暂存最新选择，后者由 `agent_end` 应用。
 - `AgentDrawer` 不接收 `task|code` mode；Agent 始终有六项工具，缺 Graphify 时只让相应工具报告原因。
 
-- [ ] **Step 1: 写 profile 切换失败测试。** Agent 空闲时选新 model 立即生效；Agent 运行时新 model 延后到 `agent_end` 再生效；当前运行中的全部 continuation 使用运行开始时的 profile；多个切换只应用最后选择的 model；消息数组与提案不重置。
-- [ ] **Step 2: 运行测试确认失败。** `pnpm --filter @todotree/web test -- src/agent/profileSwitch.test.ts`；预期切换 helper 不存在。
-- [ ] **Step 3: 实现 profile 切换状态。** 添加 `profileSwitch.ts`，基于 Pi `Agent.state.isStreaming` 和 `agent_end` 事件延迟更新 `agent.state.model`，不创建新 Agent，不清空 messages/tools/proposal。
-- [ ] **Step 4: 合并 AgentDrawer。** 移除双 Agent、task/code 模式 tab、独立 drafts/errors/notices；创建单 Agent 并使用 profile state 初始化或切换 model；每次抽屉打开时刷新活动 profile，保证从设置页切换后立即生效。抽屉展示当前模型名、设置页入口、Graphify 状态和一条共享数据传输提示；保留 proposal review/apply/reject/undo 的现有流程。
-- [ ] **Step 5: 运行 Web 测试和构建。** `pnpm --filter @todotree/web test && pnpm --filter @todotree/web build`；手动验收一段对话连续执行任务查询和代码问答，切换模型后消息仍保留；首次模型请求前仅显示一次合并数据提示。
+- [x] **Step 1: 写 profile 切换失败测试。** Agent 空闲时选新 model 立即生效；Agent 运行时新 model 延后到 `agent_end` 再生效；当前运行中的全部 continuation 使用运行开始时的 profile；多个切换只应用最后选择的 model；消息数组与工具不重置。待审阅提案留在抽屉组件状态中，模型选择不会修改该状态。
+- [x] **Step 2: 运行测试确认失败。** `pnpm --filter @todotree/web test -- src/agent/profileSwitch.test.ts`；先确认切换 helper 不存在，再实现。
+- [x] **Step 3: 实现 profile 切换状态。** 添加 `profileSwitch.ts`，基于 Pi `Agent.state.isStreaming` 和 `agent_end` 事件延迟更新 `agent.state.model`，不创建新 Agent，不清空 messages/tools/proposal。
+- [x] **Step 4: 合并 AgentDrawer。** 移除双 Agent、task/code 模式 tab、独立 drafts/errors/notices；创建单 Agent 并使用 profile state 初始化或切换 model；每次抽屉打开时刷新活动 profile，保证从设置页切换后立即生效。抽屉展示当前模型名、设置页入口、Graphify 状态和一条共享数据传输提示；保留 proposal review/apply/reject/undo 的现有流程。
+- [x] **Step 5: 运行 Web 测试和构建。** `pnpm --filter @todotree/web test && pnpm --filter @todotree/web build`；71 个测试通过，生产构建通过。浏览器点击验收因 Playwright CLI 启动未返回、桌面浏览器自动化超时而未执行；模型切换时的 Pi tool continuation 由真实 Agent 单测覆盖。
 - [ ] **Step 6: 更新图谱并提交。** `graphify update .` 后提交单 Agent 抽屉及切换测试。
 
 ### Task 6: 更新部署文档和完成端到端复核

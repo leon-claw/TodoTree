@@ -2,9 +2,9 @@
   "0": "App.tsx",
   "1": "devDependencies",
   "2": "TodoTree 产品体验与整改建议",
-  "3": "types.ts",
+  "3": "GraphView.tsx",
   "4": "compilerOptions",
-  "5": "proposal.ts",
+  "5": "diff.ts",
   "6": "package.json",
   "7": "Recursive JSON Todo Tree",
   "8": "Tree Todo Application",
@@ -22,7 +22,7 @@
   "20": "compilerOptions",
   "21": "Review Focus",
   "22": "Review Focus",
-  "23": "AgentProfilesSection.tsx",
+  "23": "profileApi.ts",
   "24": "profileStore.ts",
   "25": "Review Focus"
 }

@@ -161,7 +161,7 @@ export function AgentProfilesSection() {
           <div>
             <h3 className="text-base font-semibold text-slate-900">Agent 模型</h3>
             <p className="mt-1 max-w-2xl text-xs leading-5 text-slate-500">
-              管理 Agent 使用的模型配置。Agent 对话和工具返回内容会发送到所选 API 地址；请确认你信任该服务。Key 由本机后端保存并用于身份验证。
+              管理 Agent 使用的模型配置。API 地址由你自行选择并负责；保存时不验证地址格式、可信度或可用性。Agent 对话和工具返回内容会发送到所选地址，可能包含任务 JSON、Graphify 结果和源码摘录。Key 由本机后端保存并用于身份验证。
             </p>
           </div>
           <button
